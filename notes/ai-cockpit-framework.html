@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cockpit Rule: a framework for knowing when to let AI fly — Edson Ferreira</title>
+<meta name="description" content="Not every task needs the same level of AI involvement. Here's the mental model I use to decide when to delegate, collaborate, or stay manual.">
+<link rel="canonical" href="https://edsonfjr.com/notes/ai-cockpit-framework">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2; --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.07); --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916; --muted: #7A7870;
+    --accent: #3D5A80; --accent2: #2C4A6E;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --r: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; z-index: 100; }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-back { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  article { max-width: 680px; margin: 0 auto; padding: 120px 2rem 6rem; }
+  .article-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+  h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 1.5rem; }
+  .article-meta { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--text); margin: 2.5rem 0 1rem; }
+  p { font-size: 1rem; font-weight: 300; color: var(--text); line-height: 1.85; margin-bottom: 1.4rem; }
+  .lead { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+  .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .callout p { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.7; }
+  .callout strong { font-weight: 500; color: var(--text); }
+
+  .mode-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 2.5rem; }
+  .mode-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+  .mode-badge { display: inline-block; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; }
+  .badge-auto { background: rgba(61,90,128,0.08); color: var(--accent); }
+  .badge-collab { background: rgba(26,25,22,0.06); color: var(--muted); }
+  .badge-manual { background: rgba(180,100,60,0.08); color: #8B4A2A; }
+  .mode-card h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--text); margin: 0; }
+  .mode-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin: 0; }
+  .mode-example { font-size: 0.78rem; font-style: italic; color: var(--border-strong); margin-top: 0.25rem; color: #9A9890; }
+
+  .framework-block { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
+  .framework-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .framework-block h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.5rem; }
+  .framework-block p { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.7; }
+  .framework-block ul { margin: 0.75rem 0 0 1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .framework-block li { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+  .article-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .author-line { font-size: 0.85rem; color: var(--muted); }
+  .author-line strong { font-weight: 500; color: var(--text); }
+  .back-link { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    nav { padding: 0 1.25rem; }
+    article { padding: 100px 1.25rem 4rem; }
+    h1 { font-size: 1.9rem; }
+    .mode-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">Edson<span>.</span></a>
+  <a class="nav-back" href="../index.html#notes">← Back to notes</a>
+</nav>
+<article>
+
+  <div class="article-eyebrow">AI · 5 min read</div>
+  <h1>The Cockpit Rule: a framework for knowing when to let AI fly</h1>
+  <div class="article-meta">By Edson Ferreira &nbsp;·&nbsp; March 2026</div>
+
+  <p class="lead">The biggest mistake I see people make with AI isn't using it wrong — it's applying the same level of involvement to every task. Some things AI should handle alone. Some need you in the loop. Some you should never delegate at all. The question is: how do you tell the difference?</p>
+
+  <p>This is the framework I use. It's based on ideas from researchers like Ethan Mollick, simplified into something I can actually apply every day as a PM.</p>
+
+  <h2>Think of yourself as a pilot</h2>
+
+  <p>When a plane is cruising at 35,000 feet, the pilot engages autopilot. During takeoff and landing, they collaborate with the systems — hands on, watching carefully. In an emergency, they take full manual control. The plane doesn't change. The situation does. And the smart pilot adjusts accordingly.</p>
+
+  <p>AI is the same. The tool doesn't change. Your level of involvement should.</p>
+
+  <h2>The three modes</h2>
+
+  <div class="mode-grid">
+    <div class="mode-card">
+      <span class="mode-badge badge-auto">Autopilot</span>
+      <h3>You delegate and trust</h3>
+      <p>Clear instructions. Minimal review. AI handles it end to end.</p>
+      <div class="mode-example">Formatting meeting notes, drafting a first cut of release comms, summarizing a long document.</div>
+    </div>
+    <div class="mode-card">
+      <span class="mode-badge badge-collab">Collaboration</span>
+      <h3>You iterate together</h3>
+      <p>Multiple rounds. Neither of you could get there alone.</p>
+      <div class="mode-example">Shaping a product strategy, refining a pitch, analyzing customer signals for a feature decision.</div>
+    </div>
+    <div class="mode-card">
+      <span class="mode-badge badge-manual">Manual</span>
+      <h3>You do it yourself</h3>
+      <p>AI can't do it well — or the cost of getting it wrong is too high.</p>
+      <div class="mode-example">Navigating a sensitive stakeholder conversation, making a bet on product direction, giving feedback to your team.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>The mistake most people make:</strong> they use Collaboration mode for everything. It feels productive — you're "working with AI" — but it's often the wrong gear. Tasks that AI can handle fully end up taking twice as long. Tasks that need human judgment get diluted by AI suggestions that sound right but miss the context.</p>
+  </div>
+
+  <h2>How to pick the right mode</h2>
+
+  <p>Before you start a task, run through three quick questions:</p>
+
+  <div class="framework-block">
+    <div class="framework-label">The decision filter</div>
+    <h3>1. How long would this take me manually?</h3>
+    <p>If it's fast anyway, the overhead of prompting and reviewing might not be worth it. If it's slow and tedious, AI almost always helps.</p>
+  </div>
+
+  <div class="framework-block">
+    <div class="framework-label">The decision filter</div>
+    <h3>2. How likely is AI to get it right?</h3>
+    <p>Structured, factual, well-defined tasks — high probability. Nuanced judgment calls, political context, relationship dynamics — low probability. Be honest about this. Most AI-related mistakes happen when people overestimate this number.</p>
+  </div>
+
+  <div class="framework-block">
+    <div class="framework-label">The decision filter</div>
+    <h3>3. How easy is it for me to check the output?</h3>
+    <p>If you can verify the result in 30 seconds, delegate more freely. If checking the output requires almost as much work as doing the task — or if the error would be invisible until it's too late — stay in the loop.</p>
+  </div>
+
+  <p>The sweet spot for Autopilot: the task takes you a long time, AI is highly capable at it, and you can easily tell if the output is wrong. That's when you hand it over and move on.</p>
+
+  <h2>A bonus framework for data tasks</h2>
+
+  <p>When I'm staring at a spreadsheet or a messy dataset with no clear starting point, I use a simple three-step approach I call DIG:</p>
+
+  <div class="framework-block">
+    <div class="framework-label">DIG Framework</div>
+    <h3>D — Describe</h3>
+    <p>Ask AI to describe what's in the data. Column names, data quality, obvious gaps. This surfaces assumptions you didn't know you were making.</p>
+  </div>
+
+  <div class="framework-block">
+    <div class="framework-label">DIG Framework</div>
+    <h3>I — Introspect</h3>
+    <p>Ask AI what questions it could answer with this data. You'll often discover angles you hadn't thought of — or realize the data doesn't actually support what you were planning to claim.</p>
+  </div>
+
+  <div class="framework-block">
+    <div class="framework-label">DIG Framework</div>
+    <h3>G — Goal</h3>
+    <p>Give AI a mission briefing. What decision does this analysis need to support? What does your audience care about? This step turns a generic summary into something you can actually use.</p>
+  </div>
+
+  <h2>Why this matters now</h2>
+
+  <p>A year ago, knowing how to prompt AI was a differentiator. Now it's the baseline. The people who stand out aren't the ones who use AI more — they're the ones who know when not to use it, and when to trust it fully without second-guessing every output.</p>
+
+  <p>That judgment — knowing your mode — is the actual skill. The tools are just tools.</p>
+
+  <div class="article-footer">
+    <div class="author-line">Written by <strong>Edson Ferreira</strong> — Senior Principal PM at Oracle, building AI-native product systems.</div>
+    <a class="back-link" href="../index.html#notes">← More notes</a>
+  </div>
+
+</article>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I use Claude + Notion to run my week — Edson Ferreira</title>
+<meta name="description" content="Meeting notes, inbox triage, 1:1s — I've automated the boring parts. Here's exactly how the system works.">
+<link rel="canonical" href="https://edsonfjr.com/notes/claude-notion-workflow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2; --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.07); --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916; --muted: #7A7870;
+    --accent: #3D5A80; --accent2: #2C4A6E;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --r: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; z-index: 100; }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-back { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  article { max-width: 680px; margin: 0 auto; padding: 120px 2rem 6rem; }
+  .article-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+  h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 1.5rem; }
+  .article-meta { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--text); margin: 2.5rem 0 1rem; }
+  p { font-size: 1rem; font-weight: 300; color: var(--text); line-height: 1.85; margin-bottom: 1.4rem; }
+  .lead { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+  .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .callout p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .callout strong { font-weight: 500; color: var(--text); }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
+  .step-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .step h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .article-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .author-line { font-size: 0.85rem; color: var(--muted); }
+  .author-line strong { font-weight: 500; color: var(--text); }
+  .back-link { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media (max-width: 640px) { nav { padding: 0 1.25rem; } article { padding: 100px 1.25rem 4rem; } h1 { font-size: 1.9rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">Edson<span>.</span></a>
+  <a class="nav-back" href="../index.html#notes">← Back to notes</a>
+</nav>
+<article>
+  <div class="article-eyebrow">AI · 4 min read</div>
+  <h1>How I use Claude + Notion to run my week without losing my mind</h1>
+  <div class="article-meta">By Edson Ferreira &nbsp;·&nbsp; March 2026</div>
+
+  <p class="lead">I'm a Senior Principal PM at Oracle. I manage a platform, work across three time zones, and sit in more meetings than I'd like. For a long time, staying on top of everything meant working longer. Then I started building systems instead.</p>
+
+  <p>This isn't about replacing thinking with AI. It's about removing the friction between "something happened" and "I know what to do next." Here's the system I actually use, every week.</p>
+
+  <h2>The problem I was solving</h2>
+
+  <p>My job generates a lot of signal in messy formats. Zoom summaries that are technically accurate but impossible to act on. An inbox with 200 threads where maybe three actually matter. Community forum posts where customers are waiting on me specifically. 1:1s that produce decisions I forget by Friday.</p>
+
+  <p>The problem wasn't information. It was processing it fast enough to act on it.</p>
+
+  <div class="callout">
+    <p><strong>The key insight:</strong> most of the work of staying organized isn't thinking — it's reformatting, routing, and remembering. That's exactly what AI is good at.</p>
+  </div>
+
+  <h2>The three workflows</h2>
+
+  <div class="step">
+    <div class="step-label">Workflow 1</div>
+    <h3>Meeting notes → Notion, in my voice</h3>
+    <p>After every Zoom call, I paste the AI summary into Claude with a simple prompt. It strips the noise and formats the output as a clean Notion entry — decisions, blockers, next steps — with @Name tagging so owners are clear. Takes about 90 seconds. I paste the result directly into the right project or client page in my workspace.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Workflow 2</div>
+    <h3>Morning inbox brief</h3>
+    <p>Every morning, Claude scans my Outlook inbox with a 24-hour lookback and generates a tiered brief: Act Now, Reply Today, Review, FYI. It also surfaces Oracle Customer Connect threads where I'm tagged. Instead of 200 unread messages, I get one clear summary with context on what actually needs my attention.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Workflow 3</div>
+    <h3>Community replies, grounded in my own content</h3>
+    <p>I've published a lot of how-to content about Oracle Fusion Service extensibility. When community members ask questions, Claude drafts a reply using my existing guide index — so the answer is grounded in content I've already validated. I review, adjust tone if needed, and post. Faster and more consistent than writing from scratch every time.</p>
+  </div>
+
+  <h2>What actually changed</h2>
+
+  <p>The obvious win is time — these three workflows save me roughly 45 minutes a day. But the less obvious win is consistency. I'm no longer dropping things because I was too busy to process them properly.</p>
+
+  <p>My Notion workspace is cleaner. My community responses are faster and better sourced. My 1:1s have real follow-through because decisions are captured in a format I can act on.</p>
+
+  <h2>What I'd tell other PMs</h2>
+
+  <p>Don't start with a tool. Start with a friction point. What's the thing you do every week that feels like busywork but you can't skip? That's your first workflow.</p>
+
+  <p>The system doesn't need to be complex. Mine runs entirely through Claude and Notion — no elaborate integrations, no code. Just clear prompts, consistent structure, and the discipline to actually use it.</p>
+
+  <p>The goal isn't to automate your job. It's to protect your time for the parts that actually need you.</p>
+
+  <div class="article-footer">
+    <div class="author-line">Written by <strong>Edson Ferreira</strong> — Senior Principal PM at Oracle, building AI-native product systems.</div>
+    <a class="back-link" href="../index.html#notes">← More notes</a>
+  </div>
+</article>
+</body>
+</html>
