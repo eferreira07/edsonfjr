@@ -801,6 +801,71 @@
     gap: 6px;
   }
 
+  /* NOTES */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .note-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: border-color 0.2s, transform 0.2s;
+    text-decoration: none;
+  }
+
+  .note-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+
+  .note-tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .note-card h3 {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .note-card p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+    flex: 1;
+    margin: 0;
+  }
+
+  .note-card-link {
+    font-size: 0.78rem;
+    color: var(--accent);
+  }
+
+  .notes-footer {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .notes-footer:hover { text-decoration: underline; }
+
   /* SKILLS */
   .skills-grid {
     display: grid;
@@ -998,7 +1063,7 @@
       <div class="hero-actions">
         <a class="btn-primary" href="#about">My work →</a>
         <a class="btn-outline" href="https://www.linkedin.com/in/edsonferreira" target="_blank">LinkedIn</a>
-        <a class="btn-outline" href="#contact">Open to opportunities</a>
+        <a class="btn-outline" href="#contact">Let's talk</a>
       </div>
     </div>
     <div class="hero-visual fade-in">
@@ -1317,14 +1382,39 @@
 
 <hr class="divider">
 
+<!-- NOTES -->
+<section id="notes">
+  <div class="section-inner fade-in">
+    <div class="section-eyebrow">Notes</div>
+    <h2>Thinking <em>out loud</em></h2>
+    <p class="section-intro">Short posts on AI, product thinking, and how I build systems to work better. No newsletter. No algorithm. Just useful ideas.</p>
+    <div class="notes-grid">
+      <a class="note-card" href="notes/claude-notion-workflow.html">
+        <div class="note-tag">AI · 4 min read</div>
+        <h3>How I use Claude + Notion to run my week without losing my mind</h3>
+        <p>Meeting notes, inbox triage, 1:1s — I've automated the boring parts. Here's exactly how the system works.</p>
+        <div class="note-card-link">Read note →</div>
+      </a>
+      <a class="note-card" href="notes/ai-cockpit-framework.html">
+        <div class="note-tag">AI · 5 min read</div>
+        <h3>The Cockpit Rule: a framework for knowing when to let AI fly</h3>
+        <p>Not every task needs the same level of AI involvement. Here's the mental model I use to decide when to delegate, collaborate, or stay manual.</p>
+        <div class="note-card-link">Read note →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
     <div class="contact-inner">
       <div class="contact-text fade-in">
         <div class="section-eyebrow">Let's Connect</div>
-        <h2>Open to the <em>right</em> conversation</h2>
-        <p>I'm exploring Director of Product opportunities at companies building AI-powered service or CX platforms — where the product work stays close to the customer. If you're hiring, collaborating, or just want to talk product, reach out.</p>
+        <h2>Good work starts with <em>good people</em></h2>
+        <p>I'm always open to conversations with people building interesting things — whether that's a product challenge, a shared interest in AI, or just comparing notes on the industry. No agenda needed.</p>
         <div class="contact-links">
           <a class="contact-link-item" href="https://www.linkedin.com/in/edsonferreira" target="_blank">
             <span>in</span>
@@ -1338,12 +1428,12 @@
       </div>
       <div class="fade-in">
         <div class="contact-card-right">
-          <div class="open-to-badge">Open to Director of Product roles</div>
-          <h3>What I'm looking for</h3>
-          <p>Senior IC or Director-level product roles where I can own strategy end-to-end, stay close to enterprise customers, and apply AI-native product thinking. Ideally companies building in service, CX, or enterprise SaaS where extensibility and automation are core to the value proposition.</p>
+          <div class="open-to-badge">Currently at Oracle · Open to what's next</div>
+          <h3>What I care about</h3>
+          <p>Products that stay close to the customer. AI that makes hard things simpler. Enterprise software that people actually want to use. If any of that overlaps with what you're building, I'd enjoy the conversation.</p>
           <div class="role-tags">
-            <span class="tag tag-green">Director of Product</span>
-            <span class="tag tag-green">Senior Principal PM</span>
+            <span class="tag tag-green">Product Strategy</span>
+            <span class="tag tag-green">AI & Extensibility</span>
           </div>
         </div>
       </div>
