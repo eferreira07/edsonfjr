@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edson Ferreira — Product Leader | AI & Enterprise SaaS</title>
+<meta name="description" content="Senior Principal Product Manager at Oracle. AI-native product thinking. Human-in-the-loop system design. Enterprise extensibility. Director-track.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2;
+    --surface: #FFFFFF;
+    --surface2: #F0EDE8;
+    --border: rgba(0,0,0,0.07);
+    --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916;
+    --muted: #7A7870;
+    --accent: #3D5A80;
+    --accent2: #2C4A6E;
+    --warm: #7A8FA6;
+    --danger: #B83030;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --max: 1100px;
+    --r: 12px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(247,245,242,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--muted);
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 7px 18px;
+    border: 1px solid var(--accent2);
+    border-radius: 6px;
+    color: var(--accent);
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: rgba(61,90,128,0.08); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 2rem 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(61,90,128,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(122,143,166,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+
+  .hero-sub strong {
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border-strong);
+    color: var(--text);
+    font-size: 0.9rem;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--accent2); background: rgba(61,90,128,0.05); }
+
+  /* Hero visual panel */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+  }
+
+  .profile-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 40px; right: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    border-radius: 2px;
+  }
+
+  .profile-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    border: 2px solid rgba(61,90,128,0.25);
+  }
+
+  .profile-name {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .profile-title {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .profile-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-box {
+    background: var(--surface2);    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 0.75rem;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.3;
+  }
+
+  .profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid;
+  }
+
+  .tag-green { border-color: rgba(61,90,128,0.3); color: var(--accent); background: rgba(61,90,128,0.07); }
+  .tag-warm  { border-color: rgba(122,143,166,0.3); color: var(--warm);  background: rgba(122,143,166,0.07); }
+  .tag-muted { border-color: var(--border-strong);  color: var(--muted); }
+
+  /* SECTIONS SHARED */
+  section { padding: 100px 2rem; }
+
+  .section-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  h2 em { font-style: italic; color: var(--accent); }
+
+  .section-intro {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 580px;
+    margin-bottom: 3rem;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  /* AI SECTION */
+  #ai { background: var(--surface); }
+
+  .ai-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .ai-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .ai-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+
+  .ai-card-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    background: rgba(61,90,128,0.08);
+    border: 1px solid rgba(61,90,128,0.18);
+  }
+
+  .ai-card-icon.warm-bg {
+    background: rgba(122,143,166,0.08);
+    border-color: rgba(122,143,166,0.18);
+  }
+
+  .ai-card h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .ai-card p {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .ai-banner {
+    background: linear-gradient(135deg, rgba(61,90,128,0.06), rgba(61,90,128,0.03));
+    border: 1px solid rgba(61,90,128,0.18);
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .ai-banner-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .ai-banner-text h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    color: var(--text);
+  }
+
+  .ai-banner-text p {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-body {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+
+  .about-body p { margin-bottom: 1.25rem; }
+  .about-body strong { color: var(--text); font-weight: 400; }
+
+  .about-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cred-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    transition: border-color 0.2s;
+  }
+
+  .cred-item:hover { border-color: var(--border-strong); }
+
+  .cred-year {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--accent);
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  .cred-details strong {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .cred-details span {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* EXPERIENCE */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 8px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3.5rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 8px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    transform: translateX(-3.5px);
+  }
+
+  .timeline-item.current::before {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(61,90,128,0.35);
+  }
+
+  .timeline-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.25rem;
+    flex-wrap: wrap;
+  }
+
+  .timeline-period {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .timeline-company {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--accent);
+    padding: 2px 8px;
+    background: rgba(61,90,128,0.08);
+    border: 1px solid rgba(61,90,128,0.2);
+    border-radius: 4px;
+  }
+
+  .timeline-role {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  .achievements {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .achievements li {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--muted);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .achievements li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.75rem;
+  }
+
+  .achievements li strong { color: var(--text); font-weight: 400; }
+
+  /* IMPACT */
+  #impact { background: var(--surface); }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .impact-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 1.5rem;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .impact-card:hover {
+    border-color: rgba(61,90,128,0.2);
+    transform: translateY(-2px);
+  }
+
+  .impact-num {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .impact-label {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* CLIENTS */
+  .clients-section h3 {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .client-cell {
+    padding: 1.25rem;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    transition: background 0.2s, color 0.2s;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .client-cell:hover { background: var(--surface); color: var(--text); }
+
+  /* WORK */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .work-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: border-color 0.2s, transform 0.2s;
+    text-decoration: none;
+  }
+
+  .work-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+
+  .work-card-num {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .work-card h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .work-card p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .work-card-link {
+    font-size: 0.78rem;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 1.5rem;
+  }
+
+  .skill-group h4 {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skill-list li {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--border-strong);
+    flex-shrink: 0;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--surface); }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .contact-text h2 { margin-bottom: 1rem; }
+
+  .contact-text p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-link-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+
+  .contact-link-item:hover { color: var(--text); }
+
+  .contact-link-item span:first-child {
+    width: 20px;
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+
+  .contact-card-right {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+
+  .open-to-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(61,90,128,0.07);
+    border: 1px solid rgba(61,90,128,0.2);
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin-bottom: 1.25rem;
+  }
+
+  .open-to-badge::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px rgba(61,90,128,0.5);
+  }
+
+  .contact-card-right h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-card-right p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .role-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max);
+    margin: 0 auto;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* FADE IN */
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner, .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-visual { display: none; }
+    .ai-grid, .work-grid, .skills-grid { grid-template-columns: 1fr; }
+    .impact-grid { grid-template-columns: repeat(2,1fr); }
+    .clients-grid { grid-template-columns: repeat(3,1fr); }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Edson<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#ai">AI Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Content</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="/cdn-cgi/l/email-protection#482d2c3b27262e2d3a3a2d213a2966223d2621273a082f25292124662b2725">Get in touch →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content fade-in">
+      <div class="hero-tag">Senior Principal PM · Director Track</div>
+      <h1>Building products where <em>humans</em> and AI work better together</h1>
+      <p class="hero-sub">
+        I lead product strategy for <strong>enterprise extensibility at Oracle</strong> — the layer that makes complex SaaS applications adaptable to real customer needs. In the age of AI agents, I focus on designing systems where <strong>humans stay in control</strong> and automation earns its role.
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#about">My work →</a>
+        <a class="btn-outline" href="https://www.linkedin.com/in/edsonferreira" target="_blank">LinkedIn</a>
+        <a class="btn-outline" href="#contact">Open to opportunities</a>
+      </div>
+    </div>
+    <div class="hero-visual fade-in">
+      <div class="profile-card">
+        <div class="profile-avatar">EF</div>
+        <div class="profile-name">Edson Ferreira Jr.</div>
+        <div class="profile-title">Sr. Principal PM at Oracle · Oracle Fusion Service Extensibility</div>
+        <div class="profile-stats">
+          <div class="stat-box">
+            <div class="stat-num">20+</div>
+            <div class="stat-label">years in enterprise software</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">70%</div>
+            <div class="stat-label">YoY active user growth led</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">34%</div>
+            <div class="stat-label">live customer growth</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">3</div>
+            <div class="stat-label">languages: EN · PT · ES</div>
+          </div>
+        </div>
+        <div class="profile-tags">
+          <span class="tag tag-green">AI-native PM</span>
+          <span class="tag tag-green">Human-in-the-Loop</span>
+          <span class="tag tag-warm">Enterprise SaaS</span>
+          <span class="tag tag-warm">Agent Design</span>
+          <span class="tag tag-muted">Oracle Certified</span>
+          <span class="tag tag-muted">MIT ML</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- AI SECTION -->
+<section id="ai">
+  <div class="section-inner fade-in">
+    <div class="section-eyebrow">AI & The New Era of Work</div>
+    <h2>Designing for a world where <em>agents assist</em> but humans decide</h2>
+    <p class="section-intro">
+      AI is changing what product managers need to know, and how products get built. I work at that intersection — designing extensibility platforms that support agentic workflows, and building my own day-to-day systems using AI tools.
+    </p>
+    <div class="ai-grid">
+      <div class="ai-card">
+        <div class="ai-card-icon">⚙️</div>
+        <h3>Human-in-the-Loop System Design</h3>
+        <p>I led the development of Oracle's UI Events Framework — a system that enables consistent human oversight and intervention points within automated and AI-driven workflows. Agents do the work; humans stay in control of decisions that matter.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">🤖</div>
+        <h3>Agent-Addressable Product Strategy</h3>
+        <p>My current mandate includes identifying and shipping features that AI agents can use on behalf of enterprise users — from workflow automation to AI-guided service customization. I think about APIs and UX with agent consumers in mind, not just human users.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon warm-bg">🧪</div>
+        <h3>Personal AI Workflows</h3>
+        <p>I build and test my own AI productivity systems using Claude, n8n, ElevenLabs, and Notion — from automated inbox triaging to video production pipelines. I believe PMs should be hands-on with the tools they champion.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon warm-bg">📚</div>
+        <h3>AI-Informed Product Discovery</h3>
+        <p>I use AI-assisted synthesis — Slack signals, customer idea labs, competitive data — to build structured feature pipelines (RACE framework). The goal is faster, better-evidence decisions, not replacing human judgment.</p>
+      </div>
+    </div>
+    <div class="ai-banner">
+      <div class="ai-banner-icon">🎓</div>
+      <div class="ai-banner-text">
+        <h3>Oracle Fusion AI Agent Studio Certified · MIT Machine Learning in Business (2020)</h3>
+        <p>Certified in Oracle's AI Agent tooling (2025) and formally trained in ML for business contexts at MIT. I understand both the product side and the technical foundation of AI systems — enough to make sound decisions about when and how to use them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="fade-in">
+        <div class="section-eyebrow">About Me</div>
+        <h2>A PM built on <em>consulting roots</em></h2>
+        <div class="about-body">
+          <p>I started my career as a consultant — the kind that lived in client offices, sat next to the people actually using the software, and was accountable for whether implementations worked in real life. That background still shapes how I think about product.</p>
+          <p>Today I own the <strong>extensibility platform for Oracle Fusion Service</strong> — the layer that lets enterprise customers personalize and automate their service operations. It's a platform product: the user is often a developer or admin, the outcomes are measured in live customers, active users, and reduced implementation cost.</p>
+          <p>I grew up between Brazil, Portugal, Chile, Argentina, Peru, Mexico, and the US — so I'm comfortable in multilingual, multicultural environments. I write and speak with simplicity as a feature, not a limitation.</p>
+          <p>I'm currently exploring <strong>Director of Product roles</strong> at companies where product work stays close to service delivery outcomes: Microsoft, ServiceNow, Salesforce, Zendesk, Genesys, and similar.</p>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="section-eyebrow" style="margin-top: 3.5rem;">Credentials & Education</div>
+        <div class="about-credentials">
+          <div class="cred-item">
+            <div class="cred-year">2025</div>
+            <div class="cred-details"><strong>Oracle Fusion AI Agent Studio</strong><span>Certified Foundations</span></div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-year">2024</div>
+            <div class="cred-details"><strong>Professional Scrum Master (PSM I)</strong><span>Scrum.org</span></div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-year">2024</div>
+            <div class="cred-details"><strong>Product Strategy</strong><span>Product School (PSC)</span></div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-year">2021</div>
+            <div class="cred-details"><strong>Leadership in an Exponentially Changing World</strong><span>MIT Executive Education</span></div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-year">2020</div>
+            <div class="cred-details"><strong>Machine Learning in Business</strong><span>MIT Executive Education</span></div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-year">2006</div>
+            <div class="cred-details"><strong>B.S. Computer Science</strong><span>UMESP, Brazil</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner fade-in">
+    <div class="section-eyebrow">Experience</div>
+    <h2>13 years at Oracle, <em>built on consulting</em></h2>
+    <p class="section-intro">My career spans both sides of enterprise software — implementing it as a consultant, and designing it as a PM. That combination is rare and useful.</p>
+
+    <div class="timeline">
+      <div class="timeline-item current">
+        <div class="timeline-meta">
+          <span class="timeline-period">2012 – Present</span>
+          <span class="timeline-company">Oracle</span>
+        </div>
+        <div class="timeline-role">Senior Principal Product Manager, Strategy</div>
+        <div class="timeline-desc">Own product strategy and roadmap for Oracle Fusion Service Extensibility — the enterprise SaaS platform layer that enables customers to customize, extend, and automate their service operations at scale.</div>
+        <ul class="achievements">
+          <li><strong>34% growth in live customers</strong> through direct customer partnerships and partner enablement programs</li>
+          <li><strong>70% YoY increase in active users</strong> across Redwood UI extensibility experiences</li>
+          <li>Scaled platform usage <strong>from ~2,000 to ~6,700 distinct users</strong> through improved patterns and enablement</li>
+          <li>Led the <strong>UI Events Framework</strong> — enabling human-in-the-loop and AI-driven workflow integration</li>
+          <li>Supported <strong>32 live enterprise customer migrations</strong> to Redwood UI, including Walmart and LinkedIn</li>
+          <li>Built Jumpstart tooling supporting <strong>12 active migrations</strong> and reduced partner delivery cost</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-period">2011 – 2012</span>
+          <span class="timeline-company">Level4</span>
+        </div>
+        <div class="timeline-role">CX Solution Architect</div>
+        <ul class="achievements">
+          <li>Led design and implementation of a <strong>customer loyalty platform</strong> with 65% active member engagement</li>
+          <li>Defined integration architecture and delivery plan — on time, within budget</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-period">2008 – 2011</span>
+          <span class="timeline-company">Accenture</span>
+        </div>
+        <div class="timeline-role">Senior Consultant</div>
+        <ul class="achievements">
+          <li>Led CRM and contact center implementations <strong>across 5 countries in Latin America</strong></li>
+          <li>Unified 7+ CRM systems across regions for a major telco client</li>
+          <li>Built business cases and ROI analysis to support enterprise investment decisions</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-period">2004 – 2008</span>
+          <span class="timeline-company">Novabase · Capgemini · Sonda</span>
+        </div>
+        <div class="timeline-role">Consultant / Business Analyst</div>
+        <ul class="achievements">
+          <li>Delivered Siebel CRM implementations for automotive, telecom, and banking clients across Europe and Latin America</li>
+          <li>First international experience living in Portugal — supporting a major telco's contact center platform</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="section-inner fade-in">
+    <div class="section-eyebrow">By the Numbers</div>
+    <h2>Impact that <em>scales</em></h2>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-num">20+</div>
+        <div class="impact-label">Years building enterprise software products and implementations</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">6,700+</div>
+        <div class="impact-label">Active users on extensibility platform under my ownership</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">32</div>
+        <div class="impact-label">Enterprise customers migrated to Redwood UI extensibility</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">5</div>
+        <div class="impact-label">Countries where I've lived and worked across 3 continents</div>
+      </div>
+    </div>
+
+    <div class="clients-section">
+      <h3>Key customers I've served across Oracle and consulting</h3>
+      <div class="clients-grid">
+        <div class="client-cell">Walmart &amp; Sam's Club</div>
+        <div class="client-cell">LinkedIn</div>
+        <div class="client-cell">Chewy</div>
+        <div class="client-cell">Macy's &amp; Kohl's</div>
+        <div class="client-cell">Sprint / Nextel</div>
+        <div class="client-cell">TIM Brazil</div>
+        <div class="client-cell">GOL Airlines</div>
+        <div class="client-cell">General Motors</div>
+        <div class="client-cell">Telefónica</div>
+        <div class="client-cell">Oi Telecom</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner fade-in">
+    <div class="section-eyebrow">Capabilities</div>
+    <h2>What I <em>bring</em></h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Product Leadership</h4>
+        <ul class="skill-list">
+          <li><span class="skill-dot"></span>Product strategy &amp; roadmap ownership</li>
+          <li><span class="skill-dot"></span>Feature prioritization (RICE, RACE)</li>
+          <li><span class="skill-dot"></span>Platform &amp; extensibility design</li>
+          <li><span class="skill-dot"></span>Go-to-market &amp; adoption programs</li>
+          <li><span class="skill-dot"></span>Agile execution &amp; sprint facilitation</li>
+          <li><span class="skill-dot"></span>Customer discovery &amp; voice-of-customer</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>AI &amp; Automation</h4>
+        <ul class="skill-list">
+          <li><span class="skill-dot"></span>Human-in-the-loop workflow design</li>
+          <li><span class="skill-dot"></span>Agent-addressable feature strategy</li>
+          <li><span class="skill-dot"></span>Oracle AI Agent Studio (certified)</li>
+          <li><span class="skill-dot"></span>AI-assisted product discovery</li>
+          <li><span class="skill-dot"></span>n8n workflow automation</li>
+          <li><span class="skill-dot"></span>Prompt design &amp; AI tool building</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Communication &amp; Enablement</h4>
+        <ul class="skill-list">
+          <li><span class="skill-dot"></span>Executive &amp; customer briefings</li>
+          <li><span class="skill-dot"></span>Technical writing &amp; documentation</li>
+          <li><span class="skill-dot"></span>Video &amp; release feature communication</li>
+          <li><span class="skill-dot"></span>Community building (Oracle Customer Connect)</li>
+          <li><span class="skill-dot"></span>English · Portuguese · Spanish</li>
+          <li><span class="skill-dot"></span>Oracle Blogs &amp; Video Hub authoring</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- WORK / CONTENT -->
+<section id="work">
+  <div class="section-inner fade-in">
+    <div class="section-eyebrow">Public Work</div>
+    <h2>Shipping ideas <em>in the open</em></h2>
+    <p class="section-intro">Beyond the product itself — I build community through content that helps customers actually use what I build.</p>
+    <div class="work-grid">
+      <a class="work-card" href="https://blogs.oracle.com/authors/edson-ferreira-da-silva-junior" target="_blank">
+        <div class="work-card-num">01</div>
+        <h3>Oracle Blogs</h3>
+        <p>Release readiness and feature communication. I write directly about the capabilities I own — so customers know what's available and why it matters.</p>
+        <div class="work-card-link">Read on Oracle Blogs →</div>
+      </a>
+      <a class="work-card" href="https://community.oracle.com/customerconnect/profile/about/34689" target="_blank">
+        <div class="work-card-num">02</div>
+        <h3>Oracle Customer Connect</h3>
+        <p>Active community contributor for Oracle Fusion Service. I respond to forum questions, publish how-to guides, and help customers navigate extensibility challenges.</p>
+        <div class="work-card-link">View Community Profile →</div>
+      </a>
+      <a class="work-card" href="https://videohub.oracle.com/channel/Fusion%2BService%2BExtensibility/285145392" target="_blank">
+        <div class="work-card-num">03</div>
+        <h3>Video Enablement</h3>
+        <p>Hands-on feature demos and how-to walkthroughs on Oracle Video Hub. Adoption starts with understanding — these videos close the gap between release notes and working implementations.</p>
+        <div class="work-card-link">Watch on Video Hub →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="contact-text fade-in">
+        <div class="section-eyebrow">Let's Connect</div>
+        <h2>Open to the <em>right</em> conversation</h2>
+        <p>I'm exploring Director of Product opportunities at companies building AI-powered service or CX platforms — where the product work stays close to the customer. If you're hiring, collaborating, or just want to talk product, reach out.</p>
+        <div class="contact-links">
+          <a class="contact-link-item" href="/cdn-cgi/l/email-protection#f39697809c9d95968181969a8192dd99869d9a9c81b3949e929a9fdd909c9e">
+            <span>✉</span>
+            <span><span class="__cf_email__" data-cfemail="3d58594e52535b584f4f58544f5c1357485354524f7d5a505c5451135e5250">[email&#160;protected]</span></span>
+          </a>
+          <a class="contact-link-item" href="https://www.linkedin.com/in/edsonferreira" target="_blank">
+            <span>in</span>
+            <span>linkedin.com/in/edsonferreira</span>
+          </a>
+          <a class="contact-link-item" href="https://twitter.com/edsonferreira_" target="_blank">
+            <span>𝕏</span>
+            <span>@edsonferreira_</span>
+          </a>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="contact-card-right">
+          <div class="open-to-badge">Open to Director of Product roles</div>
+          <h3>What I'm looking for</h3>
+          <p>Senior IC or Director-level product roles where I can own strategy end-to-end, stay close to enterprise customers, and apply AI-native product thinking. Ideally companies building in service, CX, or enterprise SaaS where extensibility and automation are core to the value proposition.</p>
+          <div class="role-tags">
+            <span class="tag tag-green">Director of Product</span>
+            <span class="tag tag-green">Senior Principal PM</span>
+            <span class="tag tag-warm">ServiceNow</span>
+            <span class="tag tag-warm">Salesforce</span>
+            <span class="tag tag-warm">Microsoft</span>
+            <span class="tag tag-warm">Zendesk</span>
+            <span class="tag tag-muted">Genesys</span>
+            <span class="tag tag-muted">Open to others</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Edson Ferreira Jr.</span>
+  <span>Senior Principal PM · Oracle · Building for what's next</span>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.fade-in');
+  items.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'none';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  items.forEach(el => observer.observe(el));
+</script>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></scri
