@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0M1EKPN4Y2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0M1EKPN4Y2');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I Think About AI Tooling — Edson Ferreira</title>
+<meta name="description" content="There are five layers of AI tooling, from vibe coding to autonomous agents. Here's how I decide which one to use — and how much of the work to hand off.">
+<meta name="author" content="Edson Ferreira">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://edsonfjr.com/notes/ai-tooling-layers">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://edsonfjr.com/notes/ai-tooling-layers">
+<meta property="og:title" content="How I Think About AI Tooling">
+<meta property="og:description" content="There are five layers of AI tooling, from vibe coding to autonomous agents. Here's how I decide which one to use — and how much of the work to hand off.">
+<meta property="og:image" content="https://edsonfjr.com/og-preview.png">
+<meta property="og:site_name" content="Edson Ferreira">
+<meta property="article:author" content="Edson Ferreira">
+<meta property="article:published_time" content="2026-03-13">
+<meta property="article:section" content="AI">
+<meta property="article:tag" content="AI tooling framework">
+<meta property="article:tag" content="when to use AI tools">
+<meta property="article:tag" content="AI automation layers">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@edsonferreira_">
+<meta name="twitter:creator" content="@edsonferreira_">
+<meta name="twitter:title" content="How I Think About AI Tooling">
+<meta name="twitter:description" content="5 layers of AI tooling. The further down the stack, the less you drive. Here's how I know which one to pick.">
+<meta name="twitter:image" content="https://edsonfjr.com/og-preview.png">
+
+<!-- JSON-LD: Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How I Think About AI Tooling",
+  "description": "There are five layers of AI tooling, from vibe coding to autonomous agents. Here's how I decide which one to use — and how much of the work to hand off.",
+  "url": "https://edsonfjr.com/notes/ai-tooling-layers",
+  "datePublished": "2026-03-13",
+  "author": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/edsonferreira",
+      "https://twitter.com/edsonferreira_"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://edsonfjr.com/notes/ai-tooling-layers"
+  },
+  "image": "https://edsonfjr.com/og-preview.png",
+  "keywords": ["AI tooling", "workflow automation", "AI agents", "vibe coding", "coding agents"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2; --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.07); --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916; --muted: #7A7870;
+    --accent: #3D5A80; --accent2: #2C4A6E;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --r: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; z-index: 100; }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-back { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  article { max-width: 680px; margin: 0 auto; padding: 120px 2rem 6rem; }
+  .article-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+  h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 1.5rem; }
+  .article-meta { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--text); margin: 2.5rem 0 1rem; }
+  p { font-size: 1rem; font-weight: 300; color: var(--text); line-height: 1.85; margin-bottom: 1.4rem; }
+  .lead { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+  .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .callout p { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.7; }
+  .callout strong { font-weight: 500; color: var(--text); }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
+  .step-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .step h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.7; }
+  .note-image { width: 100%; border-radius: var(--r); margin: 2rem 0; border: 1px solid var(--border); display: block; }
+  .article-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .author-line { font-size: 0.85rem; color: var(--muted); }
+  .author-line strong { font-weight: 500; color: var(--text); }
+  .back-link { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media (max-width: 640px) { nav { padding: 0 1.25rem; } article { padding: 100px 1.25rem 4rem; } h1 { font-size: 1.9rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">Edson<span>.</span></a>
+  <a class="nav-back" href="../index.html#notes">← Back to notes</a>
+</nav>
+<article>
+
+  <div class="article-eyebrow">AI · 4 min read</div>
+  <h1>How I Think About AI Tooling</h1>
+  <div class="article-meta">By Edson Ferreira &nbsp;·&nbsp; March 2026</div>
+
+  <p class="lead">I ask myself this a lot: which AI tool should I use for this? And every time, the answer comes back to the same question — how much of the work do I want to hand off?</p>
+
+  <p>That's the right starting point. Not "which tool is best," but "where do I still need to be in the loop?"</p>
+
+  <p>I've been building with AI tools across my work as a product manager, a side hustler, and someone who genuinely likes figuring out systems. The pattern I keep seeing: AI tooling lives in layers. The further down the stack you go, the less you drive.</p>
+
+  <img src="img/ai-tooling-layers.png" alt="Five layers of AI tooling: Vibe Coding, Copilots, Workflow Automation, Coding Agents, Autonomous Agents" class="note-image">
+
+  <div class="step">
+    <div class="step-label">Layer 1</div>
+    <h3>You're still driving — Vibe Coding</h3>
+    <p>Tools like Cursor, Replit, or Claude's artifact builder let you build by describing what you want. You type in plain language. The AI writes the code. You react, adjust, iterate. The human is in the driver's seat. The AI is a fast co-pilot.<br><br>This layer is great for prototyping and exploring ideas — building things you couldn't build before without a developer. The risk: you can ship fast without really understanding what you shipped.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Layer 2</div>
+    <h3>You set the direction — Copilots</h3>
+    <p>Here the AI works alongside you inside your existing tools. GitHub Copilot in your editor, Claude inside a shared workspace, Notion AI, Microsoft Copilot in Excel. You're still making the calls. The AI handles drafting, suggesting, and executing steps you define. It doesn't act on its own.<br><br>This is where most knowledge workers will spend most of their time. High leverage without high risk. You stay accountable.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Layer 3</div>
+    <h3>You define the rules — Workflow Automation</h3>
+    <p>Now we're moving away from real-time collaboration into systems that run without you watching. Tools like n8n, Zapier, or Oracle Integration Cloud connect apps, trigger actions, and move data based on rules you set up ahead of time.<br><br>This is where the return on investment gets serious. One workflow you build once can save hours every week. You're not doing tasks anymore. You're designing systems.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Layer 4</div>
+    <h3>You define the goal — Coding Agents</h3>
+    <p>Tools like Claude Code, OpenAI Codex, and Devin let you hand over an entire goal — not just a task. "Build me a script that does X." The agent figures out the steps, writes the code, runs it, checks the output, and iterates.<br><br>You're not driving. You're the product owner. The skill isn't knowing the most code — it's writing clear briefs and knowing what "done" actually looks like.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Layer 5</div>
+    <h3>You set the mission — Autonomous Agents</h3>
+    <p>We're not fully here yet, but it's coming. This is where an agent holds memory, uses tools, makes decisions across time, and loops until the goal is met — minimal input from you. Early versions already exist: agents that browse the web, manage inboxes, run multi-step research tasks.<br><br>What used to take a team — or a very organized solo operator — will soon be something you configure once and review weekly.</p>
+  </div>
+
+  <h2>The framework in one line</h2>
+
+  <p>The further down the stack, the less you drive — and the more important it becomes to think clearly about what you actually want.</p>
+
+  <div class="callout">
+    <p><strong>Vibe coding</strong> rewards experimentation. <strong>Copilots</strong> reward focus. <strong>Automation</strong> rewards system thinking. <strong>Coding agents</strong> reward clarity of intent. <strong>Autonomous agents</strong> reward trust — and judgment about when to take back control.</p>
+  </div>
+
+  <p>You don't have to pick one layer. The best builders move between all of them depending on the task. But knowing which layer you're on changes how you use the tool — and how seriously you take the output.</p>
+
+  <p>The one thing I'd tell a colleague: stop asking which AI tool is best. Start asking how much of the loop you want to keep.</p>
+
+  <div class="callout">
+    <p>Once you know which layer you're on, the next question is how involved to stay within it. I wrote about that in <a href="ai-cockpit-framework.html" style="color:var(--accent);font-weight:500;">The Cockpit Rule</a> — a framework for knowing when to let AI fly, when to collaborate, and when to take manual control.</p>
+  </div>
+
+  <div class="article-footer">
+    <div class="author-line">Written by <strong>Edson Ferreira</strong> — Senior Principal PM at Oracle, building AI-native product systems.</div>
+    <a class="back-link" href="../index.html#notes">← More notes</a>
+  </div>
+
+</article>
+</body>
+</html>
