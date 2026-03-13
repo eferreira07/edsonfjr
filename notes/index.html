@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0M1EKPN4Y2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0M1EKPN4Y2');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes — Edson Ferreira</title>
+<meta name="description" content="Short posts on AI, product thinking, and how I build systems to work better. No newsletter. No algorithm. Just useful ideas.">
+<meta name="author" content="Edson Ferreira">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://edsonfjr.com/notes/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://edsonfjr.com/notes/">
+<meta property="og:title" content="Notes — Edson Ferreira">
+<meta property="og:description" content="Short posts on AI, product thinking, and how I build systems to work better.">
+<meta property="og:image" content="https://edsonfjr.com/og-preview.png">
+<meta property="og:site_name" content="Edson Ferreira">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Notes — Edson Ferreira">
+<meta name="twitter:description" content="Short posts on AI, product thinking, and how I build systems to work better.">
+<meta name="twitter:image" content="https://edsonfjr.com/og-preview.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2; --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.07); --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916; --muted: #7A7870;
+    --accent: #3D5A80; --accent2: #2C4A6E;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --r: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+  /* Nav */
+  nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; z-index: 100; }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-back { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+
+  /* Page */
+  .page { max-width: 720px; margin: 0 auto; padding: 120px 2rem 6rem; }
+  .page-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  h1 { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 0.75rem; }
+  .page-intro { font-size: 1rem; font-weight: 300; color: var(--muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+
+  /* Filter tabs */
+  .filter-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .filter-btn { font-family: var(--sans); font-size: 0.75rem; font-weight: 500; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.9rem; cursor: pointer; transition: all 0.15s; }
+  .filter-btn:hover { color: var(--text); border-color: var(--border-strong); }
+  .filter-btn.active { color: var(--accent); border-color: var(--accent); background: rgba(61,90,128,0.06); }
+
+  /* Notes list */
+  .notes-list { display: flex; flex-direction: column; gap: 0; }
+  .note-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; transition: background 0.15s; border-radius: 6px; }
+  .note-row:hover .note-row-title { color: var(--accent); }
+  .note-row-left { flex: 1; min-width: 0; }
+  .note-row-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+  .note-row-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: var(--text); line-height: 1.35; transition: color 0.15s; }
+  .note-row-desc { font-size: 0.85rem; font-weight: 300; color: var(--muted); margin-top: 0.3rem; line-height: 1.55; }
+  .note-row-right { flex-shrink: 0; font-size: 0.75rem; font-weight: 400; color: var(--muted); white-space: nowrap; }
+
+  /* Empty state */
+  .notes-empty { font-size: 0.9rem; color: var(--muted); padding: 2rem 0; }
+
+  footer { text-align: center; padding: 3rem 2rem; font-size: 0.75rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 4rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1.25rem; }
+    .page { padding: 100px 1.25rem 4rem; }
+    h1 { font-size: 1.75rem; }
+    .note-row { flex-direction: column; gap: 0.25rem; }
+    .note-row-right { align-self: flex-start; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">Edson<span>.</span></a>
+  <a class="nav-back" href="../index.html">← Back to home</a>
+</nav>
+
+<div class="page">
+  <div class="page-eyebrow">Notes</div>
+  <h1>Thinking <em>out loud</em></h1>
+  <p class="page-intro">Short posts on AI, product thinking, and how I build systems to work better. No newsletter. No algorithm. Just useful ideas.</p>
+
+  <div class="filter-row">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="ai">AI</button>
+    <button class="filter-btn" data-filter="career">Career</button>
+    <button class="filter-btn" data-filter="personal">Personal</button>
+  </div>
+
+  <div class="notes-list" id="notesList">
+
+    <a class="note-row" href="why-i-write.html" data-category="personal">
+      <div class="note-row-left">
+        <div class="note-row-tag">Personal</div>
+        <div class="note-row-title">Why I write</div>
+        <div class="note-row-desc">Not for a brand. Writing is how I find out what I actually know — and how I want to be remembered.</div>
+      </div>
+      <div class="note-row-right">3 min read</div>
+    </a>
+
+    <a class="note-row" href="your-github-might-get-you-hired.html" data-category="career">
+      <div class="note-row-left">
+        <div class="note-row-tag">Career</div>
+        <div class="note-row-title">Your GPA won't get you the job. Your GitHub might.</div>
+        <div class="note-row-desc">20 years in enterprise software taught me what I actually look for in a developer. It's not the degree — and in the agent era, it's not even just the code.</div>
+      </div>
+      <div class="note-row-right">7 min read</div>
+    </a>
+
+    <a class="note-row" href="claude-notion-workflow.html" data-category="ai">
+      <div class="note-row-left">
+        <div class="note-row-tag">AI</div>
+        <div class="note-row-title">How I use Claude + Notion to run my week without losing my mind</div>
+        <div class="note-row-desc">Meeting notes, backlog discovery, product specs — three workflows that compress the distance between raw signal and something I can actually ship.</div>
+      </div>
+      <div class="note-row-right">4 min read</div>
+    </a>
+
+    <a class="note-row" href="ai-cockpit-framework.html" data-category="ai">
+      <div class="note-row-left">
+        <div class="note-row-tag">AI</div>
+        <div class="note-row-title">The Cockpit Rule: a framework for knowing when to let AI fly</div>
+        <div class="note-row-desc">Not every task needs the same level of AI involvement. Here's the mental model I use to decide when to delegate, collaborate, or stay manual.</div>
+      </div>
+      <div class="note-row-right">5 min read</div>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 Edson Ferreira Jr.</span>
+  <span><a href="../index.html" style="color:inherit;text-decoration:none;">← Back to home</a></span>
+</footer>
+
+<script>
+  // Filter tabs
+  const btns = document.querySelectorAll('.filter-btn');
+  const rows = document.querySelectorAll('.note-row');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      rows.forEach(row => {
+        row.style.display = (filter === 'all' || row.dataset.category === filter) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
