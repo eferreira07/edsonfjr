@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your GPA won't get you the job. Your GitHub might. — Edson Ferreira</title>
+<meta name="description" content="20 years in enterprise software taught me what I actually look for in a developer. It's not the degree. Here's what builds a portfolio that gets noticed.">
+<link rel="canonical" href="https://edsonfjr.com/notes/your-github-might-get-you-hired">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2; --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.07); --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916; --muted: #7A7870;
+    --accent: #3D5A80; --accent2: #2C4A6E;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --r: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; z-index: 100; }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-back { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  article { max-width: 680px; margin: 0 auto; padding: 120px 2rem 6rem; }
+  .article-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+  h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 1.5rem; }
+  .article-meta { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--text); margin: 2.5rem 0 1rem; }
+  p { font-size: 1rem; font-weight: 300; color: var(--text); line-height: 1.85; margin-bottom: 1.4rem; }
+  .lead { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+  .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .callout p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .callout strong { font-weight: 500; color: var(--text); }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
+  .step-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .step h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .article-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .author-line { font-size: 0.85rem; color: var(--muted); }
+  .author-line strong { font-weight: 500; color: var(--text); }
+  .back-link { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media (max-width: 640px) { nav { padding: 0 1.25rem; } article { padding: 100px 1.25rem 4rem; } h1 { font-size: 1.9rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">Edson<span>.</span></a>
+  <a class="nav-back" href="../index.html#notes">← Back to notes</a>
+</nav>
+<article>
+  <div class="article-eyebrow">Career · 7 min read</div>
+  <h1>Your GPA won't get you the job. Your GitHub might.</h1>
+  <div class="article-meta">By Edson Ferreira &nbsp;·&nbsp; March 2026</div>
+
+  <p class="lead">Outside my role at Oracle, I invest time mentoring students who are getting into tech. One question keeps coming up: <em>which projects should I build?</em> I've answered it enough times in the last few months that writing it down seemed overdue. This is that answer — with some context I think most guides leave out.</p>
+
+  <p>First, the honest picture. The developer role is shifting faster than most curricula can keep up with. In five years, the job will look less like writing code from scratch and more like managing agents, reviewing AI output, and making the critical decisions that machines can't. More reading. More judgment. More architecture thinking. Less syntax, less boilerplate.</p>
+
+  <p>That changes what your portfolio needs to say. It used to be: "I can write code." Now it needs to say: "I can build things, I can think through problems, and I know how to work with AI." Those are different signals — and it's no longer a shame to have commits that show you used an LLM to move faster. The industry is past that stigma. What matters is not whether you used AI. It's whether you can show your thinking, your criteria, and how you made decisions along the way.</p>
+
+  <div class="callout">
+    <p><strong>The one thing to avoid:</strong> copy-pasting AI output you don't understand. The best portfolios I've seen lately show the thinking, not just the result — commit messages that explain choices, READMEs that describe tradeoffs, code you can actually walk through in an interview. Show how you interacted with AI to get there. That's the skill that matters now.</p>
+  </div>
+
+  <p>With that framing in mind, here's how I'd build a portfolio that signals all of it.</p>
+
+  <h2>Start with something that works end to end</h2>
+
+  <p>The biggest mistake I see in early portfolios: a lot of half-finished experiments and not enough complete things. Recruiters and hiring managers aren't looking for complexity — they're looking for evidence that you can take something from idea to done.</p>
+
+  <p>Start simple. A command-line task manager. A personal expense tracker that reads and writes CSV files. A Markdown-to-HTML converter. None of these are impressive on paper, but a clean, working version with a proper README tells me more than three abandoned projects ever could.</p>
+
+  <div class="callout">
+    <p><strong>The principle:</strong> One finished project with clear documentation beats five repositories with no commits in the last eight months. Completeness is a skill. Demonstrate it early.</p>
+  </div>
+
+  <h2>Build something that talks to the real world</h2>
+
+  <p>Once you have a finished project under your belt, move toward something that interacts with external data or users. A weather dashboard that pulls from a public API. A simple chat room using WebSockets. A portfolio site with a working dark mode toggle.</p>
+
+  <p>These projects matter not because they're technically hard, but because they force you to deal with things that tutorials never cover — rate limits, error handling, state that doesn't behave the way you expected. That messiness is where real learning happens, and it shows.</p>
+
+  <h2>Pick one AI project. Any AI project.</h2>
+
+  <p>This is the one area where I'd push every CS student right now, regardless of your specialization. You don't need to build GPT. But you need to show that you understand how to work with AI systems — not just as a user, but as a builder.</p>
+
+  <p>A sentiment classifier trained on movie reviews. A digit recognizer using the MNIST dataset. A small chatbot that answers questions from a document you provide. Any of these signal that you can apply modern ML concepts to a real problem. In 2026, that's not optional anymore. It's a baseline.</p>
+
+  <div class="step">
+    <div class="step-label">Good starting point</div>
+    <h3>Document classification or a simple RAG pipeline</h3>
+    <p>Use an open-source LLM to build a small assistant that answers questions from a custom document. It teaches you embeddings, retrieval, and prompt design — three things that show up in almost every AI-adjacent role right now.</p>
+  </div>
+
+  <h2>Go deeper on the backend before you graduate</h2>
+
+  <p>Most CS portfolios skew toward frontend and ML because those are the most visible. That's exactly why backend and systems work stands out. If you can show that you understand what happens under the hood — not just how to use a framework, but how things actually work — you become a different kind of candidate.</p>
+
+  <div class="step">
+    <div class="step-label">Project idea</div>
+    <h3>Build a REST or GraphQL API from scratch</h3>
+    <p>Pick a simple domain — a task manager, a book catalog, a product inventory. Implement authentication, pagination, and proper error handling. Don't use a boilerplate. Write it yourself so you understand every layer.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Project idea</div>
+    <h3>Rate-limiter middleware</h3>
+    <p>Implement a token bucket algorithm to protect an API from excessive traffic. It sounds niche, but it's one of those problems that teaches you more about system design than most tutorials ever will. Bonus: it's a real interview question.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Project idea</div>
+    <h3>A minimal custom shell</h3>
+    <p>Build a shell that supports command history, pipes, and a handful of built-in commands. You'll touch process management, file descriptors, and parsing in ways that most web developers never do. Interviewers at systems-heavy companies will notice.</p>
+  </div>
+
+  <h2>Your final-year project is your first product</h2>
+
+  <p>By the time you're in your last year, your goal should shift from "project" to "product." Something with a defined user, a real problem, and a working solution. It doesn't have to be perfect. It has to be intentional.</p>
+
+  <p>A smart attendance system. An online code judge. An e-learning platform with actual progress tracking. The complexity isn't the point — the thinking behind it is. Why did you build this? Who is it for? What tradeoffs did you make? Those are the questions interviewers will ask. Your project is your answer.</p>
+
+  <h2>The README is part of the work</h2>
+
+  <p>I'll end with this because it's the thing most people skip: write the README like someone is actually going to read it. Because someone will.</p>
+
+  <p>Explain what the project does. Explain why you built it. List the tech stack and why you chose it. Include setup instructions that actually work. Add a screenshot if there's something to see.</p>
+
+  <p>A strong README tells me you think about the person on the other end of your work. That's a product mindset. And it's rare enough that it will make you stand out.</p>
+
+  <p>The goal isn't to have 10 projects. It's to have 3 that tell a clear, honest story about who you are and what you can build. Start there.</p>
+
+  <div class="article-footer">
+    <div class="author-line">Written by <strong>Edson Ferreira</strong> — Senior Principal PM at Oracle, building AI-native product systems.</div>
+    <a class="back-link" href="../index.html#notes">← More notes</a>
+  </div>
+</article>
+</body>
+</html>
