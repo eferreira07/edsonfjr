@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0M1EKPN4Y2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0M1EKPN4Y2');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Building With AI Agents — I Stay in Control — Edson Ferreira</title>
-<meta name="description" content="I replaced WordPress with GitHub Pages and a pipeline of AI agents. Each agent handles one stage. I review, I approve, I commit. Here's how it works.">
+<title>How I Built an AI Agent Workflow and Stayed in Control — Edson Ferreira</title>
+<meta name="description" content="I replaced WordPress with a four-agent agentic AI workflow — each agent handles one stage, I keep human oversight at every step. Here's how it works.">
 <meta name="author" content="Edson Ferreira">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://edsonfjr.com/notes/ai-agents-human-in-control">
@@ -12,8 +20,8 @@
 <!-- Open Graph -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://edsonfjr.com/notes/ai-agents-human-in-control">
-<meta property="og:title" content="Building With AI Agents — I Stay in Control">
-<meta property="og:description" content="I replaced WordPress with GitHub Pages and a pipeline of AI agents. Each agent handles one stage. I review, I approve, I commit. Here's how it works.">
+<meta property="og:title" content="How I Built an AI Agent Workflow and Stayed in Control">
+<meta property="og:description" content="I replaced WordPress with a four-agent agentic AI workflow — each agent handles one stage, I keep human oversight at every step. Here's how it works.">
 <meta property="og:image" content="https://edsonfjr.com/og-preview.png">
 <meta property="og:site_name" content="Edson Ferreira">
 <meta property="article:author" content="Edson Ferreira">
@@ -22,13 +30,17 @@
 <meta property="article:tag" content="AI agent workflow">
 <meta property="article:tag" content="GitHub Pages personal site">
 <meta property="article:tag" content="human in the loop AI">
+<meta property="article:tag" content="agentic AI">
+<meta property="article:tag" content="AI content pipeline">
+<meta property="article:tag" content="human oversight AI">
+<meta property="article:tag" content="AI workflow automation">
 
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@edsonferreira_">
 <meta name="twitter:creator" content="@edsonferreira_">
-<meta name="twitter:title" content="Building With AI Agents — I Stay in Control">
-<meta name="twitter:description" content="Dropped $15/mo WordPress for free GitHub Pages + AI agents. Four agents handle the mechanics. I review everything. I commit manually. Human in the loop, always.">
+<meta name="twitter:title" content="How I Built an AI Agent Workflow and Stayed in Control">
+<meta name="twitter:description" content="Dropped $15/mo WordPress for free GitHub Pages + an agentic AI workflow. Four agents handle the mechanics. I keep human oversight at every step. Always.">
 <meta name="twitter:image" content="https://edsonfjr.com/og-preview.png">
 
 <!-- JSON-LD: Article structured data -->
@@ -36,8 +48,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Building With AI Agents — I Stay in Control",
-  "description": "I replaced WordPress with GitHub Pages and a pipeline of AI agents. Each agent handles one stage. I review, I approve, I commit. Here's how it works.",
+  "headline": "How I Built an AI Agent Workflow and Stayed in Control",
+  "description": "I replaced WordPress with a four-agent agentic AI workflow — each agent handles one stage, I keep human oversight at every step. Here's how it works.",
   "url": "https://edsonfjr.com/notes/ai-agents-human-in-control",
   "datePublished": "2026-03-14",
   "author": {
@@ -59,7 +71,7 @@
     "@id": "https://edsonfjr.com/notes/ai-agents-human-in-control"
   },
   "image": "https://edsonfjr.com/og-preview.png",
-  "keywords": ["AI agents", "GitHub Pages", "human in the loop", "personal website", "content pipeline", "AI workflow"]
+  "keywords": ["AI agents", "GitHub Pages", "human in the loop", "personal website", "content pipeline", "AI workflow", "agentic AI", "AI workflow automation", "human oversight", "AI content pipeline", "autonomous agents"]
 }
 </script>
 
@@ -125,7 +137,7 @@
 
   <h2>Four Agents, One Human Making the Calls</h2>
   <p>I moved to GitHub Pages — free, clean, plain HTML and CSS. The cost argument was simple: I was paying for convenience I wasn't using. GitHub Pages gave me the same outcome at zero cost, and came with something managed platforms don't: native version control and a release process that fits naturally into automation. Every change tracked, every deployment intentional.</p>
-  <p>But the bigger shift wasn't the hosting. Think of it like having a content agency — writers, designers, a site manager — except instead of hiring people or paying a retainer, I built that agency out of AI agents. Each one handles a specific role. I'm the editor-in-chief who approves what goes out.</p>
+  <p>But the bigger shift wasn't the hosting. Think of it like having a content agency — writers, designers, a site manager — except instead of hiring people or paying a retainer, I built that agency out of AI agents. Each one handles a specific role. I'm the editor-in-chief who approves what goes out. This is what an agentic AI workflow actually looks like in practice — not a demo, a real system I run every week.</p>
 
   <figure class="note-figure">
     <img src="img/personal-wkf-process.png" alt="Diagram of the four-agent workflow: Idea Capture, Note Writer, Site Builder, and the staging and approval process." loading="lazy">
@@ -154,7 +166,7 @@
   <p>The agent never auto-deploys. It never auto-commits. It prepares everything in a staging area — content, code changes, suggested commit messages — and waits. I review, adjust if needed, approve, and then commit manually.</p>
 
   <div class="callout">
-    <p><strong>Why manual commits matter:</strong> Auto-pilot is seductive but it disconnects you from what's actually changing. By committing yourself, you stay aware of what's going out, why it's changing, and whether it's right. The moment you automate away that step, you stop thinking about what you're publishing. Control keeps you honest.</p>
+    <p><strong>Why manual commits matter:</strong> Auto-pilot is seductive but it disconnects you from what's actually changing. By committing yourself, you stay aware of what's going out, why it's changing, and whether it's right. The moment you automate away that step, you stop thinking about what you're publishing. Control keeps you honest. That's what human oversight in an AI workflow means in practice.</p>
   </div>
 
   <h2>What This Actually Saves</h2>
