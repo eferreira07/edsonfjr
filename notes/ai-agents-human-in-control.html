@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building With AI Agents — I Stay in Control — Edson Ferreira</title>
+<meta name="description" content="I replaced WordPress with GitHub Pages and a pipeline of AI agents. Each agent handles one stage. I review, I approve, I commit. Here's how it works.">
+<meta name="author" content="Edson Ferreira">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://edsonfjr.com/notes/ai-agents-human-in-control">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://edsonfjr.com/notes/ai-agents-human-in-control">
+<meta property="og:title" content="Building With AI Agents — I Stay in Control">
+<meta property="og:description" content="I replaced WordPress with GitHub Pages and a pipeline of AI agents. Each agent handles one stage. I review, I approve, I commit. Here's how it works.">
+<meta property="og:image" content="https://edsonfjr.com/og-preview.png">
+<meta property="og:site_name" content="Edson Ferreira">
+<meta property="article:author" content="Edson Ferreira">
+<meta property="article:published_time" content="2026-03-14">
+<meta property="article:section" content="AI">
+<meta property="article:tag" content="AI agent workflow">
+<meta property="article:tag" content="GitHub Pages personal site">
+<meta property="article:tag" content="human in the loop AI">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@edsonferreira_">
+<meta name="twitter:creator" content="@edsonferreira_">
+<meta name="twitter:title" content="Building With AI Agents — I Stay in Control">
+<meta name="twitter:description" content="Dropped $15/mo WordPress for free GitHub Pages + AI agents. Four agents handle the mechanics. I review everything. I commit manually. Human in the loop, always.">
+<meta name="twitter:image" content="https://edsonfjr.com/og-preview.png">
+
+<!-- JSON-LD: Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Building With AI Agents — I Stay in Control",
+  "description": "I replaced WordPress with GitHub Pages and a pipeline of AI agents. Each agent handles one stage. I review, I approve, I commit. Here's how it works.",
+  "url": "https://edsonfjr.com/notes/ai-agents-human-in-control",
+  "datePublished": "2026-03-14",
+  "author": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/edsonferreira",
+      "https://twitter.com/edsonferreira_"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://edsonfjr.com/notes/ai-agents-human-in-control"
+  },
+  "image": "https://edsonfjr.com/og-preview.png",
+  "keywords": ["AI agents", "GitHub Pages", "human in the loop", "personal website", "content pipeline", "AI workflow"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2; --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.07); --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916; --muted: #7A7870;
+    --accent: #3D5A80; --accent2: #2C4A6E;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --r: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; z-index: 100; }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-back { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  article { max-width: 680px; margin: 0 auto; padding: 120px 2rem 6rem; }
+  .article-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+  h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 1.5rem; }
+  .article-meta { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--text); margin: 2.5rem 0 1rem; }
+  p { font-size: 1rem; font-weight: 300; color: var(--text); line-height: 1.85; margin-bottom: 1.4rem; }
+  .lead { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+  .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .callout p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .callout strong { font-weight: 500; color: var(--text); }
+  .note-figure { margin: 2rem 0; }
+  .note-figure img { width: 100%; border-radius: var(--r); border: 1px solid var(--border); display: block; }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
+  .step-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .step h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .article-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .author-line { font-size: 0.85rem; color: var(--muted); }
+  .author-line strong { font-weight: 500; color: var(--text); }
+  .back-link { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media (max-width: 640px) { nav { padding: 0 1.25rem; } article { padding: 100px 1.25rem 4rem; } h1 { font-size: 1.9rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">Edson<span>.</span></a>
+  <a class="nav-back" href="../index.html#notes">← Back to notes</a>
+</nav>
+<article>
+  <div class="article-eyebrow">AI · 3 min read</div>
+  <h1>Building With AI Agents — I Stay in Control</h1>
+  <div class="article-meta">By Edson Ferreira &nbsp;·&nbsp; March 2026</div>
+
+  <p class="lead">I was running a managed site — WordPress, in my case — paying $15 a month for something I barely touched. The real problem wasn't the cost. It was that ideas were scattered everywhere and nothing was getting published.</p>
+
+  <h2>The Problem With Managed Site Builders</h2>
+  <p>WordPress, Squarespace, Wix — they all promise the same thing: easy publishing, no technical skills needed. And for a lot of people, that's true. But easy setup doesn't mean easy workflow. Ideas still lived scattered across Slack, email, voice notes, and random documents. Publishing still meant writing, formatting, managing templates, and waiting for an editor to cooperate. Throw in plugin updates and security patches, and the tool that was supposed to save time was asking for more of it.</p>
+  <p>The deeper issue: I didn't want someone to manage the site for me. I wanted to stay in control of the process myself — but without spending time on the repetitive, mechanical work every update requires. That's a different need than what these platforms are designed to solve.</p>
+
+  <h2>Four Agents, One Human Making the Calls</h2>
+  <p>I moved to GitHub Pages — free, clean, plain HTML and CSS. The cost argument was simple: I was paying for convenience I wasn't using. GitHub Pages gave me the same outcome at zero cost, and came with something managed platforms don't: native version control and a release process that fits naturally into automation. Every change tracked, every deployment intentional.</p>
+  <p>But the bigger shift wasn't the hosting. Think of it like having a content agency — writers, designers, a site manager — except instead of hiring people or paying a retainer, I built that agency out of AI agents. Each one handles a specific role. I'm the editor-in-chief who approves what goes out.</p>
+
+  <figure class="note-figure">
+    <img src="img/personal-wkf-process.png" alt="Diagram of the four-agent workflow: Idea Capture, Note Writer, Site Builder, and the staging and approval process." loading="lazy">
+  </figure>
+
+  <div class="step">
+    <div class="step-label">Stage 1 — Idea Capture</div>
+    <h3>Agent: Idea Organizer</h3>
+    <p>I send raw inputs — messy thoughts, bullet points, research references, links I've been sitting on. The agent organizes everything into a structured entry in Notion with metadata: topic, status, priority. My role: review the structured idea, approve it or send it back. Ideas stack up organized and ready instead of scattered across three apps.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Stage 2 — Writing</div>
+    <h3>Agent: Note Writer</h3>
+    <p>I trained this agent on my tone and how I structure arguments. I feed it research and raw ideas. It generates a full HTML draft — semantic markup, SEO metadata, styling already applied. The agent does 80% of the work. I do the final 20% that makes it mine: the voice, the honest takes, the parts that require actual judgment.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Stage 3 — Site Updates</div>
+    <h3>Agent: Site Builder</h3>
+    <p>When a note is ready, the index page needs a new card. I describe what I want. The agent generates the HTML changes. I review the code before it touches anything, adjust if the styling is off, then approve.</p>
+  </div>
+
+  <h2>The Staging Rule</h2>
+  <p>This is where control actually happens.</p>
+  <p>The agent never auto-deploys. It never auto-commits. It prepares everything in a staging area — content, code changes, suggested commit messages — and waits. I review, adjust if needed, approve, and then commit manually.</p>
+
+  <div class="callout">
+    <p><strong>Why manual commits matter:</strong> Auto-pilot is seductive but it disconnects you from what's actually changing. By committing yourself, you stay aware of what's going out, why it's changing, and whether it's right. The moment you automate away that step, you stop thinking about what you're publishing. Control keeps you honest.</p>
+  </div>
+
+  <h2>What This Actually Saves</h2>
+  <p>Ideas don't get lost — they go straight into Notion instead of disappearing into a voice memo I'll never open. First drafts are fast — I focus on voice and accuracy, not blank-page paralysis. Site updates take minutes, not an afternoon. And the cost is zero. GitHub Pages is free.</p>
+  <p>It's not about having AI do the work. It's about compressing the time between idea and published note while keeping the quality high. The agents accelerate the mechanics. I make the decisions.</p>
+
+  <h2>Who This Works For</h2>
+  <p>This makes sense if you have ideas worth publishing regularly, want to own your site completely, and understand enough code to review what gets generated. If you need comments, user logins, or a plugin ecosystem — wrong tool. But if you want to turn thinking into published content as fast as possible without losing control, it's hard to beat.</p>
+  <p>If you're using a managed platform because it's the path of least resistance — that's a fair choice. But if you're finding it limits more than it enables, consider building a pipeline instead. Use AI to handle the mechanics. Keep your hands on the commit button. You'll publish more and own everything you ship.</p>
+
+  <div class="article-footer">
+    <div class="author-line">Written by <strong>Edson Ferreira</strong> — Senior Principal PM at Oracle, building AI-native product systems.</div>
+    <a class="back-link" href="../index.html#notes">← More notes</a>
+  </div>
+</article>
+</body>
+</html>
