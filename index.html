@@ -1042,6 +1042,12 @@
     .impact-grid { grid-template-columns: repeat(2,1fr); }
     .clients-grid { grid-template-columns: repeat(3,1fr); }
     .nav-links { display: none; }
+    .notes-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .notes-grid { grid-template-columns: 1fr; }
+    .clients-grid { grid-template-columns: repeat(2,1fr); }
+    .impact-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -1070,6 +1076,7 @@
       </p>
       <div class="hero-actions">
         <a class="btn-primary" href="#about">My work →</a>
+        <a class="btn-outline" href="#notes">What's on my mind →</a>
         <a class="btn-outline" href="https://www.linkedin.com/in/edsonferreira" target="_blank">LinkedIn</a>
         <a class="btn-outline" href="#contact">Let's talk</a>
       </div>
