@@ -159,7 +159,21 @@
     color: var(--muted);
   }
 
+  .nav-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
+
+  /* Hamburger */
+  .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all 0.25s ease; transform-origin: center; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* Mobile dropdown */
+  .nav-mobile { display: none; position: fixed; top: 60px; left: 0; right: 0; background: rgba(247,245,242,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 99; padding: 0.5rem 0 1rem; }
+  .nav-mobile.open { display: block; }
+  .nav-mobile a { display: block; padding: 0.75rem 2.5rem; font-size: 0.95rem; font-weight: 300; color: var(--text); text-decoration: none; transition: color 0.15s; }
+  .nav-mobile a:hover { color: var(--accent); }
 
   .nav-cta {
     font-size: 0.8rem;
@@ -1055,6 +1069,7 @@
     .impact-grid { grid-template-columns: repeat(2,1fr); }
     .clients-grid { grid-template-columns: repeat(3,1fr); }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
     .notes-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 600px) {
@@ -1077,7 +1092,20 @@
     <li><a href="#beyond-work">Beyond Work</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile nav dropdown -->
+<div class="nav-mobile" id="navMobile">
+  <a href="#about" class="nav-mobile-link">About</a>
+  <a href="#ai" class="nav-mobile-link">AI Work</a>
+  <a href="#experience" class="nav-mobile-link">Experience</a>
+  <a href="#notes" class="nav-mobile-link">Notes</a>
+  <a href="#beyond-work" class="nav-mobile-link">Beyond Work</a>
+  <a href="#contact" class="nav-mobile-link">Contact</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1542,6 +1570,20 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   items.forEach(el => observer.observe(el));
+
+  // Mobile nav
+  const hamburger = document.getElementById('navHamburger');
+  const mobileNav = document.getElementById('navMobile');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
 </script>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></scri
