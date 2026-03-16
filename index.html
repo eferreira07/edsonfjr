@@ -878,6 +878,15 @@
 
   .notes-footer:hover { text-decoration: underline; }
 
+  /* BEYOND WORK */
+  .beyond-list { display: flex; flex-direction: column; margin-top: 2.5rem; }
+  .beyond-item { display: flex; gap: 2rem; align-items: flex-start; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .beyond-item:first-child { border-top: 1px solid var(--border); }
+  .beyond-tag { flex-shrink: 0; width: 76px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); padding-top: 0.2rem; }
+  .beyond-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.35rem; display: flex; align-items: baseline; gap: 0.75rem; }
+  .beyond-year { font-family: var(--sans); font-size: 0.72rem; font-weight: 400; color: var(--muted); letter-spacing: 0; }
+  .beyond-desc { font-size: 0.88rem; font-weight: 300; color: var(--muted); line-height: 1.65; }
+
   /* SKILLS */
   .skills-grid {
     display: grid;
@@ -1065,6 +1074,7 @@
     <li><a href="#ai">AI Work</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#notes">Notes</a></li>
+    <li><a href="#beyond-work">Beyond Work</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -1422,6 +1432,53 @@
     </div>
     <div style="margin-top:2rem;text-align:right;">
       <a href="notes/index.html" style="font-size:0.85rem;font-weight:500;color:var(--accent);text-decoration:none;">View all notes →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- BEYOND WORK -->
+<section id="beyond-work">
+  <div class="section-inner fade-in">
+    <div class="section-eyebrow">Beyond Work</div>
+    <h2>Things I do <em>outside the job</em></h2>
+    <p class="section-intro">Some of the most interesting work I do doesn't show up in a job title. Here's where I spend time when I'm not building product.</p>
+
+    <div class="beyond-list">
+
+      <div class="beyond-item">
+        <div class="beyond-tag">Museum</div>
+        <div class="beyond-body">
+          <div class="beyond-title">Montana Computer Museum <span class="beyond-year">2025</span></div>
+          <div class="beyond-desc">I help the museum bring Pepper — a humanoid robot — to life for visitors. Walkthroughs, demos, and conversations about what AI actually means for people.</div>
+        </div>
+      </div>
+
+      <div class="beyond-item">
+        <div class="beyond-tag">Education</div>
+        <div class="beyond-body">
+          <div class="beyond-title">STEAM at Morning Star <span class="beyond-year">2025</span></div>
+          <div class="beyond-desc">Supporting K–12 students with hands-on STEAM programming. The earlier kids get exposure to technology, the more options they have later.</div>
+        </div>
+      </div>
+
+      <div class="beyond-item">
+        <div class="beyond-tag">Mentoring</div>
+        <div class="beyond-body">
+          <div class="beyond-title">MSU Student Mentoring <span class="beyond-year">2026</span></div>
+          <div class="beyond-desc">1:1 sessions with Montana State University students in computer science and product management. Mostly honest conversations about how the industry actually works.</div>
+        </div>
+      </div>
+
+      <div class="beyond-item">
+        <div class="beyond-tag">Advisory</div>
+        <div class="beyond-body">
+          <div class="beyond-title">Industry Advisory Board <span class="beyond-year">2026</span></div>
+          <div class="beyond-desc">Sharing what I see from the enterprise software trenches — where AI is headed, what skills will matter, and what the gap between academia and industry still looks like.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
