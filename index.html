@@ -900,6 +900,9 @@
   .beyond-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.35rem; display: flex; align-items: baseline; gap: 0.75rem; }
   .beyond-year { font-family: var(--sans); font-size: 0.72rem; font-weight: 400; color: var(--muted); letter-spacing: 0; }
   .beyond-desc { font-size: 0.88rem; font-weight: 300; color: var(--muted); line-height: 1.65; }
+  .beyond-item-link { text-decoration: none; color: inherit; }
+  .beyond-item-link:hover .beyond-title { color: var(--accent); }
+  .beyond-item-link .beyond-title { transition: color 0.15s; }
 
   /* SKILLS */
   .skills-grid {
@@ -1506,6 +1509,14 @@
           <div class="beyond-desc">Sharing what I see from the enterprise software trenches — where AI is headed, what skills will matter, and what the gap between academia and industry still looks like.</div>
         </div>
       </div>
+
+      <a class="beyond-item beyond-item-link" href="notes/index.html">
+        <div class="beyond-tag">Writing</div>
+        <div class="beyond-body">
+          <div class="beyond-title">Cutting Through the Noise <span class="beyond-year">2025</span></div>
+          <div class="beyond-desc">Research and personal experience, written down for anyone who finds it useful. No algorithm, no agenda — just honest takes on AI, product, and work from someone in the middle of it.</div>
+        </div>
+      </a>
 
     </div>
   </div>
