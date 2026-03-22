@@ -828,60 +828,15 @@
   }
 
   /* NOTES */
-  .notes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .note-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    transition: border-color 0.2s, transform 0.2s;
-    text-decoration: none;
-  }
-
-  .note-card:hover {
-    border-color: var(--border-strong);
-    transform: translateY(-2px);
-  }
-
-  .note-tag {
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .note-card h3 {
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    font-weight: 400;
-    color: var(--text);
-    line-height: 1.4;
-    margin: 0;
-  }
-
-  .note-card p {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: var(--muted);
-    line-height: 1.7;
-    flex: 1;
-    margin: 0;
-  }
-
-  .note-card-link {
-    font-size: 0.78rem;
-    color: var(--accent);
-  }
+  .notes-feed { display: flex; flex-direction: column; margin-bottom: 2rem; }
+  .note-card { display: flex; gap: 2rem; align-items: flex-start; padding: 1.5rem 0; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; }
+  .note-card:first-child { border-top: 1px solid var(--border); }
+  .note-tag { flex-shrink: 0; width: 76px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); padding-top: 0.2rem; }
+  .note-card h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.35rem; display: flex; align-items: baseline; gap: 0.75rem; }
+  .note-card-meta { font-family: var(--sans); font-size: 0.72rem; font-weight: 400; color: var(--muted); letter-spacing: 0; }
+  .note-card p { font-size: 0.88rem; font-weight: 300; color: var(--muted); line-height: 1.65; margin: 0; }
+  .note-card:hover h3 { color: var(--accent); }
+  .note-card h3 { transition: color 0.15s; }
 
   .notes-footer {
     font-size: 0.875rem;
@@ -1073,10 +1028,8 @@
     .clients-grid { grid-template-columns: repeat(3,1fr); }
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
-    .notes-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 600px) {
-    .notes-grid { grid-template-columns: 1fr; }
     .clients-grid { grid-template-columns: repeat(2,1fr); }
     .impact-grid { grid-template-columns: 1fr; }
   }
@@ -1417,54 +1370,62 @@
     <div class="section-eyebrow">Notes</div>
     <h2>Thinking <em>out loud</em></h2>
     <p class="section-intro">Short posts on AI, product thinking, and how I build systems to work better. No newsletter. No algorithm. Just useful ideas.</p>
-    <div class="notes-grid">
+    <div class="notes-feed">
       <a class="note-card" href="notes/woodworking-pm-product-cycle.html">
-        <div class="note-tag">Systems · 4 min read</div>
-        <h3>My Son Needed a Closet. I Ran a Full Product Cycle.</h3>
-        <p>How building a closet from scratch — with an ROI decision, AI-assisted planning, mid-build pivots, and a stakeholder pilot — turned out to be pure PM thinking.</p>
-        <div class="note-card-link">Read note →</div>
+        <div class="note-tag">Systems</div>
+        <div class="note-body">
+          <h3>My Son Needed a Closet. I Ran a Full Product Cycle. <span class="note-card-meta">4 min read</span></h3>
+          <p>How building a closet from scratch — with an ROI decision, AI-assisted planning, mid-build pivots, and a stakeholder pilot — turned out to be pure PM thinking.</p>
+        </div>
       </a>
       <a class="note-card" href="notes/four-skills-ai-adoption.html">
-        <div class="note-tag">AI · 3 min read</div>
-        <h3>Four Skills to Work with AI Without Losing Your Mind</h3>
-        <p>Most AI content teaches you the tool. These four skills teach you how to protect your thinking — and why that matters more than any prompt technique.</p>
-        <div class="note-card-link">Read note →</div>
+        <div class="note-tag">AI</div>
+        <div class="note-body">
+          <h3>Four Skills to Work with AI Without Losing Your Mind <span class="note-card-meta">3 min read</span></h3>
+          <p>Most AI content teaches you the tool. These four skills teach you how to protect your thinking — and why that matters more than any prompt technique.</p>
+        </div>
       </a>
       <a class="note-card" href="notes/ai-agents-human-in-control.html">
-        <div class="note-tag">AI · 3 min read</div>
-        <h3>Building With AI Agents — I Stay in Control</h3>
-        <p>I replaced WordPress with GitHub Pages and a pipeline of AI agents. Each handles one stage. I review, approve, and commit manually. Here's the workflow.</p>
-        <div class="note-card-link">Read note →</div>
+        <div class="note-tag">AI</div>
+        <div class="note-body">
+          <h3>Building With AI Agents — I Stay in Control <span class="note-card-meta">3 min read</span></h3>
+          <p>I replaced WordPress with GitHub Pages and a pipeline of AI agents. Each handles one stage. I review, approve, and commit manually. Here's the workflow.</p>
+        </div>
       </a>
       <a class="note-card" href="notes/ai-tooling-layers.html">
-        <div class="note-tag">AI · 4 min read</div>
-        <h3>How I Think About AI Tooling</h3>
-        <p>Five layers of AI tooling, from vibe coding to autonomous agents. How I decide which one to use — and how much of the work to hand off.</p>
-        <div class="note-card-link">Read note →</div>
+        <div class="note-tag">AI</div>
+        <div class="note-body">
+          <h3>How I Think About AI Tooling <span class="note-card-meta">4 min read</span></h3>
+          <p>Five layers of AI tooling, from vibe coding to autonomous agents. How I decide which one to use — and how much of the work to hand off.</p>
+        </div>
       </a>
       <a class="note-card" href="notes/why-i-write.html">
-        <div class="note-tag">Personal · 3 min read</div>
-        <h3>Why I write</h3>
-        <p>Not for a brand. Writing is how I find out what I actually know — and how I want to be remembered.</p>
-        <div class="note-card-link">Read note →</div>
+        <div class="note-tag">Personal</div>
+        <div class="note-body">
+          <h3>Why I write <span class="note-card-meta">3 min read</span></h3>
+          <p>Not for a brand. Writing is how I find out what I actually know — and how I want to be remembered.</p>
+        </div>
       </a>
       <a class="note-card" href="notes/your-github-might-get-you-hired.html">
-        <div class="note-tag">Career · 7 min read</div>
-        <h3>Your GPA won't get you the job. Your GitHub might.</h3>
-        <p>20 years in enterprise software taught me what I actually look for in a developer. It's not the degree — and in the agent era, it's not even just the code.</p>
-        <div class="note-card-link">Read note →</div>
+        <div class="note-tag">Career</div>
+        <div class="note-body">
+          <h3>Your GPA won't get you the job. Your GitHub might. <span class="note-card-meta">7 min read</span></h3>
+          <p>20 years in enterprise software taught me what I actually look for in a developer. It's not the degree — and in the agent era, it's not even just the code.</p>
+        </div>
       </a>
       <a class="note-card" href="notes/claude-notion-workflow.html">
-        <div class="note-tag">AI · 4 min read</div>
-        <h3>How I use Claude + Notion to run my week without losing my mind</h3>
-        <p>Meeting notes, backlog discovery, product specs — three workflows that compress the distance between raw signal and something I can actually ship.</p>
-        <div class="note-card-link">Read note →</div>
+        <div class="note-tag">AI</div>
+        <div class="note-body">
+          <h3>How I use Claude + Notion to run my week without losing my mind <span class="note-card-meta">4 min read</span></h3>
+          <p>Meeting notes, backlog discovery, product specs — three workflows that compress the distance between raw signal and something I can actually ship.</p>
+        </div>
       </a>
       <a class="note-card" href="notes/ai-cockpit-framework.html">
-        <div class="note-tag">AI · 5 min read</div>
-        <h3>The Cockpit Rule: a framework for knowing when to let AI fly</h3>
-        <p>Not every task needs the same AI involvement. Three modes — Autopilot, Collaboration, Manual — and a simple decision filter to know which one to use.</p>
-        <div class="note-card-link">Read note →</div>
+        <div class="note-tag">AI</div>
+        <div class="note-body">
+          <h3>The Cockpit Rule: a framework for knowing when to let AI fly <span class="note-card-meta">5 min read</span></h3>
+          <p>Not every task needs the same AI involvement. Three modes — Autopilot, Collaboration, Manual — and a simple decision filter to know which one to use.</p>
+        </div>
       </a>
     </div>
     <div style="margin-top:2rem;text-align:right;">
