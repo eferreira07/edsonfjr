@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Let AI Build Two Apps. Here's What Actually Happened. — Edson Ferreira</title>
+<meta name="description" content="Everyone's talking about vibe coding and AI replacing developers. I ran two real experiments. Here's what broke, what I fixed, and what I actually learned.">
+<meta name="author" content="Edson Ferreira">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="vibe coding, will AI replace developers, AI coding tools 2026, AI software development, AI replace programmers, human in the loop AI, junior developer jobs AI, AI generated code, AI coding experiments">
+<link rel="canonical" href="https://edsonfjr.com/notes/ai-built-two-apps-lessons">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://edsonfjr.com/notes/ai-built-two-apps-lessons">
+<meta property="og:title" content="I Let AI Build Two Apps. Here's What Actually Happened.">
+<meta property="og:description" content="Everyone's talking about vibe coding and AI replacing developers. I ran two real experiments. Here's what broke, what I fixed, and what I actually learned.">
+<meta property="og:image" content="https://edsonfjr.com/og-preview.png">
+<meta property="og:site_name" content="Edson Ferreira">
+<meta property="article:author" content="Edson Ferreira">
+<meta property="article:published_time" content="2026-03-25">
+<meta property="article:section" content="AI">
+<meta property="article:tag" content="vibe coding lessons learned">
+<meta property="article:tag" content="will AI replace software engineers">
+<meta property="article:tag" content="AI coding tools 2026">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@edsonferreira_">
+<meta name="twitter:creator" content="@edsonferreira_">
+<meta name="twitter:title" content="I Let AI Build Two Apps. Here's What Actually Happened.">
+<meta name="twitter:description" content="Vibe coding sounds great. I tried it. One app had silent bugs I had to find manually. The other buried me in code I didn't write. Real lessons inside.">
+<meta name="twitter:image" content="https://edsonfjr.com/og-preview.png">
+
+<!-- JSON-LD: Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "I Let AI Build Two Apps. Here's What Actually Happened.",
+  "description": "Everyone's talking about vibe coding and AI replacing developers. I ran two real experiments. Here's what broke, what I fixed, and what I actually learned.",
+  "url": "https://edsonfjr.com/notes/ai-built-two-apps-lessons",
+  "datePublished": "2026-03-25",
+  "author": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/edsonferreira",
+      "https://twitter.com/edsonferreira_"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://edsonfjr.com/notes/ai-built-two-apps-lessons"
+  },
+  "image": "https://edsonfjr.com/og-preview.png",
+  "keywords": ["vibe coding", "will AI replace developers", "AI coding tools 2026", "AI software development", "AI replace programmers", "human in the loop AI", "junior developer jobs AI", "AI generated code"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2; --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.07); --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916; --muted: #7A7870;
+    --accent: #3D5A80; --accent2: #2C4A6E;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --r: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; z-index: 100; }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-back { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  article { max-width: 680px; margin: 0 auto; padding: 120px 2rem 6rem; }
+  .article-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+  h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 1.5rem; }
+  .article-meta { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--text); margin: 2.5rem 0 1rem; }
+  p { font-size: 1rem; font-weight: 300; color: var(--text); line-height: 1.85; margin-bottom: 1.4rem; }
+  .lead { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+  .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .callout p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .callout strong { font-weight: 500; color: var(--text); }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
+  .step-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .step h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .article-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .author-line { font-size: 0.85rem; color: var(--muted); }
+  .author-line strong { font-weight: 500; color: var(--text); }
+  .back-link { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media (max-width: 640px) { nav { padding: 0 1.25rem; } article { padding: 100px 1.25rem 4rem; } h1 { font-size: 1.9rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">Edson<span>.</span></a>
+  <a class="nav-back" href="../index.html#notes">← Back to notes</a>
+</nav>
+<article>
+  <div class="article-eyebrow">AI · 4 min read</div>
+  <h1>I Let AI Build Two Apps. Here's What Actually Happened.</h1>
+  <div class="article-meta">By Edson Ferreira &nbsp;·&nbsp; March 2026</div>
+
+  <p class="lead">There's a lot of noise around AI right now. Some people say it will replace entire teams. Others say it's overhyped. I'm not interested in either argument. I'm interested in what actually happens when you use it — not in a demo, not in a LinkedIn post, but in a real task with real stakes.</p>
+
+  <p>This note is for people who want to cut through the hype and understand what AI can actually do today, and what it still can't. It's especially for people early in their careers wondering if there's still a place for them. The honest answer: yes — but the game has changed, and the foundation you build now matters more than ever.</p>
+
+  <p>Most of my AI learning hasn't come from courses or articles. It's come from trying things, watching what breaks, and adjusting. That loop — do, reflect, learn, try again — is basically what Kolb (1984) calls experiential learning. I didn't plan it that way. It just happened to be the only approach that taught me anything I could actually use.</p>
+
+  <p>Over the past few months, I ran two experiments to understand what AI can do when handed a real development task. What people are calling "vibe coding" — describing what you want in plain language and letting AI write the code — is exactly what I did. The two experiments were different in complexity. That difference turned out to be the whole lesson.</p>
+
+  <h2>Experiment one — a simple static page</h2>
+
+  <p>The first task was a basic HTML and JavaScript page. Static, no backend, nothing fancy. Something I could have built myself, but slower and messier.</p>
+
+  <p>AI moved fast. The result looked good. I was genuinely impressed — until I noticed my telemetry wasn't recording correctly.</p>
+
+  <p>I opened the browser inspector and started digging. The issue wasn't in the logic. It was structural: a few closing tags — <code>body</code>, <code>script</code>, <code>html</code> — had been left open somewhere in the file. The page rendered fine. Browsers are forgiving. But that broken structure was silently killing my tracking events.</p>
+
+  <p>I pointed it out to AI. It couldn't find the problem. I had to read the code myself and spot it manually.</p>
+
+  <p>There was another issue. Partway through our back-and-forth, AI lost track of the folder structure and started writing changes to the wrong directory — the production folder, not the staging area I had explicitly set up for this experiment. I caught it in time. But only because I was still reviewing every change before accepting it. I had decided early on that I wasn't going to let AI commit directly to my git repository. That call was right.</p>
+
+  <div class="callout">
+    <p><strong>What this taught me:</strong> If you can't read the code, you can't validate the output. AI builds fast — but it doesn't always build clean, and it won't catch every mistake it makes. You still need to know the language well enough to read it, and you need to test what you ship.</p>
+  </div>
+
+  <h2>Experiment two — a full application</h2>
+
+  <p>The second experiment was more ambitious. I asked AI to build a financial dashboard from scratch: parse bank statements, calculate financial health metrics, display everything locally. That meant Python, file processing, a few external dependencies. Not a static page anymore.</p>
+
+  <p>It built an MVP that looked legitimate. Honestly impressive for a first pass.</p>
+
+  <p>Then I tried to fix something, and things got hard fast.</p>
+
+  <p>Debugging an app AI wrote from scratch felt like being dropped into someone else's six-year-old codebase with no documentation and no handoff. The logic was there, but I hadn't written any of it. I didn't have the context for why certain decisions were made. The dependencies AI chose were ones I wouldn't have picked. Some issues took me longer to fix than they would have if I'd written the code myself from the beginning — because I was essentially doing reverse engineering on every step.</p>
+
+  <div class="callout">
+    <p><strong>What this taught me:</strong> Letting AI build an entire app end-to-end creates a different kind of risk. Not a build risk — it can build. The risk is that when something breaks, you're on your own inside a codebase you don't fully understand.</p>
+  </div>
+
+  <h2>What this means for teams — and for people just starting out</h2>
+
+  <p>Yes, AI can reduce team size. A small team with the right foundation and the right tools can move faster than a large team without them. That part of the argument is real.</p>
+
+  <p>But here's what my experiments confirmed: the people who get replaced aren't the ones who know how to code or think critically. They're the ones who only do the work AI can now do on its own. The people who stay — and the ones who will be hired — are the ones who can direct AI, validate its output, catch what it misses, and fix what breaks. That requires a real foundation. It requires knowing enough to know when something is wrong.</p>
+
+  <p>If you're just finishing school and wondering if there's still room for you, there is. But don't show up expecting to build things in isolation. Show up ready to work alongside AI — and know enough to keep it honest.</p>
+
+  <h2>What I concluded from the experiments</h2>
+
+  <p>Vibe coding works. For small, scoped tasks — a component, a script, a proof of concept — AI is genuinely fast and covers ground quickly. Give it a clear definition of done, enough context, and a contained problem. It delivers.</p>
+
+  <p>But the bigger the scope, the harder recovery becomes when something breaks. An entire app built by AI is an app you didn't write — which means troubleshooting it requires skills you still need to have. Vibe coding is a great way to start. It's a bad strategy to run on autopilot end to end.</p>
+
+  <div class="step">
+    <div class="step-label">Lesson one</div>
+    <h3>Know the language, even if AI writes the code</h3>
+    <p>You don't need to write every line. But you need to read it, spot issues, and understand enough to validate what was built. Without that, you're trusting blindly.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Lesson two</div>
+    <h3>Small chunks work. Full apps are risky.</h3>
+    <p>POCs, scripts, and isolated components are where AI shines. An entire application built in one shot creates a codebase that's hard to reason about and even harder to debug.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Lesson three</div>
+    <h3>Keep control of the critical steps</h3>
+    <p>Code review, testing, and committing to production are still yours. AI can accelerate the build — but certification and final judgment belong to the human in the loop.</p>
+  </div>
+
+  <p>AI can write your code. It can't fully own what breaks. That part is still on you — which means staying in the loop isn't optional.</p>
+
+  <div class="article-footer">
+    <div class="author-line">Written by <strong>Edson Ferreira</strong> — Senior Principal PM at Oracle, building AI-native product systems.</div>
+    <a class="back-link" href="../index.html#notes">← More notes</a>
+  </div>
+</article>
+</body>
+</html>
