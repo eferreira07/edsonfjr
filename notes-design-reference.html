@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notes Section — Design Reference</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text: #1a1a1a;
+      --muted: #777;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+      --surface: #fafafa;
+      --bg: #ffffff;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: #f4f4f4;
+      padding: 2rem 1rem;
+      color: var(--text);
+    }
+
+    h1 {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+    .subtitle {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 3rem;
+    }
+
+    .option-block {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .option-block:hover { border-color: var(--accent); }
+
+    .option-label {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: white;
+      background: var(--accent);
+      border-radius: 4px;
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .option-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .option-desc {
+      font-size: 0.82rem;
+      color: #888;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px dashed #e0e0e0;
+      margin-bottom: 2rem;
+    }
+
+    /* Fake section wrapper */
+    .preview-wrapper {
+      max-width: 780px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .section-heading {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+    .section-heading em { font-style: italic; color: #444; }
+    .section-intro {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      max-width: 540px;
+    }
+
+    /* ─── OPTION A: List Feed ─── */
+    .feed-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .feed-item {
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.15s;
+    }
+    .feed-item:first-child { border-top: 1px solid var(--border); }
+    .feed-item:hover .feed-title { color: var(--accent); }
+    .feed-tag {
+      flex-shrink: 0;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      width: 52px;
+    }
+    .feed-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.4;
+      flex: 1;
+      transition: color 0.15s;
+    }
+    .feed-meta {
+      flex-shrink: 0;
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .view-all-link {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .view-all-link:hover { text-decoration: underline; }
+
+    /* ─── OPTION B: Compact 2-col grid, title only ─── */
+    .compact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    .compact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .compact-card:hover {
+      border-color: var(--accent);
+      background: #f0f6ff;
+    }
+    .compact-tag {
+      font-size: 0.62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .compact-title {
+      font-family: var(--serif);
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .compact-card:hover .compact-title { color: var(--accent); }
+
+    /* ─── OPTION C: Featured + list hybrid ─── */
+    .hybrid-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .featured-card {
+      background: #f0f5ff;
+      border: 1px solid #c7d9ff;
+      border-radius: 14px;
+      padding: 1.75rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: border-color 0.2s;
+    }
+    .featured-card:hover { border-color: var(--accent); }
+    .featured-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+    .featured-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .featured-card:hover .featured-title { color: var(--accent); }
+    .featured-excerpt {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .featured-read {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hybrid-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hybrid-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+    }
+    .hybrid-item:first-child { padding-top: 0; }
+    .hybrid-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .hybrid-item-tag {
+      font-size: 0.62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .hybrid-item-title {
+      font-family: var(--serif);
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.4;
+      transition: color 0.15s;
+    }
+    .hybrid-item:hover .hybrid-item-title { color: var(--accent); }
+
+  </style>
+</head>
+<body>
+
+  <h1>Notes Section — Design Reference</h1>
+  <p class="subtitle">3 alternatives to the current card layout. Hover each option to see the interaction. No changes made to your site yet.</p>
+
+  <!-- ───────────────────────────────── OPTION A -->
+  <div class="option-block">
+    <div class="option-label">Option A</div>
+    <div class="option-title">List Feed</div>
+    <p class="option-desc">
+      Inspired by Linear, Loom, and personal sites like Tom MacWright's. The title carries the weight — no excerpt needed.
+      Tag on the left, read time on the right. Feels editorial and fast. Works great when you have many notes.
+    </p>
+    <hr class="divider">
+    <div class="preview-wrapper">
+      <div class="section-eyebrow">Notes</div>
+      <h2 class="section-heading">Thinking <em>out loud</em></h2>
+      <p class="section-intro">Short posts on AI, product thinking, and how I build systems to work better.</p>
+
+      <div class="feed-list">
+        <a class="feed-item" href="#">
+          <span class="feed-tag">Systems</span>
+          <span class="feed-title">My Son Needed a Closet. I Ran a Full Product Cycle.</span>
+          <span class="feed-meta">4 min read</span>
+        </a>
+        <a class="feed-item" href="#">
+          <span class="feed-tag">AI</span>
+          <span class="feed-title">Four Skills to Work with AI Without Losing Your Mind</span>
+          <span class="feed-meta">3 min read</span>
+        </a>
+        <a class="feed-item" href="#">
+          <span class="feed-tag">AI</span>
+          <span class="feed-title">Building With AI Agents — I Stay in Control</span>
+          <span class="feed-meta">3 min read</span>
+        </a>
+        <a class="feed-item" href="#">
+          <span class="feed-tag">AI</span>
+          <span class="feed-title">How I Think About AI Tooling</span>
+          <span class="feed-meta">4 min read</span>
+        </a>
+        <a class="feed-item" href="#">
+          <span class="feed-tag">Personal</span>
+          <span class="feed-title">Why I write</span>
+          <span class="feed-meta">3 min read</span>
+        </a>
+        <a class="feed-item" href="#">
+          <span class="feed-tag">Career</span>
+          <span class="feed-title">Your GPA won't get you the job. Your GitHub might.</span>
+          <span class="feed-meta">7 min read</span>
+        </a>
+        <a class="feed-item" href="#">
+          <span class="feed-tag">AI</span>
+          <span class="feed-title">How I use Claude + Notion to run my week without losing my mind</span>
+          <span class="feed-meta">4 min read</span>
+        </a>
+        <a class="feed-item" href="#">
+          <span class="feed-tag">AI</span>
+          <span class="feed-title">The Cockpit Rule: a framework for knowing when to let AI fly</span>
+          <span class="feed-meta">5 min read</span>
+        </a>
+      </div>
+      <a class="view-all-link" href="#">View all notes →</a>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────── OPTION B -->
+  <div class="option-block">
+    <div class="option-label">Option B</div>
+    <div class="option-title">Compact 2-Column Grid</div>
+    <p class="option-desc">
+      Keeps the card feel but removes the excerpt. Tighter padding, smaller radius, 2-col layout.
+      Inspired by Vercel's blog and Stripe's product updates. The title is what draws people in — the description belongs inside the post.
+    </p>
+    <hr class="divider">
+    <div class="preview-wrapper">
+      <div class="section-eyebrow">Notes</div>
+      <h2 class="section-heading">Thinking <em>out loud</em></h2>
+      <p class="section-intro">Short posts on AI, product thinking, and how I build systems to work better.</p>
+
+      <div class="compact-grid">
+        <a class="compact-card" href="#">
+          <span class="compact-tag">Systems · 4 min</span>
+          <span class="compact-title">My Son Needed a Closet. I Ran a Full Product Cycle.</span>
+        </a>
+        <a class="compact-card" href="#">
+          <span class="compact-tag">AI · 3 min</span>
+          <span class="compact-title">Four Skills to Work with AI Without Losing Your Mind</span>
+        </a>
+        <a class="compact-card" href="#">
+          <span class="compact-tag">AI · 3 min</span>
+          <span class="compact-title">Building With AI Agents — I Stay in Control</span>
+        </a>
+        <a class="compact-card" href="#">
+          <span class="compact-tag">AI · 4 min</span>
+          <span class="compact-title">How I Think About AI Tooling</span>
+        </a>
+        <a class="compact-card" href="#">
+          <span class="compact-tag">Personal · 3 min</span>
+          <span class="compact-title">Why I write</span>
+        </a>
+        <a class="compact-card" href="#">
+          <span class="compact-tag">Career · 7 min</span>
+          <span class="compact-title">Your GPA won't get you the job. Your GitHub might.</span>
+        </a>
+        <a class="compact-card" href="#">
+          <span class="compact-tag">AI · 4 min</span>
+          <span class="compact-title">How I use Claude + Notion to run my week without losing my mind</span>
+        </a>
+        <a class="compact-card" href="#">
+          <span class="compact-tag">AI · 5 min</span>
+          <span class="compact-title">The Cockpit Rule: a framework for knowing when to let AI fly</span>
+        </a>
+      </div>
+      <a class="view-all-link" href="#">View all notes →</a>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────── OPTION C -->
+  <div class="option-block">
+    <div class="option-label">Option C</div>
+    <div class="option-title">Featured + List Hybrid</div>
+    <p class="option-desc">
+      One featured note gets the spotlight (your most recent or best one), the rest sit in a clean list beside it.
+      Great for a personal site — it signals "there's a point of view here." Inspired by Substack and personal blogs like Julian Shapiro's.
+    </p>
+    <hr class="divider">
+    <div class="preview-wrapper">
+      <div class="section-eyebrow">Notes</div>
+      <h2 class="section-heading">Thinking <em>out loud</em></h2>
+      <p class="section-intro">Short posts on AI, product thinking, and how I build systems to work better.</p>
+
+      <div class="hybrid-layout">
+        <a class="featured-card" href="#">
+          <span class="featured-badge">Latest · Systems · 4 min</span>
+          <span class="featured-title">My Son Needed a Closet. I Ran a Full Product Cycle.</span>
+          <span class="featured-excerpt">How building a closet from scratch — with an ROI decision, AI-assisted planning, mid-build pivots, and a stakeholder pilot — turned out to be pure PM thinking.</span>
+          <span class="featured-read">Read note →</span>
+        </a>
+
+        <div class="hybrid-list">
+          <a class="hybrid-item" href="#">
+            <span class="hybrid-item-tag">AI · 3 min</span>
+            <span class="hybrid-item-title">Four Skills to Work with AI Without Losing Your Mind</span>
+          </a>
+          <a class="hybrid-item" href="#">
+            <span class="hybrid-item-tag">AI · 3 min</span>
+            <span class="hybrid-item-title">Building With AI Agents — I Stay in Control</span>
+          </a>
+          <a class="hybrid-item" href="#">
+            <span class="hybrid-item-tag">AI · 4 min</span>
+            <span class="hybrid-item-title">How I Think About AI Tooling</span>
+          </a>
+          <a class="hybrid-item" href="#">
+            <span class="hybrid-item-tag">Personal · 3 min</span>
+            <span class="hybrid-item-title">Why I write</span>
+          </a>
+          <a class="hybrid-item" href="#">
+            <span class="hybrid-item-tag">Career · 7 min</span>
+            <span class="hybrid-item-title">Your GPA won't get you the job. Your GitHub might.</span>
+          </a>
+          <a class="hybrid-item" href="#">
+            <span class="hybrid-item-tag">AI · 4 min</span>
+            <span class="hybrid-item-title">How I use Claude + Notion to run my week without losing my mind</span>
+          </a>
+          <a class="hybrid-item" href="#">
+            <span class="hybrid-item-tag">AI · 5 min</span>
+            <span class="hybrid-item-title">The Cockpit Rule: a framework for knowing when to let AI fly</span>
+          </a>
+        </div>
+      </div>
+      <a class="view-all-link" href="#">View all notes →</a>
+    </div>
+  </div>
+
+</body>
+</html>
