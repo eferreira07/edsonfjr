@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0M1EKPN4Y2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0M1EKPN4Y2');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I Use Claude AI + Notion as a Product Manager to Run My Week — Edson Ferreira</title>
+<meta name="description" content="A real Claude AI + Notion workflow for product managers. I've automated meeting notes, backlog research, and product specs — here's exactly how the system works, start to finish.">
+<meta name="author" content="Edson Ferreira">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://edsonfjr.com/notes/claude-notion-workflow">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://edsonfjr.com/notes/claude-notion-workflow">
+<meta property="og:title" content="How I Use Claude AI + Notion as a Product Manager to Run My Week">
+<meta property="og:description" content="A real Claude AI + Notion workflow for product managers. I've automated meeting notes, backlog research, and product specs — here's exactly how the system works, start to finish.">
+<meta property="og:image" content="https://edsonfjr.com/og-preview.png">
+<meta property="og:site_name" content="Edson Ferreira">
+<meta property="article:author" content="Edson Ferreira">
+<meta property="article:published_time" content="2026-03-13">
+<meta property="article:section" content="AI">
+<meta property="article:tag" content="Claude AI workflow">
+<meta property="article:tag" content="AI for product managers">
+<meta property="article:tag" content="Notion AI workflow">
+<meta property="article:tag" content="PM productivity tools">
+<meta property="article:tag" content="AI meeting notes">
+<meta property="article:tag" content="product spec automation">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@edsonferreira_">
+<meta name="twitter:creator" content="@edsonferreira_">
+<meta name="twitter:title" content="How I Use Claude AI + Notion to Run My Week as a PM">
+<meta name="twitter:description" content="AI meeting notes, backlog research, product specs — three Claude AI + Notion workflows that changed how I work as a Senior Principal PM.">
+<meta name="twitter:image" content="https://edsonfjr.com/og-preview.png">
+
+<!-- JSON-LD: Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How I Use Claude AI + Notion as a Product Manager to Run My Week",
+  "description": "A real Claude AI + Notion workflow for product managers. I've automated meeting notes, backlog research, and product specs — here's exactly how the system works, start to finish.",
+  "url": "https://edsonfjr.com/notes/claude-notion-workflow",
+  "datePublished": "2026-03-13",
+  "author": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/edsonferreira",
+      "https://twitter.com/edsonferreira_"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://edsonfjr.com/notes/claude-notion-workflow"
+  },
+  "image": "https://edsonfjr.com/og-preview.png",
+  "keywords": ["Claude AI workflow", "AI for product managers", "Notion AI workflow", "PM productivity tools", "AI meeting notes", "product spec automation", "AI backlog management", "Claude Notion integration", "product manager AI tools 2025"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2; --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.07); --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916; --muted: #7A7870;
+    --accent: #3D5A80; --accent2: #2C4A6E;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --r: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; z-index: 100; }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-back { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  article { max-width: 680px; margin: 0 auto; padding: 120px 2rem 6rem; }
+  .article-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+  h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 1.5rem; }
+  .article-meta { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--text); margin: 2.5rem 0 1rem; }
+  p { font-size: 1rem; font-weight: 300; color: var(--text); line-height: 1.85; margin-bottom: 1.4rem; }
+  .lead { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+  .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .callout p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .callout strong { font-weight: 500; color: var(--text); }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
+  .step-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .step h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .article-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .author-line { font-size: 0.85rem; color: var(--muted); }
+  .author-line strong { font-weight: 500; color: var(--text); }
+  .back-link { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media (max-width: 640px) { nav { padding: 0 1.25rem; } article { padding: 100px 1.25rem 4rem; } h1 { font-size: 1.9rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">Edson<span>.</span></a>
+  <a class="nav-back" href="../notes/index.html">← Back to notes</a>
+</nav>
+<article>
+  <div class="article-eyebrow">AI · 4 min read</div>
+  <h1>How I use Claude + Notion to run my week without losing my mind</h1>
+  <div class="article-meta">By Edson Ferreira &nbsp;·&nbsp; March 2026</div>
+
+  <p class="lead">I'm a Senior Principal PM. I manage a platform, work across three time zones, and sit in more meetings than I'd like. For a long time, staying on top of everything meant working longer. Then I started building systems instead.</p>
+
+  <p>This isn't about replacing thinking with AI. It's about removing the friction between "something happened" and "I know what to do next." These are the three AI workflows for product managers that changed how I work — here's the system I actually use, every week.</p>
+
+  <h2>The problem I was solving</h2>
+
+  <p>As a PM, I sit at the intersection of customer feedback, engineering capacity, and business priorities. The raw material is everywhere — support tickets, community forums, Slack threads, customer calls, competitive research. The hard part isn't finding signal. It's synthesizing it fast enough to act on it, and then turning that synthesis into specs, stories, and content that other people can actually use.</p>
+
+  <p>Three workflows changed how I work.</p>
+
+  <div class="callout">
+    <p><strong>The principle behind all of them:</strong> AI doesn't replace PM judgment — it compresses the distance between insight and output. The thinking is still yours. The formatting, the first draft, the structure — that's where the time goes, and that's what AI handles.</p>
+  </div>
+
+  <h2>The three workflows</h2>
+
+  <div class="step">
+    <div class="step-label">Workflow 1</div>
+    <h3>Meeting notes → Notion, in my voice</h3>
+    <p>AI meeting notes are now part of every PM's toolkit — here's how I've set it up to actually sound like me. After every Zoom call, I paste the AI summary into Claude with a simple prompt. It strips the noise and formats the output as a clean Notion entry — decisions, blockers, next steps — with @Name tagging so owners are clear. Takes about 90 seconds. I paste the result directly into the right project or client page in my workspace. No reformatting, no rewriting. It sounds like me because I've tuned the prompt to match how I actually write.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Workflow 2</div>
+    <h3>Scraping signal → backlog candidates and customer content</h3>
+    <p>I pull raw input from multiple sources: community forum threads, support cases, Slack channels, idea submissions, customer calls. I feed that into Claude with context on what release cycle I'm in and what problems I'm trying to solve. It synthesizes patterns, surfaces recurring themes, and outputs a ranked list of backlog candidates — each one with a short rationale tied back to the source signal. The same synthesis also generates a first draft of customer-facing content: how-to guides, release notes, and enablement material that explains the feature in language customers actually use, not product jargon.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-label">Workflow 3</div>
+    <h3>Product specs: epics, stories, and announcements</h3>
+    <p>This is the AI product spec workflow that saves me half a day, every sprint. Once I know what I'm building, Claude helps me go from rough idea to structured spec. I describe the problem, the customer, and the outcome I want. It drafts the epic, breaks it into stories with acceptance criteria, and generates a first cut of the release announcement. I review and edit — the judgment is mine — but I'm no longer starting from a blank page. A spec that used to take half a day now takes an hour, and it's more consistent because the structure is always the same.</p>
+  </div>
+
+  <h2>What actually changed</h2>
+
+  <p>The obvious win is speed. But the less obvious one is quality — when you're not spending energy on structure and formatting, you can spend it on the actual thinking. My specs are sharper. My backlog is better prioritized. And my customer content is closer to what customers need because it's built from their own language, not mine.</p>
+
+  <h2>What I'd tell other PMs</h2>
+
+  <p>Don't start with a tool. Start with a friction point. What's the thing you do every week that feels like busywork but you can't skip? That's your first workflow.</p>
+
+  <p>The system doesn't need to be complex. Mine runs entirely through Claude and Notion — no elaborate integrations, no code. Just clear prompts, consistent structure, and the discipline to actually use it.</p>
+
+  <p>The goal isn't to automate your job. It's to protect your time for the parts that actually need you.</p>
+
+  <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="7bda9987-82f9-4ae7-a01c-32954477ead6"></script>
+
+  <div class="article-footer">
+    <div class="author-line">Written by <strong>Edson Ferreira</strong> — my own thoughts and research.</div>
+    <a class="back-link" href="../notes/index.html">← More notes</a>
+  </div>
+</article>
+</body>
+</html>
