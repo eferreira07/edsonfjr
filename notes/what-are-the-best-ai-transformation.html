@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Most AI Transformation Frameworks Fail — Edson Ferreira</title>
+<meta name="description" content="Only 7% of companies scale AI enterprise-wide. Most AI transformation frameworks fail because they skip workforce change management. Here's the fix.">
+<meta name="author" content="Edson Ferreira">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://edsonfjr.com/notes/what-are-the-best-ai-transformation">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://edsonfjr.com/notes/what-are-the-best-ai-transformation">
+<meta property="og:title" content="Why Most AI Transformation Frameworks Fail">
+<meta property="og:description" content="Only 7% of companies scale AI enterprise-wide. Most AI transformation frameworks fail because they skip workforce change management. Here's the fix.">
+<meta property="og:image" content="https://edsonfjr.com/og-preview.png">
+<meta property="og:site_name" content="Edson Ferreira">
+<meta property="article:author" content="Edson Ferreira">
+<meta property="article:published_time" content="2026-07-17">
+<meta property="article:section" content="AI">
+<meta property="article:tag" content="AI transformation framework">
+<meta property="article:tag" content="best AI transformation framework">
+<meta property="article:tag" content="workforce change management">
+<meta property="article:tag" content="AI governance">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@edsonferreira_">
+<meta name="twitter:creator" content="@edsonferreira_">
+<meta name="twitter:title" content="Why Most AI Transformation Frameworks Fail">
+<meta name="twitter:description" content="93% of AI pilots never scale past the demo. It's rarely the model or the data pipeline — it's the missing plan for how your team actually works with the AI.">
+<meta name="twitter:image" content="https://edsonfjr.com/og-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why Most AI Transformation Frameworks Fail",
+  "description": "Only 7% of companies scale AI enterprise-wide. Most AI transformation frameworks fail because they skip workforce change management. Here's the fix.",
+  "url": "https://edsonfjr.com/notes/what-are-the-best-ai-transformation",
+  "datePublished": "2026-07-17",
+  "author": { "@type": "Person", "name": "Edson Ferreira", "url": "https://edsonfjr.com", "sameAs": ["https://www.linkedin.com/in/edsonferreira", "https://twitter.com/edsonferreira_"] },
+  "publisher": { "@type": "Person", "name": "Edson Ferreira", "url": "https://edsonfjr.com" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://edsonfjr.com/notes/what-are-the-best-ai-transformation" },
+  "image": "https://edsonfjr.com/og-preview.png",
+  "keywords": ["AI transformation framework", "best AI transformation framework", "workforce change management", "AI governance", "enterprise AI adoption", "human-in-the-loop AI"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2; --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.07); --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916; --muted: #7A7870;
+    --accent: #3D5A80; --accent2: #2C4A6E;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --r: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; z-index: 100; }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-back { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  article { max-width: 680px; margin: 0 auto; padding: 120px 2rem 6rem; }
+  .article-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+  h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 1.5rem; }
+  .article-meta { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--text); margin: 2.5rem 0 1rem; }
+  p { font-size: 1rem; font-weight: 300; color: var(--text); line-height: 1.85; margin-bottom: 1.4rem; }
+  .lead { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+  .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .callout p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .callout strong { font-weight: 500; color: var(--text); }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
+  .step-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .step h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .article-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .author-line { font-size: 0.85rem; color: var(--muted); }
+  .author-line strong { font-weight: 500; color: var(--text); }
+  .back-link { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media (max-width: 640px) { nav { padding: 0 1.25rem; } article { padding: 100px 1.25rem 4rem; } h1 { font-size: 1.9rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">Edson<span>.</span></a>
+  <a class="nav-back" href="../index.html#notes">← Back to notes</a>
+</nav>
+<article>
+  <div class="article-eyebrow">AI · 2 min read</div>
+  <h1>Why Most AI Transformation Frameworks Fail</h1>
+  <div class="article-meta">By Edson Ferreira &nbsp;·&nbsp; July 2026</div>
+  <p class="lead">The AI transformation frameworks that actually scale succeed for one reason: they treat workforce change management — governance, training, and feedback loops — as core infrastructure, not an afterthought. Most frameworks get this backwards, mapping the technology stack down to the API call while treating the people who use it as a footnote, which is why most of these programs never get past the pilot.</p>
+
+  <h2>The number nobody wants to say out loud</h2>
+  <p>Only 7% of organizations have scaled AI enterprise-wide — and the reason is almost never the model. It's the absence of workforce change management: clear accountability for decisions, training that builds judgment instead of just prompting skill, and a fast feedback loop between the people using the AI and the people responsible for it. Everyone else is stuck somewhere between a proof of concept and a real system running in production. When I ask leaders why their rollout stalled, the answer is almost never "the model wasn't good enough." It's some version of: people didn't trust the output, nobody knew who was accountable when it was wrong, or the team quietly went back to the old way of working because no one showed them a better one.</p>
+  <p>That's not a technology problem. That's a management problem wearing a technology costume.</p>
+
+  <h2>The pillar most frameworks skip</h2>
+  <p>Most vendor frameworks are built around four things: data readiness, model selection, infrastructure, and security. All necessary. None of them tell a manager what to do on the Monday morning their team starts working alongside an AI system instead of just typing into it. That gap has a name — workforce change management — and it's usually the thinnest slide in the deck, if it's there at all.</p>
+  <p>A framework without this pillar isn't incomplete in some minor way. It's missing the part that determines whether the other four ever get used correctly.</p>
+
+  <div class="callout">
+    <p><strong>The principle:</strong> technology tells you what the AI can do. Governance and change management tell you who decides, who checks the work, and who owns the outcome. Skip that second part, and you've built a system nobody trusts enough to rely on.</p>
+  </div>
+
+  <h2>What the missing pillar actually does</h2>
+  <div class="step">
+    <div class="step-label">Governance</div>
+    <h3>Name the decision rights before you name the model</h3>
+    <p>Write down, in plain terms, which decisions the AI can make on its own, which ones need a human sign-off, and who that human is. If you can't answer this in one sentence per workflow, you're not ready to scale that workflow.</p>
+  </div>
+  <div class="step">
+    <div class="step-label">Change management</div>
+    <h3>Train people to check the work, not just use the tool</h3>
+    <p>Most training programs teach prompting. Almost none teach people how to spot when the output is wrong, or confident-sounding but off. That judgment is the actual skill. It has to be taught on purpose, not picked up by accident.</p>
+  </div>
+  <div class="step">
+    <div class="step-label">Feedback loop</div>
+    <h3>Give operators a fast way to flag bad output back to the system owner</h3>
+    <p>If reporting a bad AI decision takes longer than just fixing it manually and moving on, people will do the second thing every time, and you'll never find out your system is failing quietly.</p>
+  </div>
+
+  <h2>What changes when you build this in</h2>
+  <p>The frameworks that work aren't the ones with the most advanced model recommendations. They're the ones that treat governance and workforce change management as load-bearing, not optional add-ons at the end. When I've seen adoption actually stick, it's because someone senior enough sat down early and decided, in writing, who owns what decision — and then trained the team to use their judgment inside that structure, instead of either blindly trusting the AI or ignoring it.</p>
+  <p>That's the whole difference between a pilot that dies quietly and a system that runs at scale.</p>
+
+  <div class="callout">
+    <p><strong>Tell a colleague:</strong> if your AI rollout plan doesn't say who's accountable when the model is wrong, you don't have a framework — you have a demo.</p>
+  </div>
+
+  <div class="article-footer">
+    <div class="author-line">Written by <strong>Edson Ferreira</strong> — Senior Principal PM at Oracle, building AI-native product systems.</div>
+    <a class="back-link" href="../index.html#notes">← More notes</a>
+  </div>
+</article>
+</body>
+</html>
