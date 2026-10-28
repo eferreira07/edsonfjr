@@ -163,9 +163,10 @@
     const betaSubmit=document.getElementById('beta-submit');
     const betaResponseFrame=document.getElementById('beta-response-frame');
     let betaSubmissionPending=false;
-    const betaResponseOrigins=new Set(['https://script.google.com','https://script.googleusercontent.com']);
     window.addEventListener('message',event=>{
-      if(!betaSubmissionPending||!betaResponseOrigins.has(event.origin))return;
+      // Apps Script may deliver this from a sandboxed Google frame with an opaque origin.
+      // Accept only our exact status strings, and only while this form is awaiting a response.
+      if(!betaSubmissionPending)return;
       if(event.data==='quick-actions-submitted'){
         betaSubmissionPending=false;
         document.getElementById('beta-form-content').hidden=true;
@@ -199,7 +200,7 @@
         if(!betaSubmissionPending)return;
         betaSubmissionPending=false;betaSubmit.disabled=false;betaSubmit.textContent='Request early access';
         betaStatus.textContent='We couldn’t confirm your request. Please try again in a moment.';
-      },30000);
+      },12000);
     });
   </script>
 </body>
