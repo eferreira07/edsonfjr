@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Practical customer follow-up and scheduling workflows for home-service businesses in Bozeman and Livingston. Start with one focused fix.">
+  <title>Keep Customer Work Moving | Local Service Support</title>
+  <link rel="canonical" href="https://edsonfjr.com/local/">
+  <meta property="og:title" content="Keep customer work moving">
+  <meta property="og:description" content="Improve one customer communication or scheduling workflow at a time.">
+  <meta property="og:url" content="https://edsonfjr.com/local/">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#17365d">
+  <style>
+    :root {
+      --paper: #ffffff;
+      --surface: #ffffff;
+      --ink: #18243a;
+      --muted: #58677d;
+      --green: #17365d;
+      --green-light: #edf3fa;
+      --gold: #ffc247;
+      --teal: #20a99b;
+      --coral: #ef7868;
+      --line: #dce6f3;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --width: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.65 var(--sans); }
+    a { color: inherit; }
+    .wrap { width: min(var(--width), calc(100% - 40px)); margin-inline: auto; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 76px; }
+    .wordmark { color: var(--green); font: 20px/1.1 var(--serif); letter-spacing: -.02em; text-decoration: none; }
+    .toplink { color: var(--green); font-weight: 650; font-size: 14px; text-decoration: none; }
+    .toplink:hover, .text-link:hover { text-decoration: underline; }
+    .hero { padding: 76px 0 72px; background: radial-gradient(circle at 83% 18%, rgba(255,194,71,.22) 0 8%, transparent 8.5%), radial-gradient(circle at 96% 68%, rgba(32,169,155,.13) 0 12%, transparent 12.5%), linear-gradient(125deg, #f3f8ff 0%, #ffffff 58%, #fffaf0 100%); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); gap: 56px; align-items: center; }
+    .eyebrow { margin: 0 0 16px; color: var(--green); font-size: 12px; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+    h1, h2, h3 { margin-top: 0; color: var(--green); font-family: var(--serif); font-weight: 400; letter-spacing: -.025em; }
+    h1 { max-width: 720px; margin-bottom: 20px; font-size: clamp(42px, 6vw, 68px); line-height: 1.04; }
+    .lead { max-width: 630px; margin: 0; color: var(--muted); font-size: 19px; line-height: 1.55; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; margin-top: 28px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 13px 21px; border: 1px solid var(--green); border-radius: 7px; background: var(--green); color: white; font-weight: 700; text-decoration: none; transition: background .15s ease, transform .15s ease; }
+    .button:hover { background: #102846; transform: translateY(-1px); }
+    .button.secondary { background: transparent; color: var(--green); }
+    .button.secondary:hover { background: var(--green-light); }
+    .micro { color: var(--muted); font-size: 13px; }
+    .flow-card { position: relative; overflow: hidden; padding: 27px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); box-shadow: 0 16px 48px rgba(23,54,93,.10); }
+    .flow-card::before { position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: linear-gradient(180deg, var(--green), var(--teal), var(--coral), var(--gold)); content: ""; }
+    .flow-title { margin: 0 0 20px; color: var(--muted); font-size: 13px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+    .flow-step { display: grid; grid-template-columns: 34px 1fr; gap: 13px; align-items: start; margin: 0 0 16px; }
+    .flow-step:last-child { margin-bottom: 0; }
+    .num { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; background: var(--green-light); color: var(--green); font-size: 13px; font-weight: 750; }
+    .flow-step:nth-child(3) .num { background: #e5f7f4; color: #14877d; }
+    .flow-step:nth-child(4) .num { background: #fff0ed; color: #cb5b4d; }
+    .flow-step p { margin: 0; }
+    .flow-step strong { color: var(--green); }
+    .band { border-block: 1px solid var(--line); background: #f6f9ff; }
+    .band-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px 28px; padding: 19px 0; color: var(--green); font-size: 14px; font-weight: 650; }
+    .band-inner span::before { margin-right: 9px; color: var(--green); content: "●"; font-size: 10px; vertical-align: 1px; }
+    .band-inner span:nth-child(2)::before { color: var(--teal); }
+    .band-inner span:nth-child(3)::before { color: var(--coral); }
+    section { padding: 70px 0; }
+    .section-head { max-width: 650px; margin-bottom: 30px; }
+    h2 { margin-bottom: 12px; font-size: clamp(32px, 4vw, 44px); line-height: 1.12; }
+    .section-head p, .body-copy { margin: 0; color: var(--muted); }
+    .offer-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(300px, 1.1fr); gap: 52px; align-items: start; }
+    .offer-card { padding: 25px; border: 1px solid #dce6f3; border-radius: 12px; background: linear-gradient(145deg, #ffffff, #f8fbff); box-shadow: 0 12px 35px rgba(23,54,93,.07); }
+    .offer-card h3 { margin-bottom: 8px; font-size: 24px; }
+    .offer-card p { margin: 0; color: var(--muted); }
+    .offer-label { display: inline-block; margin-bottom: 16px; padding: 5px 9px; border-radius: 4px; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+    .checklist { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .checklist li { display: grid; grid-template-columns: 23px 1fr; gap: 9px; color: var(--muted); }
+    .checklist li::before { color: var(--gold); content: "✓"; font-weight: 800; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 35px; }
+    .step-card { padding: 20px 0 0; border-top: 3px solid var(--green); }
+    .step-card:nth-child(2) { border-color: var(--teal); }
+    .step-card:nth-child(3) { border-color: var(--coral); }
+    .step-card h3 { margin-bottom: 7px; font: 700 16px/1.4 var(--sans); letter-spacing: 0; }
+    .step-card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .about { display: grid; grid-template-columns: .75fr 1.25fr; gap: 42px; align-items: start; padding: 30px; border-radius: 12px; background: linear-gradient(120deg, #17365d, #24517d 58%, #168f91); color: #ffffff; }
+    .about h2 { margin: 0; color: #f5f3ed; font-size: 34px; }
+    .about p { margin: 0; color: rgba(255,255,255,.88); }
+    .faq { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+    .faq h3 { margin-bottom: 7px; font: 700 15px/1.4 var(--sans); letter-spacing: 0; }
+    .faq p { margin: 0; color: var(--muted); font-size: 14px; }
+    .closing { padding: 64px 0 76px; text-align: center; }
+    .closing h2 { margin-inline: auto; max-width: 620px; }
+    .closing p { margin: 0 auto 22px; max-width: 560px; color: var(--muted); }
+    footer { padding: 20px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+    @media (max-width: 760px) {
+      .hero { padding: 52px 0 48px; }
+      .hero-grid, .offer-grid, .about { grid-template-columns: 1fr; gap: 28px; }
+      .flow-card { max-width: 540px; }
+      section { padding: 52px 0; }
+      .steps, .faq { grid-template-columns: 1fr; gap: 20px; }
+      .about { padding: 25px; }
+      .band-inner { gap: 9px 18px; }
+    }
+    @media (max-width: 460px) {
+      .wrap { width: min(var(--width), calc(100% - 30px)); }
+      .topbar { min-height: 64px; }
+      .toplink { font-size: 12px; }
+      .lead { font-size: 17px; }
+      .actions { align-items: flex-start; flex-direction: column; }
+      .button { width: 100%; }
+      .flow-card { padding: 22px; }
+      .band-inner { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="wordmark" href="#top">Local Service Support</a>
+    <a class="toplink" href="tel:+13187181205">Call the demo line · (318) 718-1205</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">For home-service businesses in Bozeman and Livingston</p>
+          <h1>Keep customer work moving.</h1>
+          <p class="lead">I help improve the follow-up and scheduling steps that slow work down—from a new inquiry to an existing customer. We find one useful place to start, then set up one practical workflow around your business.</p>
+          <div class="actions">
+            <a class="button" href="https://calendly.com/efjunior/1-1-with-edson">Book a free 20-minute checkup</a>
+            <a class="button secondary" href="tel:+13187181205">Call to try it · (318) 718-1205</a>
+            <span class="micro">Try a short sample customer call. The voice is a clone of Edson’s; the agent identifies itself as an automated demo.</span>
+          </div>
+        </div>
+        <aside class="flow-card" aria-label="How the follow-up workflow works">
+          <p class="flow-title">Find the friction</p>
+          <div class="flow-step"><span class="num">1</span><p>A new customer needs a reply.</p></div>
+          <div class="flow-step"><span class="num">2</span><p>An existing customer needs a follow-up.</p></div>
+          <div class="flow-step"><span class="num">3</span><p><strong>A scheduling step needs to be easier.</strong></p></div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="band" aria-label="Service principles">
+      <div class="wrap band-inner">
+        <span>Built around the tools you already use</span>
+        <span>You approve every message</span>
+        <span>Measured together after 30 days</span>
+      </div>
+    </div>
+
+    <section>
+      <div class="wrap offer-grid">
+        <div class="section-head">
+          <p class="eyebrow">Start with one fix</p>
+          <h2>Quick Wins</h2>
+          <p>We look across the customer journey, then agree on one workflow worth improving. It could involve new inquiries, current customers, or scheduling. The exact scope and fixed price are clear before setup begins.</p>
+        </div>
+        <div class="offer-card">
+          <span class="offer-label">The first step</span>
+          <h3>One workflow, set up with you</h3>
+          <ul class="checklist">
+            <li>A quick check of where customer communication or scheduling gets stuck</li>
+            <li>One workflow for the agreed stage, using your current tools where possible</li>
+            <li>A test before it goes live, plus a way to pause it</li>
+            <li>A short review after 30 days to see what changed</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Clear and simple</p>
+          <h2>From first look to a live fix</h2>
+        </div>
+        <div class="steps">
+          <article class="step-card"><h3>1. Free checkup</h3><p>In 20 minutes, we identify a possible gap in inquiry response, customer follow-up, or scheduling.</p></article>
+          <article class="step-card"><h3>2. Fixed-scope plan</h3><p>You get one practical recommendation, the exact price, and what we need from you. You decide whether to proceed.</p></article>
+          <article class="step-card"><h3>3. Set up and review</h3><p>I set it up in an account you own. You approve the wording and go-live; we review the agreed measure after 30 days.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="wrap about">
+        <h2>Practical help. No tech lecture.</h2>
+        <p>I’m Edson. I bring 20+ years building software and hands-on experience with local service businesses. I keep the work focused, explain the setup in plain language, and leave you in control of your customer relationships.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="wrap">
+        <p class="eyebrow">A few quick answers</p>
+        <div class="faq">
+          <article><h3>Do I need another app?</h3><p>Usually, we start with the tools you already have. I’ll confirm any new tool and its cost before you decide.</p></article>
+          <article><h3>Do you only work on new leads?</h3><p>No. We can focus on inquiry response, existing-customer follow-up, or scheduling—one workflow at a time.</p></article>
+          <article><h3>What does it cost?</h3><p>The checkup is free. You get a fixed quote for one agreed scope before any work begins.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap">
+        <h2>Let’s find the one customer workflow worth improving first.</h2>
+        <p>Book a free 20-minute checkup, or call the demo line to try a sample customer conversation. The agent uses a clone of Edson’s voice and identifies itself as an automated demo.</p>
+        <a class="button" href="https://calendly.com/efjunior/1-1-with-edson">Book your free checkup</a>
+        <a class="button secondary" href="tel:+13187181205" style="margin-left:10px">Call to try it · (318) 718-1205</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>Local Service Support · Edson Ferreira</span><span>Bozeman and Livingston, Montana</span></div></footer>
+</body>
+</html>
