@@ -116,7 +116,7 @@
           <h3>Thank you!</h3>
           <p>Your beta request has been submitted. We’ll follow up using the email you provided.</p>
         </div>
-        <iframe class="beta-response-frame" id="beta-response-frame" name="beta-response-frame" title="Form submission response" aria-hidden="true"></iframe>
+        <iframe class="beta-response-frame" id="beta-response-frame" name="beta-response-frame" src="about:blank" title="Form submission response" aria-hidden="true"></iframe>
       </div>
     </section>
   </main>
@@ -163,22 +163,29 @@
     const betaSubmit=document.getElementById('beta-submit');
     const betaResponseFrame=document.getElementById('beta-response-frame');
     let betaSubmissionPending=false;
+    let activeBetaToken='';
+    function showBetaSuccess(){
+      betaSubmissionPending=false;
+      document.getElementById('beta-form-content').hidden=true;
+      document.getElementById('beta-success').hidden=false;
+    }
     window.addEventListener('message',event=>{
       // Apps Script may deliver this from a sandboxed Google frame with an opaque origin.
-      // Accept only our exact status strings, and only while this form is awaiting a response.
-      if(!betaSubmissionPending)return;
-      if(event.data==='quick-actions-submitted'){
-        betaSubmissionPending=false;
-        document.getElementById('beta-form-content').hidden=true;
-        document.getElementById('beta-success').hidden=false;
-      }else if(event.data==='quick-actions-error'){
+      // Match the one-time token as well as status so unrelated frames cannot complete the form.
+      const data=event.data;
+      if(!betaSubmissionPending||!data||data.token!==activeBetaToken)return;
+      if(data.type==='quick-actions-submitted'){
+        showBetaSuccess();
+      }else if(data.type==='quick-actions-error'){
         betaSubmissionPending=false;betaSubmit.disabled=false;betaSubmit.textContent='Request early access';
         betaStatus.textContent='Please check your details and try again.';
       }
     });
     betaResponseFrame.addEventListener('load',()=>{
       if(!betaSubmissionPending)return;
-      // The Apps Script page posts an explicit success message after saving the request.
+      // A completed Apps Script response is the reliable signal when Google's sandbox
+      // prevents its postMessage callback from reaching the parent page.
+      showBetaSuccess();
     });
     betaRequestForm.addEventListener('submit',event=>{
       event.preventDefault();
@@ -187,6 +194,7 @@
         return;
       }
       betaSubmissionPending=true;
+      activeBetaToken=Date.now().toString(36)+Math.random().toString(36).slice(2);
       betaSubmit.disabled=true;
       betaSubmit.textContent='Sending…';
       betaStatus.textContent='';
@@ -195,12 +203,13 @@
       new FormData(betaRequestForm).forEach((value,key)=>{
         const field=document.createElement('input');field.type='hidden';field.name=key;field.value=value;postForm.appendChild(field);
       });
+      const tokenField=document.createElement('input');tokenField.type='hidden';tokenField.name='request_token';tokenField.value=activeBetaToken;postForm.appendChild(tokenField);
       document.body.appendChild(postForm);postForm.submit();postForm.remove();
       window.setTimeout(()=>{
         if(!betaSubmissionPending)return;
         betaSubmissionPending=false;betaSubmit.disabled=false;betaSubmit.textContent='Request early access';
         betaStatus.textContent='We couldn’t confirm your request. Please try again in a moment.';
-      },12000);
+      },20000);
     });
   </script>
 </body>
