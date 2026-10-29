@@ -39,11 +39,63 @@
     .beta-form-intro{margin:0 0 16px;text-align:center;font-size:13px}
     @media(max-width:620px){.beta-copy h2{font-size:34px;text-wrap:balance}.beta-form{padding:16px}.beta-choices{display:flex}.beta-choice{padding:8px;gap:6px}.beta-choice:before{display:none}.beta-choice strong{font-size:12px}}
   </style>
+  <style>
+    /* Pricing */
+    .pricing{padding:20px 0 84px}
+    .pricing-heading{display:grid;grid-template-columns:1fr .72fr;align-items:end;gap:44px}
+    .pricing-heading h2{margin:13px 0 0;font-size:clamp(36px,5vw,55px);line-height:1.02;letter-spacing:-.055em}
+    .pricing-heading h2 em{font-family:Georgia,serif;font-weight:400;color:var(--blue)}
+    .pricing-heading p{max-width:460px;margin:0 0 5px;color:var(--muted);font-size:15px;line-height:1.7}
+    .founding-tag{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:6px 11px;border-radius:999px;background:#eef3d0;color:#3d4a0c;font-size:11px;font-weight:750}
+    .founding-tag:before{width:7px;height:7px;border-radius:50%;background:#8aa11a;content:""}
+    .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:38px;align-items:stretch}
+    .price-card{position:relative;display:flex;flex-direction:column;padding:28px 26px 26px;border:1px solid var(--line);border-radius:12px;background:#fff}
+    .price-card.is-featured{background:var(--blue-dark);border-color:var(--blue-dark);color:#fff;box-shadow:var(--shadow)}
+    .price-badge{position:absolute;top:-12px;left:26px;padding:5px 11px;border-radius:999px;background:var(--lime);color:#18240a;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .price-name{color:#244b78;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    .is-featured .price-name{color:var(--lime)}
+    .price-card h3{margin:10px 0 6px;font-size:23px;letter-spacing:-.04em}
+    .price-for{min-height:42px;margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+    .is-featured .price-for{color:#c9d7ef}
+    .price-amount{display:flex;align-items:baseline;gap:6px;margin-top:22px;font-size:40px;font-weight:780;letter-spacing:-.05em;line-height:1}
+    .price-amount small{font-size:14px;font-weight:600;letter-spacing:0;color:var(--muted)}
+    .is-featured .price-amount small{color:#c9d7ef}
+    .price-extra{min-height:20px;margin:8px 0 0;color:#244b78;font-size:13px;font-weight:700}
+    .is-featured .price-extra{color:#fff}
+    .price-list{display:grid;gap:10px;margin:22px 0 26px;padding:20px 0 0;border-top:1px solid var(--line);list-style:none;font-size:13px;line-height:1.45;color:#2a3850}
+    .is-featured .price-list{border-color:#ffffff26;color:#e6edf9}
+    .price-list li{display:grid;grid-template-columns:18px 1fr;gap:8px}
+    .price-list li:before{display:grid;place-items:center;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#e8eef6;color:#193e69;font-size:10px;font-weight:800;content:"✓"}
+    .is-featured .price-list li:before{background:var(--lime);color:#18240a}
+    .price-list li.price-inherit{font-weight:700}
+    .price-cta{display:flex;align-items:center;justify-content:center;min-height:46px;margin-top:auto;border:1px solid var(--blue);border-radius:8px;color:var(--blue);text-decoration:none;font-size:13px;font-weight:750;transition:background .18s,color .18s}
+    .price-cta:hover{background:var(--blue);color:#fff}
+    .is-featured .price-cta{background:var(--lime);border-color:var(--lime);color:#18240a}
+    .is-featured .price-cta:hover{background:#fff;border-color:#fff}
+    .price-note{margin:18px 0 0;color:#69758a;font-size:11px;text-align:center}
+    @media(max-width:900px){.pricing-heading{grid-template-columns:1fr;gap:16px}.price-grid{grid-template-columns:1fr;max-width:520px;margin-inline:auto;gap:22px}.price-for{min-height:0}}
+    @media(max-width:620px){.pricing{padding:10px 0 62px}.pricing-heading h2{font-size:39px}.price-card{padding:26px 20px 22px}}
+  </style>
+  <style>
+    /* Reveal-on-click sections */
+    .beta-section[hidden],.booking-section[hidden]{display:none!important}
+    .beta-section,.booking-section{scroll-margin-top:20px}
+    .beta-section .beta-choices,#beta-form-content>h3,#beta-setup-panel{display:none!important}
+    .booking-section{margin-bottom:40px;padding:40px 48px 28px;border:1px solid var(--line);border-radius:14px;background:#fff}
+    .booking-head{max-width:760px;margin:0 auto 6px;text-align:center}
+    .booking-head h2{margin:8px 0 0;font-size:clamp(32px,4vw,46px);line-height:1.05;letter-spacing:-.05em}
+    .booking-head h2 em{font-family:Georgia,serif;font-weight:400;color:var(--blue)}
+    .booking-head p{margin:12px 0 0;color:var(--muted);font-size:15px;line-height:1.6}
+    .booking-plan{display:inline-flex;margin-top:14px;padding:6px 12px;border-radius:999px;background:var(--blue-dark);color:#fff;font-size:11px;font-weight:750}
+    .booking-plan:empty{display:none}
+    .booking-fallback{margin:6px 0 0;color:#69758a;font-size:11px;text-align:center}
+    @media(max-width:620px){.booking-section{padding:28px 12px 20px}}
+  </style>
 </head>
 <body>
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Quick Actions home"><img src="./assets/sprite-mark.png" alt=""><span>Quick Actions<small>AI, AS BUTTONS</small></span></a>
-    <nav class="nav" aria-label="Main navigation"><a href="#how">How it works</a><a href="#platforms">Desktop &amp; mobile</a><a class="nav-cta" href="#beta">Request beta access <span aria-hidden="true">&nbsp;↗</span></a></nav>
+    <nav class="nav" aria-label="Main navigation"><a href="#how">How it works</a><a href="#platforms">Desktop &amp; mobile</a><a href="#pricing">Pricing</a><a class="nav-cta" href="#beta">Request beta access <span aria-hidden="true">&nbsp;↗</span></a></nav>
   </header>
   <main>
     <section class="hero" aria-labelledby="hero-title">
@@ -110,6 +162,59 @@
       <p class="platform-footnote">Each AI app uses its own account and connections. Quick Actions helps you start the task; it doesn’t replace the app.</p>
     </section>
 
+    <section class="wrap pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="pricing-heading">
+        <div><div class="section-kicker">Founding beta pricing</div><h2 id="pricing-title">Pick how much <em>help you want.</em></h2></div>
+        <div><p>Every plan includes the Quick Actions app. The difference is how much we set up for you.</p><span class="founding-tag">Founding prices for the first 15 people</span></div>
+      </div>
+      <div class="price-grid">
+        <article class="price-card">
+          <div class="price-name">Starter</div>
+          <h3>Use it as is</h3>
+          <p class="price-for">For people who want ready-made buttons and like to set things up on their own.</p>
+          <div class="price-amount">$7<small>/ month</small></div>
+          <p class="price-extra">No setup fee</p>
+          <ul class="price-list">
+            <li>Ready-made action packs</li>
+            <li>Add your own tasks</li>
+            <li>Desktop + mobile</li>
+            <li>Works with ChatGPT, Claude and Codex</li>
+          </ul>
+          <a class="price-cta" href="#beta">Request beta access</a>
+        </article>
+        <article class="price-card is-featured">
+          <span class="price-badge">Best value</span>
+          <div class="price-name">Personalized</div>
+          <h3>Built for your work</h3>
+          <p class="price-for">For people with tasks they repeat and no time to write good prompts.</p>
+          <div class="price-amount">$7<small>/ month</small></div>
+          <p class="price-extra">+ $149 one-time setup</p>
+          <ul class="price-list">
+            <li class="price-inherit">Everything in Starter</li>
+            <li>One 60-minute session to map your tasks</li>
+            <li>Up to 10 custom buttons built for you</li>
+            <li>30 days of email support</li>
+          </ul>
+          <a class="price-cta" href="#book" data-book-plan="Personalized">Book a session</a>
+        </article>
+        <article class="price-card">
+          <div class="price-name">Training + Personalized</div>
+          <h3>Learn and get set up</h3>
+          <p class="price-for">For people new to AI who want to learn the basics and have it ready to use.</p>
+          <div class="price-amount">$7<small>/ month</small></div>
+          <p class="price-extra">+ $349 one-time setup</p>
+          <ul class="price-list">
+            <li class="price-inherit">Everything in Personalized</li>
+            <li>AI Quick Training (two 60-minute sessions)</li>
+            <li>Up to 25 custom buttons</li>
+            <li>60 days of support + one follow-up call</li>
+          </ul>
+          <a class="price-cta" href="#book" data-book-plan="Training + Personalized">Book a session</a>
+        </article>
+      </div>
+      <p class="price-note">Beta prices may change after the first 15 spots.</p>
+    </section>
+
     <section class="wrap related-callout" aria-labelledby="related-title">
       <div>
         <div class="section-kicker">For local businesses</div>
@@ -119,7 +224,7 @@
       <a class="related-link" href="https://edsonfjr.com/local-service.html">Explore customer follow-up tools <span aria-hidden="true">→</span></a>
     </section>
 
-    <section class="wrap beta-section" id="beta" aria-labelledby="beta-title">
+    <section class="wrap beta-section" id="beta" aria-labelledby="beta-title" hidden>
       <div class="beta-copy"><div class="section-kicker">Early access · Beta</div><h2 id="beta-title">Bring the tasks you’re tired of <em>starting from scratch.</em></h2><p>Tell us where to reach you and what you’d like to make easier. We’ll use that to shape Quick Actions for real work.</p><div class="beta-includes"><span>Desktop + mobile</span><span>ChatGPT · Codex · Claude</span></div></div>
       <div class="beta-form" id="beta-form-panel">
         <div id="beta-form-content">
@@ -156,6 +261,20 @@
         </div>
         <iframe class="beta-response-frame" id="beta-response-frame" name="beta-response-frame" src="about:blank" title="Form submission response" aria-hidden="true"></iframe>
       </div>
+    </section>
+
+    <section class="wrap booking-section" id="book" aria-labelledby="book-title" hidden>
+      <div class="booking-head">
+        <div class="section-kicker">Book a session</div>
+        <h2 id="book-title">Pick a time <em>that works for you.</em></h2>
+        <p>We’ll talk through the tasks you repeat and plan the buttons we’ll build for your work.</p>
+        <span class="booking-plan" id="booking-plan"></span>
+      </div>
+      <!-- Calendly inline widget begin -->
+      <div class="calendly-inline-widget" data-url="https://calendly.com/efjunior/1-1-with-edson" style="min-width:320px;height:700px;"></div>
+      <!-- Calendly script loads on first "Book a session" click (see bottom of page) -->
+      <!-- Calendly inline widget end -->
+      <p class="booking-fallback">Calendar not loading? <a href="https://calendly.com/efjunior/1-1-with-edson" target="_blank" rel="noopener">Open it in a new tab ↗</a></p>
     </section>
   </main>
   <footer class="wrap page-footer"><a class="brand" href="#top"><img src="./assets/sprite-mark.png" alt=""><span>Quick Actions<small>AI, AS BUTTONS</small></span></a><span>Useful work, ready to repeat.</span><a href="#beta">Request early access ↑</a></footer>
@@ -207,6 +326,35 @@
     const betaBookingLink=document.getElementById('beta-booking-link');
     const betaBookingNote=document.getElementById('beta-booking-note');
     if(CALENDLY_URL){betaBookingLink.href=CALENDLY_URL;betaBookingLink.hidden=false;betaBookingNote.hidden=true;}
+    // Early access and booking stay hidden until a visitor asks for them.
+    const betaSection=document.getElementById('beta');
+    const bookingSection=document.getElementById('book');
+    const bookingPlan=document.getElementById('booking-plan');
+    let calendlyRequested=false;
+    function revealSection(show,hide){
+      hide.hidden=true;show.hidden=false;
+      requestAnimationFrame(()=>show.scrollIntoView({behavior:'smooth',block:'start'}));
+    }
+    function openBeta(){revealSection(betaSection,bookingSection);}
+    function openBooking(plan){
+      bookingPlan.textContent=plan?'Plan: '+plan:'';
+      revealSection(bookingSection,betaSection);
+      if(!calendlyRequested){
+        calendlyRequested=true;
+        const calendlyScript=document.createElement('script');
+        calendlyScript.src='https://assets.calendly.com/assets/external/widget.js';
+        calendlyScript.async=true;
+        document.body.appendChild(calendlyScript);
+      }
+    }
+    document.querySelectorAll('a[href="#beta"]').forEach(link=>link.addEventListener('click',event=>{
+      event.preventDefault();history.replaceState(null,'','#beta');openBeta();
+    }));
+    document.querySelectorAll('[data-book-plan]').forEach(link=>link.addEventListener('click',event=>{
+      event.preventDefault();history.replaceState(null,'','#book');openBooking(link.dataset.bookPlan);
+    }));
+    if(location.hash==='#beta')openBeta();
+    else if(location.hash==='#book')openBooking('');
     betaChoiceButtons.forEach(button=>button.addEventListener('click',()=>{
       const showSetup=button.dataset.betaChoice==='setup';
       betaChoiceButtons.forEach(choice=>{
