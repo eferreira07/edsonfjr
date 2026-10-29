@@ -99,6 +99,17 @@
     @media(max-width:1100px){.price-grid{grid-template-columns:repeat(2,1fr);max-width:760px;margin-inline:auto;gap:22px 14px}}
     @media(max-width:700px){.price-grid{grid-template-columns:1fr;max-width:520px}}
   </style>
+  <style>
+    /* Founding member deal */
+    .founding-banner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px 14px;margin-top:34px;padding:14px 20px;border-radius:12px;background:var(--lime);color:#18240a;text-align:center}
+    .founding-banner strong{font-size:11px;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+    .founding-banner span{font-size:15px;font-weight:650;letter-spacing:-.01em}
+    .founding-banner + .price-grid{margin-top:28px}
+    .price-extra s{margin-right:4px;font-weight:500;opacity:.55}
+    .price-save{display:inline-block;margin-left:6px;padding:2px 7px;border-radius:999px;background:#eef3d0;color:#3d4a0c;font-size:10px;font-weight:800;vertical-align:1px}
+    .is-featured .price-save{background:var(--lime);color:#18240a}
+    @media(max-width:620px){.founding-banner{flex-direction:column;gap:4px;padding:14px}.founding-banner span{font-size:14px}}
+  </style>
 </head>
 <body>
   <header class="site-header" id="top">
@@ -173,15 +184,16 @@
     <section class="wrap pricing" id="pricing" aria-labelledby="pricing-title">
       <div class="pricing-heading">
         <div><div class="section-kicker">Founding beta pricing</div><h2 id="pricing-title">Pick how much <em>help you want.</em></h2></div>
-        <div><p>Every plan includes the Quick Actions app. The difference is how much we set up for you.</p><span class="founding-tag">Founding prices for the first 15 people</span></div>
+        <div><p>Every plan includes the Quick Actions app. The difference is how much we set up for you.</p><span class="founding-tag">Founding members save 50% on setup</span></div>
       </div>
+      <div class="founding-banner" role="note"><strong>★ Founding member deal</strong><span>50% off setup + $7/month locked for life. First 15 people only.</span></div>
       <div class="price-grid">
         <article class="price-card">
           <div class="price-name">Starter</div>
           <h3>Use it as is</h3>
           <p class="price-for">For people who want ready-made buttons and like to set things up on their own.</p>
           <div class="price-amount">$7<small>/ month</small></div>
-          <p class="price-extra">No setup fee</p>
+          <p class="price-extra">No setup fee · price locked for life</p>
           <ul class="price-list">
             <li>Ready-made action packs</li>
             <li>Add your own tasks</li>
@@ -196,7 +208,7 @@
           <h3>Built for your work</h3>
           <p class="price-for">For people with tasks they repeat and no time to write good prompts.</p>
           <div class="price-amount">$7<small>/ month</small></div>
-          <p class="price-extra">+ $149 one-time setup</p>
+          <p class="price-extra">+ <s>$149</s>$75 one-time setup<span class="price-save">−50%</span></p>
           <ul class="price-list">
             <li class="price-inherit">Everything in Starter</li>
             <li>One 60-minute session to map your tasks</li>
@@ -210,7 +222,7 @@
           <h3>Learn and get set up</h3>
           <p class="price-for">For people new to AI who want to learn the basics and have it ready to use.</p>
           <div class="price-amount">$7<small>/ month</small></div>
-          <p class="price-extra">+ $349 one-time setup</p>
+          <p class="price-extra">+ <s>$349</s>$175 one-time setup<span class="price-save">−50%</span></p>
           <ul class="price-list">
             <li class="price-inherit">Everything in Personalized</li>
             <li>AI Quick Training (two 60-minute sessions)</li>
@@ -235,7 +247,7 @@
           <a class="price-cta" href="#book" data-book-plan="Enterprise" data-book-intro="We’ll show you Quick Actions, learn how your team works, and talk about what a rollout would look like.">Book a demo</a>
         </article>
       </div>
-      <p class="price-note">Beta prices may change after the first 15 spots.</p>
+      <p class="price-note">Founding member pricing is for the first 15 people. After that, setup goes back to full price. Enterprise pricing is set per team.</p>
     </section>
 
     <section class="wrap related-callout" aria-labelledby="related-title">
