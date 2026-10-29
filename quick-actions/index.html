@@ -91,6 +91,14 @@
     .booking-fallback{margin:6px 0 0;color:#69758a;font-size:11px;text-align:center}
     @media(max-width:620px){.booking-section{padding:28px 12px 20px}}
   </style>
+  <style>
+    /* Four pricing plans */
+    .price-grid{grid-template-columns:repeat(4,1fr);gap:14px}
+    .price-card{padding:28px 22px 24px}
+    .price-amount.is-talk{font-size:32px}
+    @media(max-width:1100px){.price-grid{grid-template-columns:repeat(2,1fr);max-width:760px;margin-inline:auto;gap:22px 14px}}
+    @media(max-width:700px){.price-grid{grid-template-columns:1fr;max-width:520px}}
+  </style>
 </head>
 <body>
   <header class="site-header" id="top">
@@ -211,6 +219,21 @@
           </ul>
           <a class="price-cta" href="#book" data-book-plan="Training + Personalized">Book a session</a>
         </article>
+        <article class="price-card">
+          <div class="price-name">Enterprise</div>
+          <h3>For your whole team</h3>
+          <p class="price-for">For companies that want Quick Actions for several people on the same team.</p>
+          <div class="price-amount is-talk">Let’s talk</div>
+          <p class="price-extra">Custom pricing for your team</p>
+          <ul class="price-list">
+            <li class="price-inherit">Everything in Training + Personalized</li>
+            <li>Buttons built around your team’s shared tasks</li>
+            <li>Team onboarding and training</li>
+            <li>Pricing based on number of users</li>
+            <li>Priority support</li>
+          </ul>
+          <a class="price-cta" href="#book" data-book-plan="Enterprise" data-book-intro="We’ll show you Quick Actions, learn how your team works, and talk about what a rollout would look like.">Book a demo</a>
+        </article>
       </div>
       <p class="price-note">Beta prices may change after the first 15 spots.</p>
     </section>
@@ -267,7 +290,7 @@
       <div class="booking-head">
         <div class="section-kicker">Book a session</div>
         <h2 id="book-title">Pick a time <em>that works for you.</em></h2>
-        <p>We’ll talk through the tasks you repeat and plan the buttons we’ll build for your work.</p>
+        <p id="booking-intro">We’ll talk through the tasks you repeat and plan the buttons we’ll build for your work.</p>
         <span class="booking-plan" id="booking-plan"></span>
       </div>
       <!-- Calendly inline widget begin -->
@@ -330,13 +353,16 @@
     const betaSection=document.getElementById('beta');
     const bookingSection=document.getElementById('book');
     const bookingPlan=document.getElementById('booking-plan');
+    const bookingIntro=document.getElementById('booking-intro');
+    const defaultBookingIntro=bookingIntro.textContent;
     let calendlyRequested=false;
     function revealSection(show,hide){
       hide.hidden=true;show.hidden=false;
       requestAnimationFrame(()=>show.scrollIntoView({behavior:'smooth',block:'start'}));
     }
     function openBeta(){revealSection(betaSection,bookingSection);}
-    function openBooking(plan){
+    function openBooking(plan,intro){
+      bookingIntro.textContent=intro||defaultBookingIntro;
       bookingPlan.textContent=plan?'Plan: '+plan:'';
       revealSection(bookingSection,betaSection);
       if(!calendlyRequested){
@@ -351,7 +377,7 @@
       event.preventDefault();history.replaceState(null,'','#beta');openBeta();
     }));
     document.querySelectorAll('[data-book-plan]').forEach(link=>link.addEventListener('click',event=>{
-      event.preventDefault();history.replaceState(null,'','#book');openBooking(link.dataset.bookPlan);
+      event.preventDefault();history.replaceState(null,'','#book');openBooking(link.dataset.bookPlan,link.dataset.bookIntro);
     }));
     if(location.hash==='#beta')openBeta();
     else if(location.hash==='#book')openBooking('');
