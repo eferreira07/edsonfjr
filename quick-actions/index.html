@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0M1EKPN4Y2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-0M1EKPN4Y2');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#12345b">
@@ -110,6 +118,22 @@
     .is-featured .price-save{background:var(--lime);color:#18240a}
     @media(max-width:620px){.founding-banner{flex-direction:column;gap:4px;padding:14px}.founding-banner span{font-size:14px}}
   </style>
+  <style>
+    /* Hook band above pricing */
+    .hook-band{margin-top:20px;margin-bottom:56px;padding:46px 48px 40px;border-radius:14px;background:var(--blue-dark);color:#fff}
+    .hook-band .section-kicker{color:var(--lime)}
+    .hook-band h2{max-width:900px;text-wrap:balance;margin:12px 0 0;font-size:clamp(32px,4.4vw,52px);line-height:1.04;letter-spacing:-.055em}
+    .hook-band h2 em{display:block;font-family:Georgia,serif;font-weight:400;color:#b7cbe5}
+    .hook-band>p{max-width:640px;margin:16px 0 0;color:#d4e0fb;font-size:16px;line-height:1.6}
+    .hook-points{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:32px 0 0;padding:0;list-style:none}
+    .hook-points li{padding:20px 20px 18px;border:1px solid #ffffff24;border-radius:10px;background:#ffffff0a}
+    .hook-points b{display:flex;align-items:center;gap:10px;font-size:16px;letter-spacing:-.02em}
+    .hook-points b:before{display:grid;place-items:center;flex:none;width:24px;height:24px;border-radius:50%;background:var(--lime);color:#18240a;font-size:12px;content:"✓"}
+    .hook-points span{display:block;margin-top:8px;color:#c9d7ef;font-size:13px;line-height:1.55}
+    .hook-band + .pricing{padding-top:0}
+    @media(max-width:900px){.hook-points{grid-template-columns:1fr}}
+    @media(max-width:620px){.hook-band{padding:32px 20px 24px;margin-bottom:40px}.hook-band h2{font-size:34px}.hook-band>p{font-size:15px}}
+  </style>
 </head>
 <body>
   <header class="site-header" id="top">
@@ -179,6 +203,17 @@
         <article class="platform-card"><span class="platform-label">AI apps · current support</span><h3>Use the AI you already have</h3><p>Quick Actions prepares a starting prompt for the assistant you choose.</p><div class="ai-list" aria-label="Supported AI assistants"><span>ChatGPT</span><span>Codex</span><span>Claude</span></div></article>
       </div>
       <p class="platform-footnote">Each AI app uses its own account and connections. Quick Actions helps you start the task; it doesn’t replace the app.</p>
+    </section>
+
+    <section class="wrap hook-band" aria-labelledby="hook-title">
+      <div class="section-kicker">Made for busy people</div>
+      <h2 id="hook-title">You don’t need to become a prompt engineer. <em>You just want the result.</em></h2>
+      <p>Tell us the tasks you repeat. We turn them into buttons. You click, and AI does the work, without the trial and error.</p>
+      <ul class="hook-points">
+        <li><b>No prompt writing</b><span>The instructions are already in each button.</span></li>
+        <li><b>Mapped to your work once</b><span>One session, and you’re set.</span></li>
+        <li><b>Click instead of guess</b><span>The same good result every time.</span></li>
+      </ul>
     </section>
 
     <section class="wrap pricing" id="pricing" aria-labelledby="pricing-title">
