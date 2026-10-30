@@ -134,6 +134,55 @@
     @media(max-width:900px){.hook-points{grid-template-columns:1fr}}
     @media(max-width:620px){.hook-band{padding:32px 20px 24px;margin-bottom:40px}.hook-band h2{font-size:34px}.hook-band>p{font-size:15px}}
   </style>
+  <style>
+    /* Three plans */
+    .price-grid{grid-template-columns:repeat(3,1fr);gap:15px;max-width:none}
+    .price-card{padding:30px 26px 26px}
+    @media(max-width:900px){.price-grid{grid-template-columns:1fr;max-width:520px;margin-inline:auto;gap:22px}}
+  </style>
+  <style>
+    /* Monthly / yearly switch */
+    .billing-toggle{display:flex;width:max-content;margin:26px auto 0;padding:4px;gap:4px;border:1px solid var(--line);border-radius:999px;background:#fff}
+    .billing-toggle button{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:0;border-radius:999px;background:transparent;color:#34425e;font-size:13px;font-weight:750;cursor:pointer}
+    .billing-toggle button[aria-pressed="true"]{background:var(--blue-dark);color:#fff}
+    .billing-toggle button:focus-visible{outline:2px solid #537ce0;outline-offset:2px}
+    .billing-save{padding:3px 8px;border-radius:999px;background:var(--lime);color:#18240a;font-size:10px;font-weight:800}
+    .founding-banner + .billing-toggle + .price-grid{margin-top:26px}
+    #pricing[data-billing="yearly"] .bill-m,#pricing[data-billing="monthly"] .bill-y{display:none}
+    .price-amount .bill-y,.price-amount .bill-m{display:inline-flex;align-items:baseline;gap:6px}
+  </style>
+  <style>
+    /* Bolder pricing */
+    .pricing-heading h2{font-size:clamp(40px,5.4vw,64px);text-wrap:balance}
+    .founding-banner{padding:18px 24px}
+    .founding-banner span{font-size:18px;font-weight:750}
+    .price-grid{grid-template-columns:1fr 1.18fr 1fr;align-items:center;gap:18px}
+    .price-card{padding:30px 26px 26px}
+    .price-card h3{font-size:25px}
+    .price-amount{font-size:46px}
+    .price-card.is-featured{padding:44px 34px 32px;border:3px solid var(--lime);border-radius:16px;box-shadow:0 30px 80px #071b4a55,0 0 0 8px #e7f05a22}
+    .price-card.is-featured h3{font-size:30px;line-height:1.12}
+    .price-card.is-featured .price-amount{font-size:68px}
+    .price-card.is-featured .price-list{font-size:14px;gap:12px}
+    .price-badge{top:-15px;padding:7px 14px;font-size:11px}
+    .price-cta{min-height:52px;font-size:14px;gap:8px}
+    .price-cta span{font-size:20px;line-height:1;transition:transform .18s}
+    .price-cta:hover span{transform:translateX(3px)}
+    .is-featured .price-cta{min-height:60px;font-size:16px;font-weight:800;box-shadow:0 10px 26px #e7f05a40}
+    .price-trust{margin:12px 0 0;color:#c9d7ef;font-size:12px;text-align:center}
+    .compare{margin-top:56px}
+    .compare-title{margin:0 0 20px;text-align:center;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.04em}
+    .compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .compare-col{padding:22px 22px 18px;border:1px solid var(--line);border-radius:12px;background:#fff}
+    .compare-col.is-us{border:2px solid var(--blue-dark);background:#eef3d0}
+    .compare-name{margin-bottom:12px;font-size:16px;font-weight:800;letter-spacing:-.02em}
+    .compare-col dl{display:grid;gap:4px;margin:0}
+    .compare-col dt{margin-top:8px;color:#69758a;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .compare-col dd{margin:0;color:#24324a;font-size:14px;line-height:1.45}
+    .compare-col.is-us dd{font-weight:700}
+    @media(max-width:900px){.price-grid{grid-template-columns:1fr}.price-card.is-featured{order:-1}.compare-grid{grid-template-columns:1fr}}
+    @media(max-width:620px){.price-card.is-featured{padding:36px 22px 26px}.price-card.is-featured .price-amount{font-size:54px}.founding-banner span{font-size:15px}}
+  </style>
 </head>
 <body>
   <header class="site-header" id="top">
@@ -216,73 +265,95 @@
       </ul>
     </section>
 
-    <section class="wrap pricing" id="pricing" aria-labelledby="pricing-title">
+    <section class="wrap pricing" id="pricing" data-billing="yearly" aria-labelledby="pricing-title">
       <div class="pricing-heading">
         <div><div class="section-kicker">Founding beta pricing</div><h2 id="pricing-title">Pick how much <em>help you want.</em></h2></div>
-        <div><p>Every plan includes the Quick Actions app. The difference is how much we set up for you.</p><span class="founding-tag">Founding members save 50% on setup</span></div>
+        <div><p>Every plan includes the Quick Actions app. The difference is how much we set up for you.</p><span class="founding-tag">Founding members lock in today’s price</span></div>
       </div>
-      <div class="founding-banner" role="note"><strong>★ Founding member deal</strong><span>50% off setup + $7/month locked for life. First 15 people only.</span></div>
+      <div class="founding-banner" role="note"><strong>★ Founding member deal</strong><span>Lock in today’s price for life, monthly or yearly. First 15 people only.</span></div>
+      <div class="billing-toggle" role="group" aria-label="Billing period">
+        <button type="button" data-billing="monthly" aria-pressed="false">Monthly</button>
+        <button type="button" data-billing="yearly" aria-pressed="true">Yearly <span class="billing-save">2 months free</span></button>
+      </div>
       <div class="price-grid">
         <article class="price-card">
           <div class="price-name">Starter</div>
           <h3>Use it as is</h3>
-          <p class="price-for">For people who want ready-made buttons and like to set things up on their own.</p>
-          <div class="price-amount">$7<small>/ month</small></div>
-          <p class="price-extra">No setup fee · price locked for life</p>
+          <p class="price-for">For individuals who want ready-made buttons and like to set things up on their own.</p>
+          <div class="price-amount"><span class="bill-y">$8.25<small>/ person / month</small></span><span class="bill-m">$9.99<small>/ person / month</small></span></div>
+          <p class="price-extra"><span class="bill-y">Billed $99 yearly · about $0.27 a day</span><span class="bill-m">No setup fee</span></p>
           <ul class="price-list">
             <li>Ready-made action packs</li>
             <li>Add your own tasks</li>
             <li>Desktop + mobile</li>
             <li>Works with ChatGPT, Claude and Codex</li>
           </ul>
-          <a class="price-cta" href="#beta">Request beta access</a>
+          <a class="price-cta" href="#beta">Start on my own <span aria-hidden="true">›</span></a>
         </article>
         <article class="price-card is-featured">
-          <span class="price-badge">Best value</span>
+          <span class="price-badge">Most popular</span>
           <div class="price-name">Personalized</div>
-          <h3>Built for your work</h3>
-          <p class="price-for">For people with tasks they repeat and no time to write good prompts.</p>
-          <div class="price-amount">$7<small>/ month</small></div>
-          <p class="price-extra">+ <s>$149</s>$75 one-time setup<span class="price-save">−50%</span></p>
+          <h3>Built with me, for your work</h3>
+          <p class="price-for">For you, or you and a partner, who want your tasks mapped and ready, without the trial and error.</p>
+          <div class="price-amount"><span class="bill-y">$8.25<small>/ person / month</small></span><span class="bill-m">$9.99<small>/ person / month</small></span></div>
+          <p class="price-extra"><span class="bill-y">Billed $99 yearly + $250 setup · up to 2 people</span><span class="bill-m">+ $250 one-time setup · up to 2 people</span></p>
           <ul class="price-list">
             <li class="price-inherit">Everything in Starter</li>
-            <li>One 60-minute session to map your tasks</li>
-            <li>Up to 10 custom buttons built for you</li>
-            <li>30 days of email support</li>
+            <li>A 1-hour session with me for up to 2 people</li>
+            <li>Up to 10 tasks turned into custom buttons</li>
+            <li>Quick tips to get the most from each button</li>
+            <li><span class="bill-y"><b>60 days</b> of email support (yearly bonus)</span><span class="bill-m">30 days of email support</span></li>
+            <li>Need 3–9 people? Add $99 per extra person</li>
           </ul>
-          <a class="price-cta" href="#book" data-book-plan="Personalized">Book a session</a>
-        </article>
-        <article class="price-card">
-          <div class="price-name">Training + Personalized</div>
-          <h3>Learn and get set up</h3>
-          <p class="price-for">For people new to AI who want to learn the basics and have it ready to use.</p>
-          <div class="price-amount">$7<small>/ month</small></div>
-          <p class="price-extra">+ <s>$349</s>$175 one-time setup<span class="price-save">−50%</span></p>
-          <ul class="price-list">
-            <li class="price-inherit">Everything in Personalized</li>
-            <li>AI Quick Training (two 60-minute sessions)</li>
-            <li>Up to 25 custom buttons</li>
-            <li>60 days of support + one follow-up call</li>
-          </ul>
-          <a class="price-cta" href="#book" data-book-plan="Training + Personalized">Book a session</a>
+          <a class="price-cta" href="#book" data-book-plan="Personalized">I want my buttons built <span aria-hidden="true">›</span></a>
+          <p class="price-trust">You talk with me, not a sales team. Pick a time that works for you.</p>
         </article>
         <article class="price-card">
           <div class="price-name">Enterprise</div>
           <h3>For your whole team</h3>
-          <p class="price-for">For companies that want Quick Actions for several people on the same team.</p>
+          <p class="price-for">For companies with 10 or more people who want Quick Actions across the team.</p>
           <div class="price-amount is-talk">Let’s talk</div>
           <p class="price-extra">Custom pricing for your team</p>
           <ul class="price-list">
-            <li class="price-inherit">Everything in Training + Personalized</li>
+            <li class="price-inherit">Everything in Personalized</li>
             <li>Buttons built around your team’s shared tasks</li>
             <li>Team onboarding and training</li>
-            <li>Pricing based on number of users</li>
+            <li>For teams of 10+ people</li>
             <li>Priority support</li>
           </ul>
-          <a class="price-cta" href="#book" data-book-plan="Enterprise" data-book-intro="We’ll show you Quick Actions, learn how your team works, and talk about what a rollout would look like.">Book a demo</a>
+          <a class="price-cta" href="#book" data-book-plan="Enterprise" data-book-intro="We’ll show you Quick Actions, learn how your team works, and talk about what a rollout would look like.">Talk about my team <span aria-hidden="true">›</span></a>
         </article>
       </div>
-      <p class="price-note">Founding member pricing is for the first 15 people. After that, setup goes back to full price. Enterprise pricing is set per team.</p>
+      <p class="price-note">Prices are per person. Yearly is $99 per person, paid up front. The founding price lock is for the first 15 people. Enterprise pricing is set per team.</p>
+      <div class="compare">
+        <h3 class="compare-title">Why not just take a course or hire a consultant?</h3>
+        <div class="compare-grid">
+          <div class="compare-col">
+            <div class="compare-name">AI course</div>
+            <dl>
+              <dt>Time</dt><dd>10–30 hours of video</dd>
+              <dt>What you get</dt><dd>Knowledge. You still write every prompt.</dd>
+              <dt>Typical cost</dt><dd>$300–$2,000</dd>
+            </dl>
+          </div>
+          <div class="compare-col">
+            <div class="compare-name">Consultant</div>
+            <dl>
+              <dt>Time</dt><dd>Weeks of back-and-forth</dd>
+              <dt>What you get</dt><dd>A report or a setup you can’t easily change</dd>
+              <dt>Typical cost</dt><dd>$150+ per hour</dd>
+            </dl>
+          </div>
+          <div class="compare-col is-us">
+            <div class="compare-name">Quick Actions Personalized</div>
+            <dl>
+              <dt>Time</dt><dd>1 hour with me</dd>
+              <dt>What you get</dt><dd>10 buttons for your real work, ready to click</dd>
+              <dt>Cost</dt><dd>$250 setup + $99 a year</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="wrap related-callout" aria-labelledby="related-title">
@@ -396,6 +467,15 @@
     const betaBookingLink=document.getElementById('beta-booking-link');
     const betaBookingNote=document.getElementById('beta-booking-note');
     if(CALENDLY_URL){betaBookingLink.href=CALENDLY_URL;betaBookingLink.hidden=false;betaBookingNote.hidden=true;}
+    // Monthly / yearly pricing switch
+    const pricingSection=document.getElementById('pricing');
+    document.querySelectorAll('[data-billing]').forEach(btn=>{
+      if(btn.tagName!=='BUTTON')return;
+      btn.addEventListener('click',()=>{
+        pricingSection.dataset.billing=btn.dataset.billing;
+        document.querySelectorAll('.billing-toggle button').forEach(b=>b.setAttribute('aria-pressed',b===btn?'true':'false'));
+      });
+    });
     // Early access and booking stay hidden until a visitor asks for them.
     const betaSection=document.getElementById('beta');
     const bookingSection=document.getElementById('book');
