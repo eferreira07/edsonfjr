@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stop Counting What AI Automates. Measure Outcomes. — Edson Ferreira</title>
+<meta name="description" content="Automation rates can hide failure. Learn why AI programs should measure outcomes like first-contact resolution and cost per problem actually solved.">
+<meta name="author" content="Edson Ferreira">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://edsonfjr.com/notes/measure-ai-outcomes-not-automation">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://edsonfjr.com/notes/measure-ai-outcomes-not-automation">
+<meta property="og:title" content="Stop Counting What AI Automates. Measure Outcomes.">
+<meta property="og:description" content="Automation rates can hide failure. Learn why AI programs should measure outcomes like first-contact resolution and cost per problem actually solved.">
+<meta property="og:image" content="https://edsonfjr.com/notes/img/measure-ai-outcomes-not-automation-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:image:alt" content="Sketch: a 40% automated dashboard headline; below, the Context to Outcome path with a learn and improve loop and a human checking the result">
+<meta property="og:site_name" content="Edson Ferreira">
+<meta property="article:author" content="Edson Ferreira">
+<meta property="article:published_time" content="2026-11-02">
+<meta property="article:section" content="AI">
+<meta property="article:tag" content="AI success metrics">
+<meta property="article:tag" content="measuring AI outcomes">
+<meta property="article:tag" content="AI customer service KPIs">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@edsonferreira_">
+<meta name="twitter:creator" content="@edsonferreira_">
+<meta name="twitter:title" content="Stop Counting What AI Automates. Measure Outcomes.">
+<meta name="twitter:description" content="Your AI resolved 40% of contacts with no human. How many of those customers came back the next day?">
+<meta name="twitter:image" content="https://edsonfjr.com/notes/img/measure-ai-outcomes-not-automation-og.png">
+<meta name="twitter:image:alt" content="Sketch: a 40% automated dashboard headline; below, the Context to Outcome path with a learn and improve loop and a human checking the result">
+
+<!-- JSON-LD: Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Stop Counting What AI Automates. Measure Outcomes.",
+  "description": "Automation rates can hide failure. Learn why AI programs should measure outcomes like first-contact resolution and cost per problem actually solved.",
+  "url": "https://edsonfjr.com/notes/measure-ai-outcomes-not-automation",
+  "datePublished": "2026-11-02",
+  "author": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/edsonferreira",
+      "https://twitter.com/edsonferreira_"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://edsonfjr.com/notes/measure-ai-outcomes-not-automation"
+  },
+  "image": {"@type": "ImageObject", "url": "https://edsonfjr.com/notes/img/measure-ai-outcomes-not-automation.png", "width": 1600, "height": 1000},
+  "keywords": ["AI metrics", "business outcomes", "AI ROI", "customer service KPIs", "first contact resolution"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2; --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.07); --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916; --muted: #7A7870;
+    --accent: #3D5A80; --accent2: #2C4A6E;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --r: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; z-index: 100; }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-back { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  article { max-width: 680px; margin: 0 auto; padding: 120px 2rem 6rem; }
+  .article-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+  h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 1.5rem; }
+  .article-meta { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--text); margin: 2.5rem 0 1rem; }
+  p { font-size: 1rem; font-weight: 300; color: var(--text); line-height: 1.85; margin-bottom: 1.4rem; }
+  .lead { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+  .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .callout p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .callout strong { font-weight: 500; color: var(--text); }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
+  .step-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .step h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .article-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .author-line { font-size: 0.85rem; color: var(--muted); }
+  .author-line strong { font-weight: 500; color: var(--text); }
+  .back-link { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  .diagram { width: 100%; height: auto; border-radius: var(--r); border: 1px solid var(--border); margin: 0 0 2.5rem; display: block; }
+  @media (max-width: 640px) { nav { padding: 0 1.25rem; } article { padding: 100px 1.25rem 4rem; } h1 { font-size: 1.9rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">Edson<span>.</span></a>
+  <a class="nav-back" href="../index.html#notes">← Back to notes</a>
+</nav>
+<article>
+  <div class="article-eyebrow">AI · 2 min read</div>
+  <h1>Stop Counting What AI Automates. Measure Outcomes.</h1>
+  <div class="article-meta">By Edson Ferreira &nbsp;·&nbsp; November 2026</div>
+  <img src="img/measure-ai-outcomes-not-automation.png" alt="Sketch: a 40% automated dashboard headline; below, the Context to Outcome path with a learn and improve loop and a human checking the result" class="diagram" width="1600" height="1000" fetchpriority="high">
+
+  <!-- LEAD PARAGRAPH: Sets the scene. First person. 2–3 sentences. A real situation. -->
+  <p class="lead">If your AI strategy measures automation, you may be measuring the wrong thing.</p>
+
+  <!-- ARTICLE BODY: Use <h2> for sections, <p> for body, <div class="step"> for steps, <div class="callout"> for key principles -->
+  <p>Most AI programs report numbers like:</p>
+  <ul style="margin:0 0 1.4rem 1.25rem"><li>tasks automated</li><li>AI conversations handled</li><li>handling time saved</li><li>agents deployed</li><li>% of work done with no human involved</li></ul>
+  <p>Useful numbers. But none of them tell you if the business got better.</p>
+  <h2>The 40% problem</h2>
+  <p>Imagine an AI agent that resolves 40% of customer contacts with no human involved. Great headline.</p>
+  <p>But that number hides a lot:</p>
+  <ul style="margin:0 0 1.4rem 1.25rem"><li>Some of those customers come back because the problem wasn't really fixed.</li><li>The agent may have created wrong records.</li><li>Employees may spend more time fixing AI work than they save.</li></ul>
+  <p>Automation happened. That doesn't mean the business improved.</p>
+  <h2>Measure the result, not the activity</h2>
+  <p>In customer service, that means:</p>
+  <ul style="margin:0 0 1.4rem 1.25rem"><li>more problems solved on the first contact</li><li>fewer repeat contacts</li><li>happier customers</li><li>faster resolution of hard cases</li><li>more productive employees</li><li>lower cost per problem <strong>actually solved</strong></li></ul>
+  <p>A system that finishes a task is not always a system that solves a problem. And a system that removes people is not always a better experience.</p>
+  <h2>Closing the loop</h2>
+  <p>Here is the full model from this series:</p>
+  <div class="callout"><p><strong>Context → Recommendation → Execution → Outcome</strong></p></div>
+  <ul style="margin:0 0 1.4rem 1.25rem"><li>Context: understand the situation.</li><li>Recommendation: help people pick the right action.</li><li>Execution: turn the decision into progress, safely.</li><li>Outcome: check if the value really showed up.</li></ul>
+  <p>The last step is the one most teams skip. Without a feedback loop that checks if the problem was solved and the customer benefited, AI gets very efficient at repeating the wrong thing.</p>
+  <p>And notice what the Brazil rule does here. When a customer chooses a human, that's a signal. If people keep opting out of your AI, your automation rate looks fine, but your outcome is telling you something.</p>
+  <div class="callout"><p><strong>The measure of AI maturity is not how much work we automate. It's how much better the work gets done.</strong></p></div>
+  <h2>Closing the series</h2>
+  <p>The Human Option is not about choosing between people and technology. It's about designing systems where AI brings the context, supports the decision, acts responsibly, and helps people deliver better results.</p>
+  <p>The opportunity is not to automate today's process. It's to rethink how the work should happen.</p>
+  
+
+  <div class="recap">
+  <h2>Recap</h2>
+  <ul style="margin:0 0 1.4rem 1.25rem">
+    <li><a href="human-option-ai-customer-service.html" style="color:var(--accent)">Part 1: The Human Option: AI Customer Service Needs a Human</a></li>
+    <li><a href="ai-context-not-more-data.html" style="color:var(--accent)">Part 2: More Data Won't Fix Your AI: Why Context Wins</a></li>
+    <li><a href="ai-decision-support-recommendations.html" style="color:var(--accent)">Part 3: AI Decision Support: Better Answers Are Not Enough</a></li>
+    <li><a href="ai-agents-when-not-to-act.html" style="color:var(--accent)">Part 4: AI Agents That Know When Not to Act</a></li>
+  </ul>
+  </div>
+
+  <div class="article-footer">
+    <div class="author-line">Written by <strong>Edson Ferreira</strong> — my own thoughts and research.</div>
+    <a class="back-link" href="../index.html#notes">← More notes</a>
+  </div>
+</article>
+</body>
+</html>

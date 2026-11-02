@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Decision Support: Better Answers Are Not Enough — Edson Ferreira</title>
+<meta name="description" content="AI got great at summaries. The next step is decision support: one clear next action, the reason behind it, and honesty when the AI is not sure.">
+<meta name="author" content="Edson Ferreira">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://edsonfjr.com/notes/ai-decision-support-recommendations">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://edsonfjr.com/notes/ai-decision-support-recommendations">
+<meta property="og:title" content="AI Decision Support: Better Answers Are Not Enough">
+<meta property="og:description" content="AI got great at summaries. The next step is decision support: one clear next action, the reason behind it, and honesty when the AI is not sure.">
+<meta property="og:image" content="https://edsonfjr.com/notes/img/ai-decision-support-recommendations-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:image:alt" content="Sketch: a list of ten options labeled homework; below, what happened, what it means and the next step, with a human making the call">
+<meta property="og:site_name" content="Edson Ferreira">
+<meta property="article:author" content="Edson Ferreira">
+<meta property="article:published_time" content="2026-11-02">
+<meta property="article:section" content="AI">
+<meta property="article:tag" content="AI decision support">
+<meta property="article:tag" content="next best action AI">
+<meta property="article:tag" content="AI recommendations product design">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@edsonferreira_">
+<meta name="twitter:creator" content="@edsonferreira_">
+<meta name="twitter:title" content="AI Decision Support: Better Answers Are Not Enough">
+<meta name="twitter:description" content="A list of ten possible actions is not a recommendation. It is homework. What good AI decision support looks like.">
+<meta name="twitter:image" content="https://edsonfjr.com/notes/img/ai-decision-support-recommendations-og.png">
+<meta name="twitter:image:alt" content="Sketch: a list of ten options labeled homework; below, what happened, what it means and the next step, with a human making the call">
+
+<!-- JSON-LD: Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Decision Support: Better Answers Are Not Enough",
+  "description": "AI got great at summaries. The next step is decision support: one clear next action, the reason behind it, and honesty when the AI is not sure.",
+  "url": "https://edsonfjr.com/notes/ai-decision-support-recommendations",
+  "datePublished": "2026-11-02",
+  "author": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/edsonferreira",
+      "https://twitter.com/edsonferreira_"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://edsonfjr.com/notes/ai-decision-support-recommendations"
+  },
+  "image": {"@type": "ImageObject", "url": "https://edsonfjr.com/notes/img/ai-decision-support-recommendations.png", "width": 1600, "height": 1000},
+  "keywords": ["decision support", "next best action", "AI recommendations", "product management", "enterprise AI"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2; --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.07); --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916; --muted: #7A7870;
+    --accent: #3D5A80; --accent2: #2C4A6E;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --r: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; z-index: 100; }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-back { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  article { max-width: 680px; margin: 0 auto; padding: 120px 2rem 6rem; }
+  .article-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+  h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 1.5rem; }
+  .article-meta { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--text); margin: 2.5rem 0 1rem; }
+  p { font-size: 1rem; font-weight: 300; color: var(--text); line-height: 1.85; margin-bottom: 1.4rem; }
+  .lead { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+  .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .callout p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .callout strong { font-weight: 500; color: var(--text); }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
+  .step-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .step h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .article-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .author-line { font-size: 0.85rem; color: var(--muted); }
+  .author-line strong { font-weight: 500; color: var(--text); }
+  .back-link { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  .diagram { width: 100%; height: auto; border-radius: var(--r); border: 1px solid var(--border); margin: 0 0 2.5rem; display: block; }
+  @media (max-width: 640px) { nav { padding: 0 1.25rem; } article { padding: 100px 1.25rem 4rem; } h1 { font-size: 1.9rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">Edson<span>.</span></a>
+  <a class="nav-back" href="../index.html#notes">← Back to notes</a>
+</nav>
+<article>
+  <div class="article-eyebrow">AI · 1 min read</div>
+  <h1>AI Decision Support: Better Answers Are Not Enough</h1>
+  <div class="article-meta">By Edson Ferreira &nbsp;·&nbsp; November 2026</div>
+  <img src="img/ai-decision-support-recommendations.png" alt="Sketch: a list of ten options labeled homework; below, what happened, what it means and the next step, with a human making the call" class="diagram" width="1600" height="1000" fetchpriority="high">
+
+  <!-- LEAD PARAGRAPH: Sets the scene. First person. 2–3 sentences. A real situation. -->
+  <p class="lead">We got very good at AI that summarizes, answers and writes.</p>
+
+  <!-- ARTICLE BODY: Use <h2> for sections, <p> for body, <div class="step"> for steps, <div class="callout"> for key principles -->
+  <p>"The customer has contacted support three times about the same issue."</p>
+  <p>Useful. But it doesn't move anything forward. The person still has to figure out what to do.</p>
+  <h2>From what happened to what to do next</h2>
+  <p>A better assistant connects the dots:</p>
+  <ul style="margin:0 0 1.4rem 1.25rem"><li>This issue keeps coming back.</li><li>The usual fixes already failed.</li><li>There is an open promise to this customer.</li><li>This probably needs an escalation.</li></ul>
+  <p>Then it suggests one next step, and says why.</p>
+  <div class="callout"><p><strong>Information tells you what happened. A recommendation helps you decide what to do about it.</strong></p></div>
+  <h2>Recommendations need design, not just a model</h2>
+  <p>A list of ten possible actions is not a recommendation. It's homework.</p>
+  <p>A good recommendation weighs business rules, customer impact, cost and how sure it is. And it shows its reasoning simply enough that a person can say "yes," "no," or "not quite."</p>
+  <p>Sometimes the right recommendation is "go ahead." Sometimes it's "ask for more information" or "bring in an expert." An AI that never says "I'm not sure" is not confident. It's careless.</p>
+  <p>This is where product managers earn their seat. Before the model, a few things need to be clear:</p>
+  <ul style="margin:0 0 1.4rem 1.25rem"><li>Which decisions AI should recommend, and which it should stay out of.</li><li>What evidence a person needs to trust it.</li><li>How to show uncertainty without creating noise.</li><li>When a person approves, and when they can override.</li><li>How to learn from what happened after the decision.</li></ul>
+  <p>The goal is not to make AI sound smart. The goal is better decisions, more often, with less effort.</p>
+  <p>And this connects back to the human option. When a person takes over a case, a good recommendation is the difference between "let me look into this" and "here's what we're going to do."</p>
+  <div class="callout"><p><strong>The next step for AI assistants is not better answers. It's better decision support.</strong></p></div>
+  <p>The best starting point is a decision your team makes many times a day. If AI can't recommend it with a clear "why," that gap tells you what to build next.</p>
+
+  <div class="recap">
+  <h2>Recap</h2>
+  <ul style="margin:0 0 1.4rem 1.25rem">
+    <li><a href="human-option-ai-customer-service.html" style="color:var(--accent)">Part 1: The Human Option: AI Customer Service Needs a Human</a></li>
+    <li><a href="ai-context-not-more-data.html" style="color:var(--accent)">Part 2: More Data Won't Fix Your AI: Why Context Wins</a></li>
+  </ul>
+  </div>
+
+  <div class="article-footer">
+    <div class="author-line">Written by <strong>Edson Ferreira</strong> — my own thoughts and research.</div>
+    <a class="back-link" href="../index.html#notes">← More notes</a>
+  </div>
+</article>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Human Option: AI Customer Service Needs a Human — Edson Ferreira</title>
+<meta name="description" content="Brazil now requires a real-time human option in customer service. China and the EU are moving the same way. What it means for how we build AI agents.">
+<meta name="author" content="Edson Ferreira">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://edsonfjr.com/notes/human-option-ai-customer-service">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://edsonfjr.com/notes/human-option-ai-customer-service">
+<meta property="og:title" content="The Human Option: AI Customer Service Needs a Human">
+<meta property="og:description" content="Brazil now requires a real-time human option in customer service. China and the EU are moving the same way. What it means for how we build AI agents.">
+<meta property="og:image" content="https://edsonfjr.com/notes/img/human-option-ai-customer-service-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:image:alt" content="Sketch: Brazil, China and the EU rules on top; below, the Context, Recommend, Execute, Outcome path with a person always one step away">
+<meta property="og:site_name" content="Edson Ferreira">
+<meta property="article:author" content="Edson Ferreira">
+<meta property="article:published_time" content="2026-11-02">
+<meta property="article:section" content="AI">
+<meta property="article:tag" content="human in the loop AI">
+<meta property="article:tag" content="AI regulation customer service">
+<meta property="article:tag" content="AI agents customer experience">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@edsonferreira_">
+<meta name="twitter:creator" content="@edsonferreira_">
+<meta name="twitter:title" content="The Human Option: AI Customer Service Needs a Human">
+<meta name="twitter:description" content="Brazil just made the human option law. The rest of the world is heading the same way. Here is what that means for AI agents.">
+<meta name="twitter:image" content="https://edsonfjr.com/notes/img/human-option-ai-customer-service-og.png">
+<meta name="twitter:image:alt" content="Sketch: Brazil, China and the EU rules on top; below, the Context, Recommend, Execute, Outcome path with a person always one step away">
+
+<!-- JSON-LD: Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Human Option: AI Customer Service Needs a Human",
+  "description": "Brazil now requires a real-time human option in customer service. China and the EU are moving the same way. What it means for how we build AI agents.",
+  "url": "https://edsonfjr.com/notes/human-option-ai-customer-service",
+  "datePublished": "2026-11-02",
+  "author": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/edsonferreira",
+      "https://twitter.com/edsonferreira_"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://edsonfjr.com/notes/human-option-ai-customer-service"
+  },
+  "image": {"@type": "ImageObject", "url": "https://edsonfjr.com/notes/img/human-option-ai-customer-service.png", "width": 1600, "height": 1000},
+  "keywords": ["human in the loop", "AI regulation", "Brazil SAC decree", "EU AI Act", "AI agents", "customer service AI"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2; --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.07); --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916; --muted: #7A7870;
+    --accent: #3D5A80; --accent2: #2C4A6E;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --r: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; z-index: 100; }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-back { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  article { max-width: 680px; margin: 0 auto; padding: 120px 2rem 6rem; }
+  .article-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+  h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 1.5rem; }
+  .article-meta { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--text); margin: 2.5rem 0 1rem; }
+  p { font-size: 1rem; font-weight: 300; color: var(--text); line-height: 1.85; margin-bottom: 1.4rem; }
+  .lead { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+  .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .callout p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .callout strong { font-weight: 500; color: var(--text); }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
+  .step-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .step h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .article-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .author-line { font-size: 0.85rem; color: var(--muted); }
+  .author-line strong { font-weight: 500; color: var(--text); }
+  .back-link { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  .diagram { width: 100%; height: auto; border-radius: var(--r); border: 1px solid var(--border); margin: 0 0 2.5rem; display: block; }
+  @media (max-width: 640px) { nav { padding: 0 1.25rem; } article { padding: 100px 1.25rem 4rem; } h1 { font-size: 1.9rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">Edson<span>.</span></a>
+  <a class="nav-back" href="../index.html#notes">← Back to notes</a>
+</nav>
+<article>
+  <div class="article-eyebrow">AI · 2 min read</div>
+  <h1>The Human Option: AI Customer Service Needs a Human</h1>
+  <div class="article-meta">By Edson Ferreira &nbsp;·&nbsp; November 2026</div>
+  <img src="img/human-option-ai-customer-service.png" alt="Sketch: Brazil, China and the EU rules on top; below, the Context, Recommend, Execute, Outcome path with a person always one step away" class="diagram" width="1600" height="1000" fetchpriority="high">
+
+  <!-- LEAD PARAGRAPH: Sets the scene. First person. 2–3 sentences. A real situation. -->
+  <p class="lead">Customer service rule in Brazil.</p>
+
+  <!-- ARTICLE BODY: Use <h2> for sections, <p> for body, <div class="step"> for steps, <div class="callout"> for key principles -->
+  <p>It does not ban AI. In fact, it says companies can use AI to sort, route and even resolve customer requests. But there is one condition: the customer must always be able to reach a real person, in real time. At every step. From the first menu.</p>
+  <p>I grew up in Brazil, and anyone who has been stuck in a phone menu there knows why this rule exists.</p>
+  <p>But this is not only a Brazilian story. Similar moves are happening in other parts of the world:</p>
+  <ul style="margin:0 0 1.4rem 1.25rem"><li><strong>Brazil:</strong> AI can serve customers, but a human must always be one step away.</li><li><strong>China:</strong> New State Council guidelines push "employment-friendly" AI: measure job risk before adopting AI, help workers reskill, protect people who work alongside machines.</li><li><strong>European Union:</strong> The AI Act requires human oversight for high-risk AI systems. The Platform Work Directive adds rules for when algorithms manage people.</li></ul>
+  <p>Three very different places. Three different problems. One direction: <strong>AI moves forward, and people stay in the loop.</strong></p>
+  <p>None of these are bans. They are guardrails. And I think they mark a turning point for how we build AI assistants and agents.</p>
+  <h2>Beyond "how much can we automate"</h2>
+  <p>For the last two years, most AI conversations measured one thing: how much human work we can remove.</p>
+  <p>These rules shift the focus to something else: <strong>when a person is needed, that person has to be ready.</strong></p>
+  <p>That changes the design. If a human is always one step away, the AI's job is not only to replace that person. It is to make the handoff great. The person should arrive with the full picture, a clear next step, and the power to act.</p>
+  <p>I see four building blocks:</p>
+  <ol style="margin:0 0 1.4rem 1.25rem"><li><strong>Context</strong> — understand the situation, not just the data.</li><li><strong>Recommendation</strong> — suggest the next best action, and explain why.</li><li><strong>Execution</strong> — act across systems, with the right level of control.</li><li><strong>Outcome</strong> — measure whether the problem was actually solved.</li></ol>
+  <p>In this model, the human is not the fallback when AI fails. The human is a better decision-maker because AI did the preparation.</p>
+  <p>I work on the layer that lets companies shape how their service teams and their AI work together. The pattern I see most often: teams spend months on what the AI can do alone, and very little time on the moment it hands off to a person. That moment is where customers decide if they trust you.</p>
+    <div class="callout"><p><strong>The real measure of AI maturity is not how much human involvement we remove. It is how well we combine human judgment with what AI does best.</strong></p></div>
+  <p>I believe we are moving from building AI that helps people with tasks to redesigning how the work itself gets done. Rules like Brazil's just make that shift harder to ignore.</p>
+  <p style="font-size:.85rem;color:var(--muted)">Sources: <a href="https://www2.camara.leg.br/legin/fed/decret/2026/decreto-13135-9-outubro-2026-800053-publicacaooriginal-181591-pe.html">Brazil Decree 13.135/2026</a> · <a href="https://english.www.gov.cn/policies/latestreleases/202610/23/content_WS6adb4e53c6d00ca5f9a0deb7.html">China AI employment guidelines</a> · <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14">EU AI Act, Article 14</a> · <a href="https://www.oecd.org/en/publications/how-widespread-is-algorithmic-management-in-workplaces_cda7a114-en.html">OECD</a></p>
+
+  <div class="article-footer">
+    <div class="author-line">Written by <strong>Edson Ferreira</strong> — my own thoughts and research.</div>
+    <a class="back-link" href="../index.html#notes">← More notes</a>
+  </div>
+</article>
+</body>
+</html>

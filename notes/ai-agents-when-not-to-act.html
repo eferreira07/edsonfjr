@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents That Know When Not to Act — Edson Ferreira</title>
+<meta name="description" content="AI agents can now take real action. Here are five simple rules to decide how much freedom an agent gets, and why controls help you scale faster.">
+<meta name="author" content="Edson Ferreira">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://edsonfjr.com/notes/ai-agents-when-not-to-act">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://edsonfjr.com/notes/ai-agents-when-not-to-act">
+<meta property="og:title" content="AI Agents That Know When Not to Act">
+<meta property="og:description" content="AI agents can now take real action. Here are five simple rules to decide how much freedom an agent gets, and why controls help you scale faster.">
+<meta property="og:image" content="https://edsonfjr.com/notes/img/ai-agents-when-not-to-act-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:image:alt" content="Sketch: four steps climbing from look up to refund, each with less freedom, and a human approving the refund">
+<meta property="og:site_name" content="Edson Ferreira">
+<meta property="article:author" content="Edson Ferreira">
+<meta property="article:published_time" content="2026-11-02">
+<meta property="article:section" content="AI">
+<meta property="article:tag" content="AI agent autonomy">
+<meta property="article:tag" content="AI agent guardrails">
+<meta property="article:tag" content="responsible AI agents">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@edsonferreira_">
+<meta name="twitter:creator" content="@edsonferreira_">
+<meta name="twitter:title" content="AI Agents That Know When Not to Act">
+<meta name="twitter:description" content="AI that can act is powerful. AI that knows when not to act is ready for real business. Five rules for agent autonomy.">
+<meta name="twitter:image" content="https://edsonfjr.com/notes/img/ai-agents-when-not-to-act-og.png">
+<meta name="twitter:image:alt" content="Sketch: four steps climbing from look up to refund, each with less freedom, and a human approving the refund">
+
+<!-- JSON-LD: Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Agents That Know When Not to Act",
+  "description": "AI agents can now take real action. Here are five simple rules to decide how much freedom an agent gets, and why controls help you scale faster.",
+  "url": "https://edsonfjr.com/notes/ai-agents-when-not-to-act",
+  "datePublished": "2026-11-02",
+  "author": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/edsonferreira",
+      "https://twitter.com/edsonferreira_"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Edson Ferreira",
+    "url": "https://edsonfjr.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://edsonfjr.com/notes/ai-agents-when-not-to-act"
+  },
+  "image": {"@type": "ImageObject", "url": "https://edsonfjr.com/notes/img/ai-agents-when-not-to-act.png", "width": 1600, "height": 1000},
+  "keywords": ["AI agents", "agent autonomy", "AI governance", "responsible AI", "human oversight"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2; --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.07); --border-strong: rgba(0,0,0,0.13);
+    --text: #1A1916; --muted: #7A7870;
+    --accent: #3D5A80; --accent2: #2C4A6E;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --r: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: rgba(247,245,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; z-index: 100; }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-back { font-size: 0.8rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  article { max-width: 680px; margin: 0 auto; padding: 120px 2rem 6rem; }
+  .article-eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+  h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 1.5rem; }
+  .article-meta { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--text); margin: 2.5rem 0 1rem; }
+  p { font-size: 1rem; font-weight: 300; color: var(--text); line-height: 1.85; margin-bottom: 1.4rem; }
+  .lead { font-size: 1.1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; }
+  .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .callout p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .callout strong { font-weight: 500; color: var(--text); }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
+  .step-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .step h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  .article-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .author-line { font-size: 0.85rem; color: var(--muted); }
+  .author-line strong { font-weight: 500; color: var(--text); }
+  .back-link { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  .diagram { width: 100%; height: auto; border-radius: var(--r); border: 1px solid var(--border); margin: 0 0 2.5rem; display: block; }
+  @media (max-width: 640px) { nav { padding: 0 1.25rem; } article { padding: 100px 1.25rem 4rem; } h1 { font-size: 1.9rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">Edson<span>.</span></a>
+  <a class="nav-back" href="../index.html#notes">← Back to notes</a>
+</nav>
+<article>
+  <div class="article-eyebrow">AI · 2 min read</div>
+  <h1>AI Agents That Know When Not to Act</h1>
+  <div class="article-meta">By Edson Ferreira &nbsp;·&nbsp; November 2026</div>
+  <img src="img/ai-agents-when-not-to-act.png" alt="Sketch: four steps climbing from look up to refund, each with less freedom, and a human approving the refund" class="diagram" width="1600" height="1000" fetchpriority="high">
+
+  <!-- LEAD PARAGRAPH: Sets the scene. First person. 2–3 sentences. A real situation. -->
+  <p class="lead">AI that can act is powerful. AI that knows when <em>not</em> to act is ready for real business.</p>
+
+  <!-- ARTICLE BODY: Use <h2> for sections, <p> for body, <div class="step"> for steps, <div class="callout"> for key principles -->
+  <p>We're moving from AI that answers to AI that does. Agents can look things up, update records, start workflows and run multi-step processes.</p>
+  <p>That's a big opportunity. It's also a different level of responsibility.</p>
+  <p>An assistant that <strong>suggests</strong> escalating a case supports a decision. An agent that <strong>escalates</strong> the case changes the business. Those are not the same thing, and they shouldn't get the same freedom.</p>
+  <h2>Not every action deserves the same freedom</h2>
+  <ul style="margin:0 0 1.4rem 1.25rem"><li>Looking up information: let it run.</li><li>Drafting a reply to a customer: a person reviews.</li><li>Updating a record: validate first.</li><li>Issuing a refund or changing a contract: explicit approval.</li></ul>
+  <p>The right level of freedom depends on four things: risk, business impact, whether you can undo it, and the rules you operate under.</p>
+  <p>That last one is no longer theoretical. Brazil, the EU and China are all writing "a human must be able to step in" into law, each in their own way.</p>
+  <h2>Five rules I use</h2>
+  <ol style="margin:0 0 1.4rem 1.25rem"><li><strong>Clear permissions.</strong> The AI touches only what it's allowed to touch.</li><li><strong>Clear boundaries.</strong> Every agent has a defined job and limits.</li><li><strong>Human control.</strong> People can review, approve, override or stop.</li><li><strong>Traceability.</strong> You can see what it did, why, and with what information.</li><li><strong>Recovery.</strong> When it goes wrong, you can fix the result and learn.</li></ol>
+  <p>None of this is about slowing AI down. It's how you earn the trust to give AI more freedom over time. Teams that skip it don't move faster. They move fast once, break something, and then lock everything down.</p>
+  <p>I've spent years on platforms where customers add their own logic and automation. The lesson that keeps coming back: the companies that scale customization safely are the ones that decided early who can change what, and how to undo it. Agents are the same problem with higher stakes.</p>
+  <div class="callout"><p><strong>Freedom without accountability is a risk. Freedom with the right controls is a competitive advantage.</strong></p></div>
+  <p>The first exercise I recommend is simple: list every action your AI can take, find the ones that can't be undone, and make sure a person owns each of them.</p>
+
+  <div class="recap">
+  <h2>Recap</h2>
+  <ul style="margin:0 0 1.4rem 1.25rem">
+    <li><a href="human-option-ai-customer-service.html" style="color:var(--accent)">Part 1: The Human Option: AI Customer Service Needs a Human</a></li>
+    <li><a href="ai-context-not-more-data.html" style="color:var(--accent)">Part 2: More Data Won't Fix Your AI: Why Context Wins</a></li>
+    <li><a href="ai-decision-support-recommendations.html" style="color:var(--accent)">Part 3: AI Decision Support: Better Answers Are Not Enough</a></li>
+  </ul>
+  </div>
+
+  <div class="article-footer">
+    <div class="author-line">Written by <strong>Edson Ferreira</strong> — my own thoughts and research.</div>
+    <a class="back-link" href="../index.html#notes">← More notes</a>
+  </div>
+</article>
+</body>
+</html>
